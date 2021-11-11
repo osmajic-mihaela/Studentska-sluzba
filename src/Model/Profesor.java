@@ -1,22 +1,22 @@
 package Model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class Profesor extends Osoba {
 	
 	
 	
-	private String ProfesorID;
+	private String profesorID;
 	private String adresaKancelar;
-	private String brLicne;
+	private int brLicne;
 	private String zvanje;
 	private int godRadnogStaza;
 	private ArrayList<String>predmetiKojePred;
 	
-	public Profesor(String ime,String prezime, String datumRodj,String kontaktBroj,String email,
-			String profesorID, String adresaKancelar, String brLicne,String zvanje, int godStaza,
-			String ulica, int broj, String grad, String drzava ) {
+	public Profesor(String ime,String prezime, LocalDate datumRodj,String kontaktBroj,String email,
+			String profesorID, String adresaKancelar, int brLicne,String zvanje, int godStaza,
+			String ulica, String broj, String grad, String drzava ) {
 		this.ime=ime;
 		this.prezime=prezime;
 		this.datumRodj=datumRodj;
@@ -28,13 +28,24 @@ public class Profesor extends Osoba {
 		this.zvanje=zvanje;
 		this.godRadnogStaza=godStaza;
 		this.predmetiKojePred=new ArrayList<String>();
-		this.ProfesorID=""+Math.abs(brLicne.hashCode());
+		this.profesorID=""+Math.abs((""+brLicne).hashCode());
 	}
 	
 	
 	public String getProfesorID() {
-		return ProfesorID;
+		return profesorID;
 	}
+	
+
+	public void setProfesorID(String profesorID) {
+		this.profesorID = profesorID;
+	}
+
+
+	public void setPredmetiKojePred(ArrayList<String> predmetiKojePred) {
+		this.predmetiKojePred = predmetiKojePred;
+	}
+
 
 	public String getAdresaKancelar() {
 		return adresaKancelar;
@@ -42,10 +53,10 @@ public class Profesor extends Osoba {
 	public void setAdresaKancelar(String adresaKancelar) {
 		this.adresaKancelar = adresaKancelar;
 	}
-	public String getBrLicne() {
+	public int getBrLicne() {
 		return brLicne;
 	}
-	public void setBrLicne(String brLicne) {
+	public void setBrLicne(int brLicne) {
 		this.brLicne = brLicne;
 	}
 	public String getZvanje() {
@@ -63,12 +74,5 @@ public class Profesor extends Osoba {
 	public ArrayList<String> getPredmetiKojePred() {
 		return predmetiKojePred;
 	}
-	public void setProfesorID(String profesorID) {
-		ProfesorID = profesorID;
-	}
-	public void setPredmetiKojePred(ArrayList<String> predmetiKojePred) {
-		this.predmetiKojePred = predmetiKojePred;
-	}
 	
-		
 }

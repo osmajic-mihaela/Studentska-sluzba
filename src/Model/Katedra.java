@@ -1,11 +1,10 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class Katedra {
 	
-	private String katedraID;
+	private String katedraID; //sifra katedre
 	private String nazivKatedre;
 	private String sefKatedreID;
 	private ArrayList<String> profesoriNaKatedri; //ProfesorID
@@ -58,6 +57,9 @@ public class Katedra {
 	public void setProfesoriNaKatedri(ArrayList<String> profesoriNaKatedri) {
 		this.profesoriNaKatedri = profesoriNaKatedri;
 	}
+
+
+
     
 	
    

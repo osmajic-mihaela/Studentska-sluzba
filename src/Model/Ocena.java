@@ -1,24 +1,18 @@
 package Model;
 
-
 public class Ocena {
 	
 	private String ocenaID;
 	private String predmetID;
 	private String studentIndeks;
-	private int vrednostOcene;
+	private VrednostOcene vrednostOcene;
 	private String datumPolaganja;
 	
-	public Ocena(String predID, String studIndeks, int ocena, String datumPolaganja) {
+	public Ocena(String predID, String studIndeks, VrednostOcene ocena, String datumPolaganja) {
 		super();
 		this.predmetID = predID;
 		this.studentIndeks = studIndeks;
-		
-		if(ocena>=6 && ocena<=10)
-			this.vrednostOcene=ocena;
-		else
-			System.out.println("Ocena nije validna");
-		
+		this.vrednostOcene=ocena;
 		this.datumPolaganja = datumPolaganja;
 		this.ocenaID=predID+studIndeks;
 		
@@ -32,7 +26,7 @@ public class Ocena {
 		return studentIndeks;
 	}
 	
-	public int getVrednostOcene() {
+	public VrednostOcene getVrednostOcene() {
 		return vrednostOcene;
 	}
 	
@@ -43,6 +37,18 @@ public class Ocena {
 
 	public String getOcenaID() {
 		return ocenaID;
+	}
+
+	public void setOcenaID(String ocenaID) {
+		this.ocenaID = ocenaID;
+	}
+
+	public void setPredmetID(String predmetID) {
+		this.predmetID = predmetID;
+	}
+
+	public void setStudentIndeks(String studentIndeks) {
+		this.studentIndeks = studentIndeks;
 	}
 	
 	

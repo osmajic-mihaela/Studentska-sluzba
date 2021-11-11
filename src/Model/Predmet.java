@@ -1,40 +1,32 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
-enum SEMESTAR{ZIMSKI,LETNJI};
 
 public class Predmet {
 	
-	private String predmetID;
+	private String predmetID;   //sifra predmeta
 	private String nazivPredmeta;
-	private SEMESTAR semestar;
-	private int godStudija;
+	private Semestar semestar;
+	private GodinaStudiranja godStudija;
 	private String profesor;
 	private int brESPB;
 	private ArrayList<String> spisakPolozenih;  //ID ocene 
 	private ArrayList<String> spisakNepolozenih;  //ID predmeta
 	
-	public Predmet(String predmetID, String nazivPredmeta, SEMESTAR semestar, int godStudija, String profesor,
-			int eSPB) {
+	public Predmet(String predmetID, String nazivPredmeta, Semestar semestar, int godStudija, String profesor,
+			int eSPB, GodinaStudiranja godinaStudija) {
 		super();
 		this.predmetID = predmetID;
 		this.nazivPredmeta = nazivPredmeta;
 		this.semestar = semestar;
 		this.profesor = profesor;
-		
-		if(godStudija>0 && godStudija<5)
-			this.godStudija = godStudija;
-		else
-			System.out.println("Nemoguce");
-		
-
+		this.godStudija=godinaStudija;
 		
 		if(eSPB>0)
 			this.brESPB = eSPB;
 		else
-			System.out.println("Nemoguce");
+			System.out.println("Nemoguce"); //izmena greske
 		
 		this.spisakPolozenih = new ArrayList<String>();
 		this.spisakNepolozenih = new ArrayList<String>();
@@ -42,10 +34,6 @@ public class Predmet {
 
 	public String getPredmetID() {
 		return predmetID;
-	}
-
-	public void setPredmetID(String predmetID) {
-		this.predmetID = predmetID;
 	}
 
 	public String getNazivPredmeta() {
@@ -56,23 +44,20 @@ public class Predmet {
 		this.nazivPredmeta = nazivPredmeta;
 	}
 
-	public SEMESTAR getSemestar() {
+	public Semestar getSemestar() {
 		return semestar;
 	}
 
-	public void setSemestar(SEMESTAR semestar) {
+	public void setSemestar(Semestar semestar) {
 		this.semestar = semestar;
 	}
 
-	public int getGodStudija() {
+	public GodinaStudiranja getGodStudija() {
 		return godStudija;
 	}
 
-	public void setGodStudija(int godStudija) {
-		if(godStudija>0 && godStudija<5)
-			this.godStudija = godStudija;
-		else
-			System.out.println("Nemoguce");
+	public void setGodStudija(GodinaStudiranja godStudija) {
+		this.godStudija = godStudija;
 	}
 
 	public String getProfesor() {
@@ -99,6 +84,10 @@ public class Predmet {
 		return spisakNepolozenih;
 	}
 
+	public void setPredmetID(String predmetID) {
+		this.predmetID = predmetID;
+	}
+
 	public void setSpisakPolozenih(ArrayList<String> spisakPolozenih) {
 		this.spisakPolozenih = spisakPolozenih;
 	}
@@ -106,7 +95,8 @@ public class Predmet {
 	public void setSpisakNepolozenih(ArrayList<String> spisakNepolozenih) {
 		this.spisakNepolozenih = spisakNepolozenih;
 	}
-	
+
+
 	
 	
 	

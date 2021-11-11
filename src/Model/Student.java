@@ -1,26 +1,25 @@
 package Model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 
-enum STATUS{B,S};
 
 public class Student extends Osoba {
 	
 	
 	private String brIndeksa;
 	private int godUpisa;
-	private int trenutnaGodStud;
+	private GodinaStudiranja trenutnaGodStud;
 	private double prosecnaOcena;
-	private STATUS status;
-	private ArrayList<String> polozeniPred; //kljuc je sifra ocene
+	private Status status;
+	private ArrayList<String> polozeniPred; //ocenaID
 	private ArrayList<String> nepolozeniPred; //PredmetID 
 	
 
-	public Student(String ime,String prezime, String datumRodj,String kontaktBroj,String email,
-			int godUpisa, int trenutnaGodStud, STATUS status, 
-			String ulica, int broj, String grad, String drzava,
-			String brIndeksa) {
+	public Student(String ime,String prezime, LocalDate datumRodj,String kontaktBroj,String email,
+			int godUpisa, GodinaStudiranja trenutnaGodStud, Status status, 
+			String ulica, String broj, String grad, String drzava,
+			String brIndeksa, double prosecnaOcena) {
 		
 		this.ime=ime;
 		this.prezime=prezime;
@@ -29,8 +28,8 @@ public class Student extends Osoba {
 		this.email=email;
 		this.brIndeksa=brIndeksa;
 		this.godUpisa=godUpisa;
-		this.trenutnaGodStud=1;
-		this.prosecnaOcena=0;
+		this.trenutnaGodStud=trenutnaGodStud;
+		this.prosecnaOcena=prosecnaOcena;
 		this.status=status;
 		this.adresaStan=new Adresa(ulica,broj,grad,drzava);
 	    this.nepolozeniPred= new ArrayList<String>();
@@ -43,10 +42,10 @@ public class Student extends Osoba {
 		return brIndeksa;
 	}
 
-
 	public void setBrIndeksa(String brIndeksa) {
 		this.brIndeksa = brIndeksa;
 	}
+
 
 	public int getGodUpisa() {
 		return godUpisa;
@@ -58,12 +57,12 @@ public class Student extends Osoba {
 	}
 
 
-	public int getTrenutnaGodStud() {
+	public GodinaStudiranja getTrenutnaGodStud() {
 		return trenutnaGodStud;
 	}
      
-	public void setTrenutnaGodStudija(int god) {
-		this.trenutnaGodStud=god;
+	public void setTrenutnaGodStud(GodinaStudiranja trenutnaGodStud) {
+		this.trenutnaGodStud = trenutnaGodStud;
 	}
 
 	public double getProsecnaOcena() {
@@ -71,12 +70,12 @@ public class Student extends Osoba {
 	}
 
 
-	public STATUS getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
 
-	public void setStatus(STATUS status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	
@@ -84,15 +83,8 @@ public class Student extends Osoba {
 	public ArrayList<String> getPolozeniPred() {
 		return polozeniPred;
 	}
-
-
 	public ArrayList<String> getNepolozeniPred() {
 		return nepolozeniPred;
-	}
-
-
-	public void setTrenutnaGodStud(int trenutnaGodStud) {
-		this.trenutnaGodStud = trenutnaGodStud;
 	}
 
 
@@ -104,7 +96,7 @@ public class Student extends Osoba {
 	public void setNepolozeniPred(ArrayList<String> nepolozeniPred) {
 		this.nepolozeniPred = nepolozeniPred;
 	}
+	
 
-    
 
 }
