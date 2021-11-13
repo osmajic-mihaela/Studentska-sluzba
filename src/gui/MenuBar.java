@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 
 import javax.swing.Icon;
@@ -13,7 +14,7 @@ public class MenuBar extends JMenuBar{
 	
 	public MenuBar() {
 			
-			JMenuItem file= new JMenu("File");
+			JMenu file= new JMenu("File");
 			file.setMnemonic(KeyEvent.VK_F);
 			JMenu edit= new JMenu("Edit");
 			edit.setMnemonic(KeyEvent.VK_E);
@@ -71,25 +72,53 @@ public class MenuBar extends JMenuBar{
 			miHelp.setAccelerator(KeyStroke.getKeyStroke("control H"));
 			about.setAccelerator(KeyStroke.getKeyStroke("control A"));
 			
+			Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+			file.setCursor(cursor);
+			edit.setCursor(cursor);
+			help.setCursor(cursor);
+			
+			miNew.setCursor(cursor);
+			save.setCursor(cursor);
+			close.setCursor(cursor);
+			
+			oStudent.setCursor(cursor);
+			oProfesor.setCursor(cursor);
+			oPredmet.setCursor(cursor);
+			oKatedra.setCursor(cursor);
+			
+			miEdit.setCursor(cursor);
+			delete.setCursor(cursor);
+			
+			miHelp.setCursor(cursor);
+			about.setCursor(cursor);
+			
 			
 			add(file);
 			add(edit);
 			add(help);
 			
 			file.add(miNew);
+			file.addSeparator();
 			file.add(save);
+			file.addSeparator();
 			file.add(open);
+			file.addSeparator();
 			file.add(close);
 			
 			open.add(oStudent);
+			open.addSeparator();
 			open.add(oPredmet);
+			open.addSeparator();
 			open.add(oProfesor);
+			open.addSeparator();
 			open.add(oKatedra);
 			
 			edit.add(miEdit);
+			edit.addSeparator();
 			edit.add(delete);
 			
 			help.add(miHelp);
+			help.addSeparator();
 			help.add(about);
 			
 	

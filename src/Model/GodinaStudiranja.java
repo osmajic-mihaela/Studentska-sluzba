@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public enum GodinaStudiranja {
 	PRVA(1),DRUGA(2),TRECA(3),CETVRTA(4);
