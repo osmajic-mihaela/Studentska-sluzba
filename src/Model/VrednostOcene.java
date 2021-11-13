@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public enum VrednostOcene {
 	SEST(6),SEDAM(7),OSAM(8),DEVET(9),DESET(10);
