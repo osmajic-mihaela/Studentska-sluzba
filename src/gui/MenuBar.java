@@ -12,6 +12,11 @@ import javax.swing.KeyStroke;
 
 public class MenuBar extends JMenuBar{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public MenuBar() {
 			
 			JMenu file= new JMenu("File");
