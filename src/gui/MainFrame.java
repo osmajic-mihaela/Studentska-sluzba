@@ -3,6 +3,7 @@ package gui;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.Color;
+import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -34,5 +35,9 @@ public class MainFrame extends JFrame {
 		Color siva = new Color(222, 222, 222);
 		panel.setBackground(siva);
 		this.add(panel);
+		
+		ToolBar toolbar = new ToolBar();
+		add(toolbar, BorderLayout.NORTH);
+		
 	}
 }
