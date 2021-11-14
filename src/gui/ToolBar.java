@@ -26,14 +26,14 @@ public class ToolBar extends JToolBar {
 		addSeparator();
 		
 		JButton btnEdit = new JButton();
-		btnEdit.setToolTipText("Izmena oznaèenog entiteta (Ctrl + E)");
+		btnEdit.setToolTipText("Izmena odabranog entiteta (Ctrl + E)");
 		btnEdit.setIcon(new ImageIcon("images/edit.png"));
 		add(btnEdit);
 		
 		addSeparator();
 		
 		JButton btnDelete = new JButton();
-		btnDelete.setToolTipText("Brisanje oznaèenog entiteta (Ctrl + D)");
+		btnDelete.setToolTipText("Brisanje odabranog entiteta (Ctrl + D)");
 		btnDelete.setIcon(new ImageIcon("images/delete.png"));
 		add(btnDelete);
 		
