@@ -12,7 +12,7 @@ public class Predmet {
 	private String profesor;
 	private int brESPB;
 	private ArrayList<String> spisakPolozenih;  //ID ocene 
-	private ArrayList<String> spisakNepolozenih;  //ID predmeta
+	private ArrayList<String> spisakNepolozenih;  //ID studenta
 	
 	public Predmet(String predmetID, String nazivPredmeta, Semestar semestar, int godStudija, String profesor,
 			int eSPB, GodinaStudiranja godinaStudija) {
@@ -95,6 +95,8 @@ public class Predmet {
 	public void setSpisakNepolozenih(ArrayList<String> spisakNepolozenih) {
 		this.spisakNepolozenih = spisakNepolozenih;
 	}
+
+
 
 
 	
