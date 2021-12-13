@@ -2,6 +2,8 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -9,6 +11,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class StatusBar extends JPanel {
 
@@ -28,11 +31,21 @@ public class StatusBar extends JPanel {
 
 		
 		JLabel lblSluzba= new JLabel("Studentska služba");
-
+		JLabel lblDatum=new JLabel();
+		ActionListener al= new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String date=(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy"))).toString();
+				lblDatum.setText(date);
+			}
+		};
 		
-		String date=(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm dd-MM-yyyy"))).toString();
-		JLabel lblDatum=new JLabel(date);
-	
+		Timer timer= new Timer(1000,al);
+		timer.setInitialDelay(0);
+		timer.start();
+		
 		
 		add(Box.createHorizontalStrut(10));
 		add(lblSluzba);
