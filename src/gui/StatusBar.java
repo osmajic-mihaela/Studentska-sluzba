@@ -1,5 +1,7 @@
 package gui;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -15,12 +17,14 @@ public class StatusBar extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public StatusBar(int s){
+	public StatusBar(){
 		
 		
 
 		BoxLayout box=new BoxLayout(this, BoxLayout.X_AXIS);
 		setLayout(box);
+		setPreferredSize(new Dimension(100,27));
+		setBackground(Color.WHITE);
 
 		
 		JLabel lblSluzba= new JLabel("Studentska služba");
