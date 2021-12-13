@@ -19,11 +19,17 @@ public class StatusBar extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static StatusBar instance=null;
+	
+	public static StatusBar getInstance(){
+		if(instance==null) {
+			instance=new StatusBar();
+		}
+		return instance;
+	}
 
-	public StatusBar(){
+	private StatusBar(){
 		
-		
-
 		BoxLayout box=new BoxLayout(this, BoxLayout.X_AXIS);
 		setLayout(box);
 		setPreferredSize(new Dimension(100,27));
@@ -52,8 +58,7 @@ public class StatusBar extends JPanel {
 		add(Box.createHorizontalGlue());
 		add(lblDatum);
 		add(Box.createHorizontalStrut(10));
-		
-		
+			
 		
 	}
 }
