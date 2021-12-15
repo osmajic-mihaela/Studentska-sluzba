@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import javax.swing.Box;
@@ -19,6 +20,8 @@ public class ToolBar extends JToolBar {
 	public ToolBar() {
 		super(SwingConstants.HORIZONTAL);
 		JButton btnNew = new JButton();
+		Color bela = new Color(255, 255, 255);
+		btnNew.setBackground(bela);
 		btnNew.setToolTipText("Novi entitet (Ctrl + N)");
 		btnNew.setIcon(new ImageIcon("images/new.png"));
 		add(btnNew);
@@ -26,6 +29,7 @@ public class ToolBar extends JToolBar {
 		addSeparator();
 		
 		JButton btnEdit = new JButton();
+		btnEdit.setBackground(bela);
 		btnEdit.setToolTipText("Izmena odabranog entiteta (Ctrl + E)");
 		btnEdit.setIcon(new ImageIcon("images/edit.png"));
 		add(btnEdit);
@@ -33,6 +37,7 @@ public class ToolBar extends JToolBar {
 		addSeparator();
 		
 		JButton btnDelete = new JButton();
+		btnDelete.setBackground(bela);
 		btnDelete.setToolTipText("Brisanje odabranog entiteta (Ctrl + D)");
 		btnDelete.setIcon(new ImageIcon("images/delete.png"));
 		add(btnDelete);
@@ -52,6 +57,7 @@ public class ToolBar extends JToolBar {
 		add(search);
 		
 		JButton btnSearch = new JButton();
+		btnSearch.setBackground(bela);
 		btnSearch.setToolTipText("Pretraga");
 		btnSearch.setIcon(new ImageIcon("images/magnifying_glass.png"));
 		add(btnSearch);
