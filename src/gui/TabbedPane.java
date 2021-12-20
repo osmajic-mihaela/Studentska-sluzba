@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -22,12 +23,26 @@ public class TabbedPane extends JTabbedPane {
 	
 	private TabbedPane() {
 		
-	addMouseListener(new MouseListener() {
+		addTab("Studenti", new TableTab("Studenti"));
+		//addTab("Profesori", new TableTab("Profesori"));
+		//addTab("Predmeti", new TableTab("Predmeti"));
+		setBackground(Color.WHITE);
+		
+		addMouseListener(new MouseListener() {
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
+			 int index=(int)((JTabbedPane)e.getComponent()).getSelectedIndex();
+			 
+			 if(index==0) {
+				StatusBar.lblSluzba.setText("Studentska služba - Studenti");
+			 } else if(index==1) {
+				 StatusBar.lblSluzba.setText("Studentska služba - Profesori");
+			 }else if(index==2) {
+				 StatusBar.lblSluzba.setText("Studentska služba - Predmeti");
+			 }else{
+					StatusBar.lblSluzba.setText("Studentska služba - Studenti");
+				 }
 		}
 		
 		@Override
