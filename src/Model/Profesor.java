@@ -8,7 +8,7 @@ public class Profesor extends Osoba {
 	
 	
 	private String profesorID;
-	private String adresaKancelar;
+	private Adresa adresaKancelar;
 	private int brLicne;
 	private String zvanje;
 	private int godRadnogStaza;
@@ -16,7 +16,7 @@ public class Profesor extends Osoba {
 	
 	public Profesor(String ime,String prezime, LocalDate datumRodj,String kontaktBroj,String email,
 			String profesorID, String adresaKancelar, int brLicne,String zvanje, int godStaza,
-			String ulica, String broj, String grad, String drzava ) {
+			String ulica, String broj, String grad, String drzava, String ulicaKanc,String brojKanc ) {
 		this.ime=ime;
 		this.prezime=prezime;
 		this.datumRodj=datumRodj;
@@ -24,7 +24,7 @@ public class Profesor extends Osoba {
 		this.email=email;
 		this.brLicne=brLicne;
 		this.adresaStan= new Adresa(ulica,broj,grad,drzava);
-		this.adresaKancelar=adresaKancelar;
+		this.adresaKancelar=new Adresa(ulicaKanc,brojKanc,grad,drzava);
 		this.zvanje=zvanje;
 		this.godRadnogStaza=godStaza;
 		this.predmetiKojePred=new ArrayList<String>();
@@ -47,10 +47,10 @@ public class Profesor extends Osoba {
 	}
 
 
-	public String getAdresaKancelar() {
+	public Adresa getAdresaKancelar() {
 		return adresaKancelar;
 	}
-	public void setAdresaKancelar(String adresaKancelar) {
+	public void setAdresaKancelar(Adresa adresaKancelar) {
 		this.adresaKancelar = adresaKancelar;
 	}
 	public int getBrLicne() {

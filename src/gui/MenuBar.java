@@ -20,6 +20,7 @@ public class MenuBar extends JMenuBar{
 	private static final long serialVersionUID = -2224477752461936734L;
 	private static MenuBar instance=null;
 	
+
 	public static MenuBar getInstance() {
 		if(instance==null) {
 			instance=new MenuBar();
@@ -28,7 +29,7 @@ public class MenuBar extends JMenuBar{
 	}
 	
 	private MenuBar() {
-			
+
 			JMenu file= new JMenu("File");
 			file.setMnemonic(KeyEvent.VK_F);
 			JMenu edit= new JMenu("Edit");
@@ -106,7 +107,7 @@ public class MenuBar extends JMenuBar{
 					String[] options= new String[2];
 					options[0]= new String("Da");
 					options[0]= new String("Ne");
-					int code= JOptionPane.showOptionDialog(Frame.getInstance().getContentPane(), "Da li ste sigurni da ûelite da zatvorite aplikaciju?", "Zatvaranje aplikacije", 0, JOptionPane.INFORMATION_MESSAGE, null, options, null);
+					int code= JOptionPane.showOptionDialog(Frame.getInstance().getContentPane(), "Da li ste sigurni da ÔøΩelite da zatvorite aplikaciju?", "Zatvaranje aplikacije", 0, JOptionPane.INFORMATION_MESSAGE, null, options, null);
 					
 					if (code == JOptionPane.YES_OPTION) {
 						System.exit(0);
@@ -120,7 +121,7 @@ public class MenuBar extends JMenuBar{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					TabbedPane.getInstance().setSelectedIndex(0);
-					StatusBar.lblSluzba.setText("Studentska sluûba - Studenti");
+					StatusBar.lblSluzba.setText("Studentska slu≈æba - Studenti");
 					
 				}
 			});
@@ -130,7 +131,7 @@ public class MenuBar extends JMenuBar{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					TabbedPane.getInstance().setSelectedIndex(1);
-					StatusBar.lblSluzba.setText("Studentska sluûba - Profesori");
+					StatusBar.lblSluzba.setText("Studentska slu≈æba - Profesori");
 					
 				}
 			});
@@ -140,7 +141,7 @@ public class MenuBar extends JMenuBar{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					TabbedPane.getInstance().setSelectedIndex(2);
-					StatusBar.lblSluzba.setText("Studentska sluûba - Predmeti");
+					StatusBar.lblSluzba.setText("Studentska slu≈æba - Predmeti");
 					
 				}
 			});
