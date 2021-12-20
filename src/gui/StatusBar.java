@@ -18,8 +18,9 @@ public class StatusBar extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1120385921841858593L;
 	private static StatusBar instance=null;
+	JLabel lblSluzba= new JLabel("Studentska služba - Studenti");
 	
 	public static StatusBar getInstance(){
 		if(instance==null) {
@@ -36,7 +37,7 @@ public class StatusBar extends JPanel {
 		setBackground(Color.WHITE);
 
 		
-		JLabel lblSluzba= new JLabel("Studentska služba");
+		
 		JLabel lblDatum=new JLabel();
 		ActionListener al= new ActionListener() {
 			
