@@ -11,8 +11,20 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 public class MenuBar extends JMenuBar{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2224477752461936734L;
+	private static MenuBar instance=null;
 	
-	public MenuBar() {
+	public static MenuBar getInstance() {
+		if(instance==null) {
+			instance=new MenuBar();
+		}
+		return instance;
+	}
+	
+	private MenuBar() {
 			
 			JMenu file= new JMenu("File");
 			file.setMnemonic(KeyEvent.VK_F);
