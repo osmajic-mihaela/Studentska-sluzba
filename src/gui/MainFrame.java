@@ -39,5 +39,6 @@ public class MainFrame extends JFrame {
 		ToolBar toolbar = new ToolBar();
 		add(toolbar, BorderLayout.NORTH);
 		
+		
 	}
 }
