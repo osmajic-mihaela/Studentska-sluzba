@@ -14,6 +14,7 @@ public class TableTab extends JPanel {
 	private String tableName;
 	JTableStudenti tabelaStudenata;
 	JTableProfesori tabelaProfesora;
+	JTablePredmeti tabelaPredmeta;
 	private JScrollPane scrollPane;
 	
 	public TableTab(String tableName) {
@@ -29,8 +30,8 @@ public class TableTab extends JPanel {
 			scrollPane = new JScrollPane(tabelaProfesora);
 		} else if(tableName=="Predmeti")
 		{
-			//tabelaPredmeta = JTablePredmeti.getInstance();
-			//scrollPane = new JScrollPane(tabelaPredmeta);
+			tabelaPredmeta = JTablePredmeti.getInstance();
+			scrollPane = new JScrollPane(tabelaPredmeta);
 		}
 		
 		JPanel panNorth = new JPanel();

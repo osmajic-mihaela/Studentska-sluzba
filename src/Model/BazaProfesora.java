@@ -34,9 +34,9 @@ public class BazaProfesora {
 	private void initProfesori() {
 		this.profesori = new ArrayList<Profesor>();
 		profesori.add(new Profesor("mika", "mikic", LocalDate.parse("01-01-1990", DateTimeFormatter.ofPattern("dd-MM-yyyy")), "+38160123", "mikamikic@gmail.com",
-				"profa id", "nebitna adresa kanca", 12345, "doktor nauka", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
+				 12345, "doktor nauka", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
 		profesori.add(new Profesor("mika", "mikic", LocalDate.parse("01-01-1990", DateTimeFormatter.ofPattern("dd-MM-yyyy")), "+38160123", "mikamikic@gmail.com",
-				"profa id", "nebitna adresa kanca", 12345, "doktor nauka", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
+				 12345, "doktor nauka", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
 	}
 	
 	public List<Profesor> getProfesori() {

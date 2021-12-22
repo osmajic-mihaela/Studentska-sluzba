@@ -25,7 +25,7 @@ public class TabbedPane extends JTabbedPane {
 		
 		addTab("Studenti", new TableTab("Studenti"));
 		addTab("Profesori", new TableTab("Profesori"));
-		//addTab("Predmeti", new TableTab("Predmeti"));
+		addTab("Predmeti", new TableTab("Predmeti"));
 		setBackground(Color.WHITE);
 		
 		addMouseListener(new MouseListener() {
