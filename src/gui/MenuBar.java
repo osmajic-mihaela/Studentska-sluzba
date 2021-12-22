@@ -30,7 +30,7 @@ public class MenuBar extends JMenuBar{
 		return instance;
 	}
 
-	public MenuBar() {
+	private MenuBar() {
 			
 			JMenu file= new JMenu("File");
 			file.setMnemonic(KeyEvent.VK_F);
