@@ -39,6 +39,16 @@ public class MainFrame extends JFrame {
 		ToolBar toolbar = new ToolBar();
 		add(toolbar, BorderLayout.NORTH);
 		
+		createStatusBar();
+		createTableTab();
+	}
+	private void createStatusBar() {
+		StatusBar statusBar = StatusBar.getInstance();
+		add(statusBar, BorderLayout.SOUTH);
+	}
+	private void createTableTab() {
+		TablePanel tab=TablePanel.getInstance();
+		add(tab,BorderLayout.CENTER);
 		
 	}
 }
