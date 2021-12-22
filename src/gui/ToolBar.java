@@ -16,6 +16,15 @@ public class ToolBar extends JToolBar {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static ToolBar instance = null;
+	
+	public static ToolBar getInstance() {
+		if(instance == null) {
+			instance = new ToolBar();
+		}
+		
+		return instance;
+	}
 
 	public ToolBar() {
 		super(SwingConstants.HORIZONTAL);
