@@ -13,6 +13,7 @@ public class TableTab extends JPanel {
 	private static final long serialVersionUID = -5396352358675572808L;
 	private String tableName;
 	JTableStudenti tabelaStudenata;
+	JTableProfesori tabelaProfesora;
 	private JScrollPane scrollPane;
 	
 	public TableTab(String tableName) {
@@ -24,8 +25,8 @@ public class TableTab extends JPanel {
 			tabelaStudenata = JTableStudenti.getInstance();
 			scrollPane = new JScrollPane(tabelaStudenata);
 		} else if(tableName=="Profesori") {
-			//tabelaProfesora = JTableProfesori.getInstance();
-			//scrollPane = new JScrollPane(tabelaProfesora);
+			tabelaProfesora = JTableProfesori.getInstance();
+			scrollPane = new JScrollPane(tabelaProfesora);
 		} else if(tableName=="Predmeti")
 		{
 			//tabelaPredmeta = JTablePredmeti.getInstance();

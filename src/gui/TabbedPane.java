@@ -24,7 +24,7 @@ public class TabbedPane extends JTabbedPane {
 	private TabbedPane() {
 		
 		addTab("Studenti", new TableTab("Studenti"));
-		//addTab("Profesori", new TableTab("Profesori"));
+		addTab("Profesori", new TableTab("Profesori"));
 		//addTab("Predmeti", new TableTab("Predmeti"));
 		setBackground(Color.WHITE);
 		
