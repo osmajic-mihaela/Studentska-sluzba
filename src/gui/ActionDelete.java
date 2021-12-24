@@ -27,7 +27,7 @@ public class ActionDelete extends AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		 String selectedTab=StatusBar.lblSluzba.getText();
-		 if(selectedTab.equals("Studentska sluûba - Studenti")) {
+		 if(selectedTab.equals("Studentska slu≈æba - Studenti")) {
 			 /*
 			 if(JTableStudenti.getInstance().getSelectedRow()>-1) {
 					DialogObrisiStudenta dialog = new DialogObrisiStudenta(JTableStudenti.getInstance().getSelectedRow());
@@ -37,9 +37,9 @@ public class ActionDelete extends AbstractAction {
 				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog studenta", "Greska pri brisanju studenta", JOptionPane.ERROR_MESSAGE);
 				return;*/
 			 
-		 } else if(selectedTab.equals("Studentska sluûba - Profesori")) { 
+		 } else if(selectedTab.equals("Studentska slu≈æba - Profesori")) { 
 			 //
-		 } else if(selectedTab.equals("Studentska sluûba - Predmeti")) {
+		 } else if(selectedTab.equals("Studentska slu≈æba - Predmeti")) {
 			 //
 		 }
 		

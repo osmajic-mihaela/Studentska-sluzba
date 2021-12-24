@@ -35,13 +35,13 @@ public class TabbedPane extends JTabbedPane {
 			 int index=(int)((JTabbedPane)e.getComponent()).getSelectedIndex();
 			 
 			 if(index==0) {
-				StatusBar.lblSluzba.setText("Studentska slu얺a - Studenti");
+				StatusBar.lblSluzba.setText("Studentska slu탑ba - Studenti");
 			 } else if(index==1) {
-				 StatusBar.lblSluzba.setText("Studentska slu얺a - Profesori");
+				 StatusBar.lblSluzba.setText("Studentska slu탑ba - Profesori");
 			 }else if(index==2) {
-				 StatusBar.lblSluzba.setText("Studentska slu얺a - Predmeti");
+				 StatusBar.lblSluzba.setText("Studentska slu탑ba - Predmeti");
 			 }else{
-					StatusBar.lblSluzba.setText("Studentska slu얺a - Studenti");
+					StatusBar.lblSluzba.setText("Studentska slu탑ba - Studenti");
 				 }
 		}
 		
