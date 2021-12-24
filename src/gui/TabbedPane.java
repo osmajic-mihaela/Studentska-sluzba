@@ -77,4 +77,15 @@ public class TabbedPane extends JTabbedPane {
 		
 		
 	}
+	
+	
+	public void azurirajPrikaz(int index) {
+		if(index==1) {
+		AbstractTableModelStudenti modelStudenata = (AbstractTableModelStudenti) JTableStudenti.getInstance().getModel();
+		modelStudenata.fireTableDataChanged();
+		validate();
+		}
+
+		
+	}
 }

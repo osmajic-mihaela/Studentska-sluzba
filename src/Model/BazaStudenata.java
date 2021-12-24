@@ -88,4 +88,9 @@ public class BazaStudenata {
 			return null;
 		}
 	}
+	
+	public Boolean dodajStudenda(Student s) {
+		return this.studenti.add(s);
+		
+	}
 }
