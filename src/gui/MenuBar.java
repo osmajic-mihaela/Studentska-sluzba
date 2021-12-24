@@ -111,7 +111,7 @@ public class MenuBar extends JMenuBar{
 					String[] options = new String[2];
 					options[0] = new String ("Da");
 					options[1] = new String ("Ne");
-					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da 엁lite da zatvorite aplikaciju?", "Zatvaranje aplikacije", 0, JOptionPane.INFORMATION_MESSAGE, null, options, null);
+					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da 탑elite da zatvorite aplikaciju?", "Zatvaranje aplikacije", 0, JOptionPane.INFORMATION_MESSAGE, null, options, null);
 					
 					if (code == JOptionPane.YES_OPTION) {
 						System.exit(0);
@@ -125,7 +125,7 @@ public class MenuBar extends JMenuBar{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					TabbedPane.getInstance().setSelectedIndex(0);
-					StatusBar.lblSluzba.setText("Studentska slu얺a - Studenti");
+					StatusBar.lblSluzba.setText("Studentska slu탑ba - Studenti");
 					
 				}
 			});
@@ -135,7 +135,7 @@ public class MenuBar extends JMenuBar{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					TabbedPane.getInstance().setSelectedIndex(1);
-					StatusBar.lblSluzba.setText("Studentska slu얺a - Profesori");
+					StatusBar.lblSluzba.setText("Studentska slu탑ba - Profesori");
 					
 				}
 			});
@@ -145,7 +145,7 @@ public class MenuBar extends JMenuBar{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					TabbedPane.getInstance().setSelectedIndex(2);
-					StatusBar.lblSluzba.setText("Studentska slu얺a - Predmeti");
+					StatusBar.lblSluzba.setText("Studentska slu탑ba - Predmeti");
 					
 				}
 			});

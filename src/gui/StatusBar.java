@@ -20,7 +20,7 @@ public class StatusBar extends JPanel {
 	 */
 	private static final long serialVersionUID = 1120385921841858593L;
 	private static StatusBar instance=null;
-	public static JLabel lblSluzba= new JLabel("Studentska sluûba - Studenti");
+	public static JLabel lblSluzba= new JLabel("Studentska slu≈æba - Studenti");
 	
 	public static StatusBar getInstance(){
 		if(instance==null) {
