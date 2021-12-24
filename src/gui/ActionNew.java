@@ -30,11 +30,12 @@ public class ActionNew extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		String selected=StatusBar.lblSluzba.getText();
 		 
-		 if(selected.equals("Studentska sluûba - Studenti")) {
-			//
-		 } else if(selected.equals("Studentska sluûba - Profesori")) { 
+		 if(selected.equals("Studentska slu≈æba - Studenti")) {
+			DialogDodajStudenta dialog = new DialogDodajStudenta();
+			dialog.setVisible(true);
+		 } else if(selected.equals("Studentska slu≈æba - Profesori")) { 
 			 //
-		 } else if(selected.equals("Studentska sluûba - Predmeti")) {
+		 } else if(selected.equals("Studentska slu≈æba - Predmeti")) {
 			 //
 		 }
 	}

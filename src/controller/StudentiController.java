@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import gui.TabbedPane;
 import model.BazaStudenata;
 import model.Student;
@@ -19,5 +21,9 @@ public class StudentiController {
 	public void dodajStudenta(Student s) {
 		BazaStudenata.getInstance().dodajStudenda(s);
 		TabbedPane.getInstance().azurirajPrikaz(1);
+	}
+	
+	public List<Student> getListaSvihStudenata() {
+		return BazaStudenata.getInstance().getStudenti();
 	}
 }
