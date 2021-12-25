@@ -31,4 +31,9 @@ public class StudentiController {
 		BazaStudenata.getInstance().izmeniStudenta(i, s);
 		TabbedPane.getInstance().azurirajPrikaz(1);
 	}
+	
+	public void obrisiStudenta(int index) {
+		BazaStudenata.getInstance().obrisiStudenta(index);
+		TabbedPane.getInstance().azurirajPrikaz(1);
+	}
 }

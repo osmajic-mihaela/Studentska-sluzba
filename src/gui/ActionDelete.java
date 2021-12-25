@@ -6,7 +6,10 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+
+import controller.StudentiController;
 
 public class ActionDelete extends AbstractAction {
 
@@ -28,14 +31,20 @@ public class ActionDelete extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		 String selectedTab=StatusBar.lblSluzba.getText();
 		 if(selectedTab.equals("Studentska služba - Studenti")) {
-			 /*
+			 
 			 if(JTableStudenti.getInstance().getSelectedRow()>-1) {
-					DialogObrisiStudenta dialog = new DialogObrisiStudenta(JTableStudenti.getInstance().getSelectedRow());
-					dialog.setVisible(true);
+				 	String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					
+					if (code == JOptionPane.YES_OPTION) {
+						StudentiController.getInstance().obrisiStudenta(JTableStudenti.getInstance().getSelectedRow());
 					}
+				}
 			 else
-				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog studenta", "Greska pri brisanju studenta", JOptionPane.ERROR_MESSAGE);
-				return;*/
+				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog studenta", "Greška pri brisanju studenta", JOptionPane.ERROR_MESSAGE);
+				return;
 			 
 		 } else if(selectedTab.equals("Studentska služba - Profesori")) { 
 			 //
