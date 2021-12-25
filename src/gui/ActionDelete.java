@@ -36,7 +36,7 @@ public class ActionDelete extends AbstractAction {
 				 	String[] options = new String[2];
 					options[0] = new String ("Da");
 					options[1] = new String ("Ne");
-					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", 0, JOptionPane.INFORMATION_MESSAGE, null, options, null);
+					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da želite da obrišete studenta?", "Brisanje studenta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
 					
 					if (code == JOptionPane.YES_OPTION) {
 						StudentiController.getInstance().obrisiStudenta(JTableStudenti.getInstance().getSelectedRow());
