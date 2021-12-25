@@ -93,4 +93,19 @@ public class BazaStudenata {
 		return this.studenti.add(s);
 		
 	}
+	
+	public void izmeniStudenta(int i, Student s) {
+		Student stari = studenti.get(i);
+		stari.setIme(s.getIme());
+		stari.setPrezime(s.getPrezime());
+		stari.setDatumRodj(s.getDatumRodj());
+		stari.setAdresaStan(s.getAdresaStan());
+		stari.setBrIndeksa(s.getBrIndeksa());
+		stari.setEmail(s.getEmail());
+		stari.setGodUpisa(s.getGodUpisa());
+		stari.setTrenutnaGodStud(s.getTrenutnaGodStud());
+		stari.setKontaktBroj(s.getKontaktBroj());
+		stari.setStatus(s.getStatus());
+		
+	}
 }
