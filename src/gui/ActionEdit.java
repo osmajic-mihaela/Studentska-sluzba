@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 public class ActionEdit extends AbstractAction{
@@ -30,13 +31,13 @@ public class ActionEdit extends AbstractAction{
 		 String selectedTab=StatusBar.lblSluzba.getText();
 		 if(selectedTab.equals("Studentska služba - Studenti")) {
 			 
-			/* if(JTableStudenti.getInstance().getSelectedRow()>-1) {
+			 if(JTableStudenti.getInstance().getSelectedRow()>-1) {
 					DialogIzmeniStudenta dialog = new DialogIzmeniStudenta(JTableStudenti.getInstance().getSelectedRow());
 					dialog.setVisible(true);
 					}
 			 else
 				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog studenta", "Greska pri izmeni studenta", JOptionPane.ERROR_MESSAGE);
-				return;*/
+				return;
 			 
 		 } else if(selectedTab.equals("Studentska služba - Profesori")) { 
 			 //

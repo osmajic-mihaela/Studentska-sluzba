@@ -26,4 +26,9 @@ public class StudentiController {
 	public List<Student> getListaSvihStudenata() {
 		return BazaStudenata.getInstance().getStudenti();
 	}
+	
+	public void izmeniStudenta(int i, Student s) {
+		BazaStudenata.getInstance().izmeniStudenta(i, s);
+		TabbedPane.getInstance().azurirajPrikaz(1);
+	}
 }

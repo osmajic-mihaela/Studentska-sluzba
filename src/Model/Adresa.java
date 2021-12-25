@@ -47,7 +47,10 @@ public class Adresa {
 		this.drzava = drzava;
 	}
 
-	
+	@Override
+	public String toString() {
+		return ulica +" "+ broj+", " +  grad+ ", " + drzava;
+	}
 	
 	
 
