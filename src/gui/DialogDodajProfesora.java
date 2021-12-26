@@ -49,8 +49,8 @@ public class DialogDodajProfesora extends JDialog {
 	
 	public DialogDodajProfesora(){
 		
-		setTitle("Izmeni profesora");
-		setSize(750, 750);
+		setTitle("Dodaj profesora");
+		setSize(500, 500);
 		setModal(true);
 		setLocationRelativeTo(MainFrame.getInstance());
 		
@@ -69,7 +69,7 @@ public class DialogDodajProfesora extends JDialog {
 		Dimension dimension = new Dimension(150, 20);
 		
 		JPanel panelIme = new JPanel();
-		JLabel lblIme = new JLabel("Ime:");
+		JLabel lblIme = new JLabel("Ime*");
 		lblIme.setPreferredSize(dimension);
 		JTextField txtIme = new JTextField();
 		txtIme.setPreferredSize(dimension);
@@ -79,7 +79,7 @@ public class DialogDodajProfesora extends JDialog {
         panelIme.add(Box.createHorizontalStrut(10));
 		
         JPanel panelPrezime = new JPanel();
-        JLabel lblPrezime = new JLabel("Prezime:");
+        JLabel lblPrezime = new JLabel("Prezime*");
         lblPrezime.setPreferredSize(dimension);
         JTextField txtPrezime = new JTextField();
         txtPrezime.setPreferredSize(dimension);
@@ -89,7 +89,7 @@ public class DialogDodajProfesora extends JDialog {
         panelPrezime.add(Box.createHorizontalStrut(10));
         
         JPanel panelDatum = new JPanel();
-        JLabel lblDatum = new JLabel("Datum rodjenja:");
+        JLabel lblDatum = new JLabel("Datum rodjenja*");
         lblDatum.setPreferredSize(dimension);
         JTextField txtDatum = new JTextField();
         txtDatum.setPreferredSize(dimension);
@@ -99,7 +99,7 @@ public class DialogDodajProfesora extends JDialog {
         panelDatum.add(Box.createHorizontalStrut(10));
         
         JPanel panelAdresa = new JPanel();
-        JLabel lblAdresa = new JLabel("Adresa stanovanja:");
+        JLabel lblAdresa = new JLabel("Adresa stanovanja*");
         JTextField txtAdresa = new JTextField();
         lblAdresa.setPreferredSize(dimension);
         txtAdresa.setPreferredSize(dimension);
@@ -109,7 +109,7 @@ public class DialogDodajProfesora extends JDialog {
         panelAdresa.add(Box.createHorizontalStrut(10));
         
         JPanel panelTelefon= new JPanel();
-        JLabel lblTelefon= new JLabel("Broj telefona:");
+        JLabel lblTelefon= new JLabel("Broj telefona*");
         JTextField txtTelefon = new JTextField();
         lblTelefon.setPreferredSize(dimension);
         txtTelefon.setPreferredSize(dimension);
@@ -119,7 +119,7 @@ public class DialogDodajProfesora extends JDialog {
         panelTelefon.add(Box.createHorizontalStrut(10));
 
         JPanel panelEmail = new JPanel();
-        JLabel lblEmail = new JLabel("E-mail adresa:");
+        JLabel lblEmail = new JLabel("E-mail adresa*");
         JTextField txtEmail = new JTextField();
         lblEmail.setPreferredSize(dimension);
         txtEmail.setPreferredSize(dimension);
@@ -129,7 +129,7 @@ public class DialogDodajProfesora extends JDialog {
         panelEmail.add(Box.createHorizontalStrut(10));
         
         JPanel panelAdresaKanc = new JPanel();
-        JLabel lblAdresaKanc = new JLabel("Adresa kancelarije:");
+        JLabel lblAdresaKanc = new JLabel("Adresa kancelarije:*");
         JTextField txtAdresaKanc = new JTextField();
         lblAdresaKanc.setPreferredSize(dimension);
         txtAdresaKanc.setPreferredSize(dimension);
@@ -139,7 +139,7 @@ public class DialogDodajProfesora extends JDialog {
         panelAdresaKanc.add(Box.createHorizontalStrut(10));
         
         JPanel panelBrLicne = new JPanel();
-        JLabel lblBrLicne = new JLabel("Broj liène karte:");
+        JLabel lblBrLicne = new JLabel("Broj liène karte*");
         JTextField txtBrLicne = new JTextField();
         lblBrLicne.setPreferredSize(dimension);
         txtBrLicne.setPreferredSize(dimension);
@@ -149,7 +149,7 @@ public class DialogDodajProfesora extends JDialog {
         panelBrLicne.add(Box.createHorizontalStrut(10));
 		
         JPanel panelZvanje = new JPanel();
-        JLabel lblZvanje = new JLabel("Zvanje:");
+        JLabel lblZvanje = new JLabel("Zvanje*");
         JTextField txtZvanje = new JTextField();
         lblZvanje.setPreferredSize(dimension);
         txtZvanje.setPreferredSize(dimension);
@@ -159,7 +159,7 @@ public class DialogDodajProfesora extends JDialog {
         panelZvanje.add(Box.createHorizontalStrut(10));
 		
         JPanel panelGodRadnogStaza = new JPanel();
-        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staža:");
+        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staža*");
         JTextField txtGodRadnogStaza = new JTextField();
         lblGodRadnogStaza.setPreferredSize(dimension);
         txtGodRadnogStaza.setPreferredSize(dimension);
