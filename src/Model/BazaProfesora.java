@@ -74,4 +74,27 @@ public class BazaProfesora {
 				return null;
 		}
 	}
+	
+	public void dodajProfesora(Profesor profesor) {
+		this.profesori.add(profesor);
 	}
+	
+	public void izmeniProfesora(int index, Profesor novi) {
+		Profesor stari = profesori.get(index);
+		stari.setIme(novi.getIme());
+		stari.setPrezime(novi.getPrezime());
+		stari.setKontaktBroj(novi.getKontaktBroj());
+		stari.setEmail(novi.getEmail());
+		stari.setAdresaStan(novi.getAdresaStan().getUlica(),novi.getAdresaStan().getBroj(), novi.getAdresaStan().getGrad(), novi.getAdresaStan().getDrzava());
+		stari.setDatumRodj(novi.getDatumRodj());
+		stari.setPredmetiKojePred(novi.getPredmetiKojePred());
+		stari.setAdresaKancelar(novi.getAdresaKancelar());
+		stari.setBrLicne(novi.getBrLicne());
+		stari.setZvanje(novi.getZvanje());
+		stari.setGodRadnogStaza(novi.getGodRadnogStaza());
+	}
+	
+	public void obrisiProfesora(int index) {
+		this.profesori.remove(index);
+	}
+}
