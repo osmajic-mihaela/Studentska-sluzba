@@ -52,7 +52,7 @@ public class DialogDodajStudenta extends JDialog {
 	public DialogDodajStudenta() {
 		
 		setTitle("Dodavanje studenta");
-		setSize(400,600);
+		setSize(500,500);
 		setModal(true);
 		setLocationRelativeTo(MainFrame.getInstance());
 		
@@ -62,7 +62,7 @@ public class DialogDodajStudenta extends JDialog {
 	    
 		Dimension dim=new Dimension(150,20);
 
-        JPanel panIme=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panIme=new JPanel();
         JLabel lblIme=new JLabel("Ime:");
         lblIme.setPreferredSize(dim);
         JTextField txtIme=new JTextField();
@@ -72,7 +72,7 @@ public class DialogDodajStudenta extends JDialog {
         panIme.add(txtIme);
         panIme.add(Box.createHorizontalStrut(10));
         
-		JPanel panPrezime=new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panPrezime=new JPanel();
         JLabel lblPrezime=new JLabel("Prezime:");
         lblPrezime.setPreferredSize(dim);
         JTextField txtPrezime=new JTextField();
@@ -83,7 +83,7 @@ public class DialogDodajStudenta extends JDialog {
         panPrezime.add(Box.createHorizontalStrut(10));
         
         
-        JPanel panDatum=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panDatum=new JPanel();
         JLabel lblDatum=new JLabel("Datum rodjenja:");
         lblDatum.setPreferredSize(dim);
         JTextField txtDatum=new JTextField();
@@ -96,7 +96,7 @@ public class DialogDodajStudenta extends JDialog {
        
       
         
-        JPanel panAdresa = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panAdresa = new JPanel();
         JLabel lblAdresa = new JLabel("Adresa stanovanja:");
         JTextField txtAdresa = new JTextField();
         lblAdresa.setPreferredSize(dim);
@@ -106,7 +106,7 @@ public class DialogDodajStudenta extends JDialog {
         panAdresa.add(txtAdresa);
         panAdresa.add(Box.createHorizontalStrut(10));
         
-        JPanel panTelefon= new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panTelefon= new JPanel();
         JLabel lblTelefon= new JLabel("Broj telefona:");
         JTextField txtTelefon = new JTextField();
         lblTelefon.setPreferredSize(dim);
@@ -116,7 +116,7 @@ public class DialogDodajStudenta extends JDialog {
         panTelefon.add(txtTelefon);
         panTelefon.add(Box.createHorizontalStrut(10));
 
-        JPanel panEmail= new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panEmail= new JPanel();
         JLabel lblEmail= new JLabel("E-mail adresa:");
         JTextField txtEmail= new JTextField();
         lblEmail.setPreferredSize(dim);
@@ -126,7 +126,7 @@ public class DialogDodajStudenta extends JDialog {
         panEmail.add(txtEmail);
         panEmail.add(Box.createHorizontalStrut(10));
         
-        JPanel panIndeks= new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panIndeks= new JPanel();
         JLabel lblIndeks= new JLabel("Broj indeksa:");
         JTextField txtIndeks= new JTextField();
         lblIndeks.setPreferredSize(dim);
@@ -136,7 +136,7 @@ public class DialogDodajStudenta extends JDialog {
         panIndeks.add(txtIndeks);
         panIndeks.add(Box.createHorizontalStrut(10));
         
-        JPanel panGodUpisa= new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panGodUpisa= new JPanel();
         JLabel lblGodUpisa= new JLabel("Godina upisa:");
         JTextField txtGodUpisa= new JTextField();
         txtGodUpisa.setEditable(false);
@@ -147,7 +147,7 @@ public class DialogDodajStudenta extends JDialog {
         panGodUpisa.add(txtGodUpisa);
         panGodUpisa.add(Box.createHorizontalStrut(10));
         
-        JPanel panTrenutnaGod= new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panTrenutnaGod= new JPanel();
         JLabel lblTrenutnaGod= new JLabel("Trenutna godina studija:");
         String[] godineStudija = { "I (prva)", "II (druga)", "III (treća)", "IV (četvrta)" };
         JComboBox<String> comboTrenutnaGod=new JComboBox<>(godineStudija);
@@ -158,7 +158,7 @@ public class DialogDodajStudenta extends JDialog {
         panTrenutnaGod.add(comboTrenutnaGod);
         panTrenutnaGod.add(Box.createHorizontalStrut(10));
         
-        JPanel panNacinFin= new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel panNacinFin= new JPanel();
         JLabel lblNacinFin= new JLabel("Način polaganja:");
         String[] bs = { "Budžet", "Samofinansiranje" };
         JComboBox<String> comboNacinFin=new JComboBox<>(bs);
@@ -178,7 +178,7 @@ public class DialogDodajStudenta extends JDialog {
         txtTelefon.setToolTipText("Primer: +381641111111");
         
         
-        panNorth.add(Box.createVerticalStrut(15));
+        panNorth.add(Box.createVerticalStrut(50));
         panNorth.add(panIme);
         panNorth.add(Box.createVerticalStrut(5));
         panNorth.add(panPrezime);
@@ -212,11 +212,11 @@ public class DialogDodajStudenta extends JDialog {
 		JButton btnOdustani=new JButton("Odustani");
 		btnOdustani.setPreferredSize(new Dimension(100,25));
 		
-		panCenter.add(Box.createHorizontalStrut(30));
+		panCenter.add(Box.createHorizontalStrut(130));
 		panCenter.add(btnPotvrdi);
 		panCenter.add(Box.createGlue());
 		panCenter.add(btnOdustani);
-		panCenter.add(Box.createHorizontalStrut(30));
+		panCenter.add(Box.createHorizontalStrut(130));
 		
 		add(panCenter,BorderLayout.CENTER);
 		
@@ -224,7 +224,7 @@ public class DialogDodajStudenta extends JDialog {
 		panBottom.setPreferredSize(new Dimension(150,15));
 		add(panBottom,BorderLayout.SOUTH);
 	
-		pack();
+		//pack();
 		btnPotvrdi.setEnabled(false);
 		
 		btnOdustani.addActionListener(new ActionListener() {
