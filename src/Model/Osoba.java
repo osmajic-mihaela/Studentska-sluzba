@@ -54,6 +54,9 @@ public abstract class Osoba {
 	public void setDatumRodj(LocalDate datumRodj) {
 		this.datumRodj = datumRodj;
 	}
+	public void setAdresaStan(Adresa adresaStan) {
+		this.adresaStan = adresaStan;
+	}
 	
 	
 	

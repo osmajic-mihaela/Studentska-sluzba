@@ -82,10 +82,35 @@ public class BazaStudenata {
 			if(student.getStatus()==Status.B)
 				return "B";
 			return "S";
+
 		case 5:
 			return student.getProsecnaOcena()+"";
 		default:
 			return null;
 		}
+	}
+	
+	public Boolean dodajStudenda(Student s) {
+		return this.studenti.add(s);
+		
+	}
+	
+	public void izmeniStudenta(int i, Student s) {
+		Student stari = studenti.get(i);
+		stari.setIme(s.getIme());
+		stari.setPrezime(s.getPrezime());
+		stari.setDatumRodj(s.getDatumRodj());
+		stari.setAdresaStan(s.getAdresaStan());
+		stari.setBrIndeksa(s.getBrIndeksa());
+		stari.setEmail(s.getEmail());
+		stari.setGodUpisa(s.getGodUpisa());
+		stari.setTrenutnaGodStud(s.getTrenutnaGodStud());
+		stari.setKontaktBroj(s.getKontaktBroj());
+		stari.setStatus(s.getStatus());
+		
+	}
+	
+	public void obrisiStudenta(int index) {
+		this.studenti.remove(index);
 	}
 }

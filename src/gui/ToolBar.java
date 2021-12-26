@@ -16,10 +16,21 @@ public class ToolBar extends JToolBar {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static ToolBar instance = null;
+	
+	public static ToolBar getInstance() {
+		if(instance == null) {
+			instance = new ToolBar();
+		}
+		
+		return instance;
+	}
 
 	public ToolBar() {
 		super(SwingConstants.HORIZONTAL);
 		JButton btnNew = new JButton();
+		ActionNew actionNew = new ActionNew(this);
+		btnNew.addActionListener(actionNew);
 		Color bela = new Color(255, 255, 255);
 		btnNew.setBackground(bela);
 		btnNew.setToolTipText("Novi entitet (Ctrl + N)");
@@ -29,6 +40,8 @@ public class ToolBar extends JToolBar {
 		addSeparator();
 		
 		JButton btnEdit = new JButton();
+		ActionEdit actionEdit = new ActionEdit(this);
+		btnEdit.addActionListener(actionEdit);
 		btnEdit.setBackground(bela);
 		btnEdit.setToolTipText("Izmena odabranog entiteta (Ctrl + E)");
 		btnEdit.setIcon(new ImageIcon("images/edit.png"));
@@ -37,6 +50,8 @@ public class ToolBar extends JToolBar {
 		addSeparator();
 		
 		JButton btnDelete = new JButton();
+		ActionDelete actionDelete = new ActionDelete(this);
+		btnDelete.addActionListener(actionDelete);
 		btnDelete.setBackground(bela);
 		btnDelete.setToolTipText("Brisanje odabranog entiteta (Ctrl + D)");
 		btnDelete.setIcon(new ImageIcon("images/delete.png"));

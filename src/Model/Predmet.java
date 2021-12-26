@@ -14,7 +14,7 @@ public class Predmet {
 	private ArrayList<String> spisakPolozenih;  //ID ocene 
 	private ArrayList<String> spisakNepolozenih;  //ID studenta
 	
-	public Predmet(String predmetID, String nazivPredmeta, Semestar semestar, int godStudija, String profesor,
+	public Predmet(String predmetID, String nazivPredmeta, Semestar semestar, String profesor,
 			int eSPB, GodinaStudiranja godinaStudija) {
 		super();
 		this.predmetID = predmetID;

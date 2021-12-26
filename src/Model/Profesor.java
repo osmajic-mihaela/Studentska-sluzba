@@ -15,8 +15,8 @@ public class Profesor extends Osoba {
 	private ArrayList<String>predmetiKojePred;
 	
 	public Profesor(String ime,String prezime, LocalDate datumRodj,String kontaktBroj,String email,
-			String profesorID, String adresaKancelar, int brLicne,String zvanje, int godStaza,
-			String ulica, String broj, String grad, String drzava, String ulicaKanc,String brojKanc ) {
+			 int brLicne,String zvanje, int godStaza, String ulica, String broj, String grad,
+			 String drzava, String ulicaKanc,String brojKanc ) {
 		this.ime=ime;
 		this.prezime=prezime;
 		this.datumRodj=datumRodj;

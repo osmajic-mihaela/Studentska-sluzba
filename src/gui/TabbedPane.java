@@ -24,8 +24,8 @@ public class TabbedPane extends JTabbedPane {
 	private TabbedPane() {
 		
 		addTab("Studenti", new TableTab("Studenti"));
-		//addTab("Profesori", new TableTab("Profesori"));
-		//addTab("Predmeti", new TableTab("Predmeti"));
+		addTab("Profesori", new TableTab("Profesori"));
+		addTab("Predmeti", new TableTab("Predmeti"));
 		setBackground(Color.WHITE);
 		
 		addMouseListener(new MouseListener() {
@@ -35,13 +35,13 @@ public class TabbedPane extends JTabbedPane {
 			 int index=(int)((JTabbedPane)e.getComponent()).getSelectedIndex();
 			 
 			 if(index==0) {
-				StatusBar.lblSluzba.setText("Studentska slu얺a - Studenti");
+				StatusBar.lblSluzba.setText("Studentska slu탑ba - Studenti");
 			 } else if(index==1) {
-				 StatusBar.lblSluzba.setText("Studentska slu얺a - Profesori");
+				 StatusBar.lblSluzba.setText("Studentska slu탑ba - Profesori");
 			 }else if(index==2) {
-				 StatusBar.lblSluzba.setText("Studentska slu얺a - Predmeti");
+				 StatusBar.lblSluzba.setText("Studentska slu탑ba - Predmeti");
 			 }else{
-					StatusBar.lblSluzba.setText("Studentska slu얺a - Studenti");
+					StatusBar.lblSluzba.setText("Studentska slu탑ba - Studenti");
 				 }
 		}
 		
@@ -75,6 +75,22 @@ public class TabbedPane extends JTabbedPane {
 		
 		
 		
+		
+	}
+	
+	
+	public void azurirajPrikaz(int index) {
+		if(index==1) {
+		AbstractTableModelStudenti modelStudenata = (AbstractTableModelStudenti) JTableStudenti.getInstance().getModel();
+		modelStudenata.fireTableDataChanged();
+		validate();
+		}
+		if(index == 2) {
+			AbstractTableModelProfesori modelProfesora = (AbstractTableModelProfesori) JTableProfesori.getInstance().getModel();
+			modelProfesora.fireTableDataChanged();
+			validate();
+		}
+
 		
 	}
 }
