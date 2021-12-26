@@ -143,9 +143,8 @@ public class DialogIzmeniProfesora extends JDialog {
         panelAdresaKanc.add(Box.createHorizontalStrut(10));
         
         JPanel panelBrLicne = new JPanel();
-        JLabel lblBrLicne = new JLabel("Broj licne karte:");
+        JLabel lblBrLicne = new JLabel("Broj liène karte:");
         JTextField txtBrLicne = new JTextField(profesor.getBrLicne()+"");
-        txtBrLicne.setEditable(false);
         lblBrLicne.setPreferredSize(dimension);
         txtBrLicne.setPreferredSize(dimension);
         panelBrLicne.add(Box.createHorizontalStrut(10));
@@ -156,7 +155,6 @@ public class DialogIzmeniProfesora extends JDialog {
         JPanel panelZvanje = new JPanel();
         JLabel lblZvanje = new JLabel("Zvanje:");
         JTextField txtZvanje = new JTextField(profesor.getZvanje());
-        txtZvanje.setEditable(false);
         lblZvanje.setPreferredSize(dimension);
         txtZvanje.setPreferredSize(dimension);
         panelZvanje.add(Box.createHorizontalStrut(10));
@@ -165,11 +163,12 @@ public class DialogIzmeniProfesora extends JDialog {
         panelZvanje.add(Box.createHorizontalStrut(10));
 		
         JPanel panelGodRadnogStaza = new JPanel();
-        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staza:");
+        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staža:");
         JTextField txtGodRadnogStaza = new JTextField(profesor.getGodRadnogStaza());
-        txtGodRadnogStaza.setEditable(false);
         lblGodRadnogStaza.setPreferredSize(dimension);
         txtGodRadnogStaza.setPreferredSize(dimension);
+        txtGodRadnogStaza.setMaximumSize(dimension);
+        txtGodRadnogStaza.setColumns(13);
         panelGodRadnogStaza.add(Box.createHorizontalStrut(10));
         panelGodRadnogStaza.add(lblGodRadnogStaza);
         panelGodRadnogStaza.add(txtGodRadnogStaza);
@@ -197,6 +196,7 @@ public class DialogIzmeniProfesora extends JDialog {
         panNorth.add(panelBrLicne);
         panNorth.add(Box.createVerticalStrut(5));
         panNorth.add(panelZvanje);
+        panNorth.add(Box.createVerticalStrut(5));
         panNorth.add(panelGodRadnogStaza);
         panNorth.add(Box.createVerticalStrut(10));  
         panelInformacije.add(panNorth,BorderLayout.NORTH);
@@ -215,7 +215,7 @@ public class DialogIzmeniProfesora extends JDialog {
 		panCenter.add(btnPotvrdi);
 		panCenter.add(Box.createHorizontalStrut(30));
 		panCenter.add(btnOdustani);
-		panCenter.add(Box.createHorizontalStrut(130));
+		panCenter.add(Box.createGlue());
 		
 		panelInformacije.add(panCenter,BorderLayout.CENTER);
 		
@@ -255,7 +255,7 @@ public class DialogIzmeniProfesora extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				for(Profesor p : ProfesoriController.getInstance().getListaSvihProfesora()) {
 					if(p != ProfesoriController.getInstance().getListaSvihProfesora().get(selectedIndex) && (p.getBrLicne()+"" == brLicne)) {
-						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem liène veæ postoji u sistemu", "Greška pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem liène karte veæ postoji u sistemu", "Greška pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 				}
@@ -596,8 +596,8 @@ public class DialogIzmeniProfesora extends JDialog {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				godRadnogStaza = txtGodRadnogStaza.getText();
-				String godRadnogStazaRegex = "[0-9]{2}";
-				if(!proveraUnosaPolja(adresaKanc, godRadnogStazaRegex, 8))
+				String godRadnogStazaRegex = "\\b([0-9]|[1-9][0-9])\\b";
+				if(!proveraUnosaPolja(godRadnogStaza, godRadnogStazaRegex, 8))
 					txtGodRadnogStaza.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else {
 					txtGodRadnogStaza.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
@@ -608,8 +608,8 @@ public class DialogIzmeniProfesora extends JDialog {
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				godRadnogStaza = txtGodRadnogStaza.getText();
-				String godRadnogStazaRegex = "[0-9]{2}";
-				if(!proveraUnosaPolja(adresaKanc, godRadnogStazaRegex, 8))
+				String godRadnogStazaRegex = "\\b([0-9]|[1-9][0-9])\\b";
+				if(!proveraUnosaPolja(godRadnogStaza, godRadnogStazaRegex, 8))
 					txtGodRadnogStaza.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else {
 					txtGodRadnogStaza.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
@@ -620,8 +620,8 @@ public class DialogIzmeniProfesora extends JDialog {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				godRadnogStaza = txtGodRadnogStaza.getText();
-				String godRadnogStazaRegex = "[0-9]{2}";
-				if(!proveraUnosaPolja(adresaKanc, godRadnogStazaRegex, 8))
+				String godRadnogStazaRegex = "\\b([0-9]|[1-9][0-9])\\b";
+				if(!proveraUnosaPolja(godRadnogStaza, godRadnogStazaRegex, 8))
 					txtGodRadnogStaza.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else {
 					txtGodRadnogStaza.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
