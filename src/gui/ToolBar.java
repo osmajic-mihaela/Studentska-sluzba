@@ -38,6 +38,8 @@ public class ToolBar extends JToolBar {
 		addSeparator();
 		
 		JButton btnEdit = new JButton();
+		ActionEdit actionEdit = new ActionEdit(this);
+		btnEdit.addActionListener(actionEdit);
 		btnEdit.setBackground(bela);
 		btnEdit.setToolTipText("Izmena odabranog entiteta (Ctrl + E)");
 		btnEdit.setIcon(new ImageIcon("images/edit.png"));
