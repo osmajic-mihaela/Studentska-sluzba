@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import controller.StudentiController;
+import controller.ProfesoriController;
 
 public class ActionDelete extends AbstractAction {
 
@@ -47,7 +48,19 @@ public class ActionDelete extends AbstractAction {
 				return;
 			 
 		 } else if(selectedTab.equals("Studentska služba - Profesori")) { 
-			 //
+			 if(JTableProfesori.getInstance().getSelectedRow()>-1) {
+				 	String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da želite da obrišete profesora?", "Brisanje profesora", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					
+					if (code == JOptionPane.YES_OPTION) {
+						ProfesoriController.getInstance().obrisiProfesora(JTableProfesori.getInstance().getSelectedRow());
+					}
+				}
+			 else
+				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog profesora", "Greška pri brisanju profesora", JOptionPane.ERROR_MESSAGE);
+				return;
 		 } else if(selectedTab.equals("Studentska služba - Predmeti")) {
 			 //
 		 }
