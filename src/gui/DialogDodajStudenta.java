@@ -63,7 +63,7 @@ public class DialogDodajStudenta extends JDialog {
 		Dimension dim=new Dimension(150,20);
 
         JPanel panIme=new JPanel();
-        JLabel lblIme=new JLabel("Ime:");
+        JLabel lblIme=new JLabel("Ime*");
         lblIme.setPreferredSize(dim);
         JTextField txtIme=new JTextField();
         txtIme.setPreferredSize(dim);
@@ -73,7 +73,7 @@ public class DialogDodajStudenta extends JDialog {
         panIme.add(Box.createHorizontalStrut(10));
         
 		JPanel panPrezime=new JPanel();
-        JLabel lblPrezime=new JLabel("Prezime:");
+        JLabel lblPrezime=new JLabel("Prezime*");
         lblPrezime.setPreferredSize(dim);
         JTextField txtPrezime=new JTextField();
         txtPrezime.setPreferredSize(dim);
@@ -84,7 +84,7 @@ public class DialogDodajStudenta extends JDialog {
         
         
         JPanel panDatum=new JPanel();
-        JLabel lblDatum=new JLabel("Datum rodjenja:");
+        JLabel lblDatum=new JLabel("Datum rodjenja*");
         lblDatum.setPreferredSize(dim);
         JTextField txtDatum=new JTextField();
         txtDatum.setPreferredSize(dim);
@@ -97,7 +97,7 @@ public class DialogDodajStudenta extends JDialog {
       
         
         JPanel panAdresa = new JPanel();
-        JLabel lblAdresa = new JLabel("Adresa stanovanja:");
+        JLabel lblAdresa = new JLabel("Adresa stanovanja*");
         JTextField txtAdresa = new JTextField();
         lblAdresa.setPreferredSize(dim);
         txtAdresa.setPreferredSize(dim);
@@ -107,7 +107,7 @@ public class DialogDodajStudenta extends JDialog {
         panAdresa.add(Box.createHorizontalStrut(10));
         
         JPanel panTelefon= new JPanel();
-        JLabel lblTelefon= new JLabel("Broj telefona:");
+        JLabel lblTelefon= new JLabel("Broj telefona*");
         JTextField txtTelefon = new JTextField();
         lblTelefon.setPreferredSize(dim);
         txtTelefon.setPreferredSize(dim);
@@ -117,7 +117,7 @@ public class DialogDodajStudenta extends JDialog {
         panTelefon.add(Box.createHorizontalStrut(10));
 
         JPanel panEmail= new JPanel();
-        JLabel lblEmail= new JLabel("E-mail adresa:");
+        JLabel lblEmail= new JLabel("E-mail adresa*");
         JTextField txtEmail= new JTextField();
         lblEmail.setPreferredSize(dim);
         txtEmail.setPreferredSize(dim);
@@ -127,7 +127,7 @@ public class DialogDodajStudenta extends JDialog {
         panEmail.add(Box.createHorizontalStrut(10));
         
         JPanel panIndeks= new JPanel();
-        JLabel lblIndeks= new JLabel("Broj indeksa:");
+        JLabel lblIndeks= new JLabel("Broj indeksa*");
         JTextField txtIndeks= new JTextField();
         lblIndeks.setPreferredSize(dim);
         txtIndeks.setPreferredSize(dim);
@@ -137,7 +137,7 @@ public class DialogDodajStudenta extends JDialog {
         panIndeks.add(Box.createHorizontalStrut(10));
         
         JPanel panGodUpisa= new JPanel();
-        JLabel lblGodUpisa= new JLabel("Godina upisa:");
+        JLabel lblGodUpisa= new JLabel("Godina upisa*");
         JTextField txtGodUpisa= new JTextField();
         txtGodUpisa.setEditable(false);
         lblGodUpisa.setPreferredSize(dim);
@@ -148,7 +148,7 @@ public class DialogDodajStudenta extends JDialog {
         panGodUpisa.add(Box.createHorizontalStrut(10));
         
         JPanel panTrenutnaGod= new JPanel();
-        JLabel lblTrenutnaGod= new JLabel("Trenutna godina studija:");
+        JLabel lblTrenutnaGod= new JLabel("Trenutna godina studija*");
         String[] godineStudija = { "I (prva)", "II (druga)", "III (treća)", "IV (četvrta)" };
         JComboBox<String> comboTrenutnaGod=new JComboBox<>(godineStudija);
         lblTrenutnaGod.setPreferredSize(dim);
@@ -159,7 +159,7 @@ public class DialogDodajStudenta extends JDialog {
         panTrenutnaGod.add(Box.createHorizontalStrut(10));
         
         JPanel panNacinFin= new JPanel();
-        JLabel lblNacinFin= new JLabel("Način polaganja:");
+        JLabel lblNacinFin= new JLabel("Način polaganja*");
         String[] bs = { "Budžet", "Samofinansiranje" };
         JComboBox<String> comboNacinFin=new JComboBox<>(bs);
         lblNacinFin.setPreferredSize(dim);
