@@ -48,6 +48,8 @@ public class ToolBar extends JToolBar {
 		addSeparator();
 		
 		JButton btnDelete = new JButton();
+		ActionDelete actionDelete = new ActionDelete(this);
+		btnDelete.addActionListener(actionDelete);
 		btnDelete.setBackground(bela);
 		btnDelete.setToolTipText("Brisanje odabranog entiteta (Ctrl + D)");
 		btnDelete.setIcon(new ImageIcon("images/delete.png"));
