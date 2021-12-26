@@ -40,7 +40,13 @@ public class ActionEdit extends AbstractAction{
 				return;
 			 
 		 } else if(selectedTab.equals("Studentska služba - Profesori")) { 
-			 //
+			 if(JTableProfesori.getInstance().getSelectedRow()>-1) {
+					DialogIzmeniProfesora dialog = new DialogIzmeniProfesora(JTableProfesori.getInstance().getSelectedRow());
+					dialog.setVisible(true);
+					}
+			 else
+				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog profesora", "Greska pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
+				return;
 		 } else if(selectedTab.equals("Studentska služba - Predmeti")) {
 			 //
 		 }
