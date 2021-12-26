@@ -29,6 +29,8 @@ public class ToolBar extends JToolBar {
 	public ToolBar() {
 		super(SwingConstants.HORIZONTAL);
 		JButton btnNew = new JButton();
+		ActionNew actionNew = new ActionNew(this);
+		btnNew.addActionListener(actionNew);
 		Color bela = new Color(255, 255, 255);
 		btnNew.setBackground(bela);
 		btnNew.setToolTipText("Novi entitet (Ctrl + N)");
