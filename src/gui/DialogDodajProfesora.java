@@ -29,7 +29,7 @@ public class DialogDodajProfesora extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
-	private boolean ispravno[] = {true, true, true, true, true, true, true, true, true};
+	private boolean ispravno[] = {true, true, true, true, true, true, true, true, true, true};
 	private String ime;
 	private String prezime;
 	private String datumRodjenja;
@@ -219,7 +219,7 @@ public class DialogDodajProfesora extends JDialog {
 		panBottom.setPreferredSize(new Dimension(150,15));
 		panelInformacije.add(panBottom,BorderLayout.SOUTH);
 		
-		//btnPotvrdi.setEnabled(true);
+		btnPotvrdi.setEnabled(false);
 		
 		btnOdustani.addActionListener(new ActionListener() {
 			@Override
@@ -605,6 +605,42 @@ public class DialogDodajProfesora extends JDialog {
 				else {
 					txtGodRadnogStaza.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
 					}
+				btnPotvrdi.setEnabled(enablePotvrdi());
+			}
+		});
+		
+		txtZvanje.getDocument().addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				zvanje = txtZvanje.getText();
+				String zvanjeRegex = "[a-zA-Z]+";
+				if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
+					txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+				else
+					txtZvanje.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+				btnPotvrdi.setEnabled(enablePotvrdi());
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				zvanje = txtZvanje.getText();
+				String zvanjeRegex = "[a-zA-Z]+";
+				if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
+					txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+				else
+					txtZvanje.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+				btnPotvrdi.setEnabled(enablePotvrdi());
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				zvanje = txtZvanje.getText();
+				String zvanjeRegex = "[a-zA-Z]+";
+				if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
+					txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+				else
+					txtZvanje.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
 				btnPotvrdi.setEnabled(enablePotvrdi());
 			}
 		});

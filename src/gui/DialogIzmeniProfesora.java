@@ -29,7 +29,7 @@ public class DialogIzmeniProfesora extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	
-	private boolean ispravno[] = {true, true, true, true, true, true, true, true, true};
+	private boolean ispravno[] = {true, true, true, true, true, true, true, true, true, true};
 	private String ime;
 	private String prezime;
 	private String datumRodjenja;
@@ -254,7 +254,7 @@ public class DialogIzmeniProfesora extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				for(Profesor p : ProfesoriController.getInstance().getListaSvihProfesora()) {
-					if(p != ProfesoriController.getInstance().getListaSvihProfesora().get(selectedIndex) && (p.getBrLicne()+"" == brLicne)) {
+					if(p != ProfesoriController.getInstance().getListaSvihProfesora().get(selectedIndex) && (p.getBrLicne() == Integer.parseInt(brLicne))) {
 						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem liène karte veæ postoji u sistemu", "Greška pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
@@ -282,7 +282,7 @@ public class DialogIzmeniProfesora extends JDialog {
 				dispose();
 			}
 		});
-		
+		zvanje = txtZvanje.getText();
 		txtIme.getDocument().addDocumentListener(new DocumentListener() {
 
 			@Override
@@ -629,6 +629,42 @@ public class DialogIzmeniProfesora extends JDialog {
 				btnPotvrdi.setEnabled(enablePotvrdi());
 			}
 		});
+		
+		txtZvanje.getDocument().addDocumentListener(new DocumentListener() {
+				
+				@Override
+				public void insertUpdate(DocumentEvent e) {
+					zvanje = txtZvanje.getText();
+					String zvanjeRegex = "[a-zA-Z]+";
+					if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
+						txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtZvanje.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());
+				}
+	
+				@Override
+				public void removeUpdate(DocumentEvent e) {
+					zvanje = txtZvanje.getText();
+					String zvanjeRegex = "[a-zA-Z]+";
+					if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
+						txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtZvanje.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());
+				}
+	
+				@Override
+				public void changedUpdate(DocumentEvent e) {
+					zvanje = txtZvanje.getText();
+					String zvanjeRegex = "[a-zA-Z]+";
+					if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
+						txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtZvanje.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());
+				}
+			});
 	}
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
 		if(txt.matches(regex)) {
