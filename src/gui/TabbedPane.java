@@ -85,9 +85,14 @@ public class TabbedPane extends JTabbedPane {
 		modelStudenata.fireTableDataChanged();
 		validate();
 		}
-		if(index == 2) {
+		else if(index == 2) {
 			AbstractTableModelProfesori modelProfesora = (AbstractTableModelProfesori) JTableProfesori.getInstance().getModel();
 			modelProfesora.fireTableDataChanged();
+			validate();
+		}
+		else if(index == 3) {
+			AbstractTableModelPredmeti modelPredmeta = (AbstractTableModelPredmeti) JTablePredmeti.getInstance().getModel();
+			modelPredmeta.fireTableDataChanged();
 			validate();
 		}
 

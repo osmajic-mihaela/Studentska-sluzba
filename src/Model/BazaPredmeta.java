@@ -71,7 +71,10 @@ public class BazaPredmeta {
 				return predmet.getSemestar()+"";
 			default:
 				return null;
-		}
-				
+		}	
+	}
+	
+	public void obrisiPredmet(int index) {
+		this.predmeti.remove(index);
 	}
 }

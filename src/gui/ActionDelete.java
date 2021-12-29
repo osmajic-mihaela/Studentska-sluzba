@@ -11,6 +11,7 @@ import javax.swing.KeyStroke;
 
 import controller.StudentiController;
 import controller.ProfesoriController;
+import controller.PredmetiController;
 
 public class ActionDelete extends AbstractAction {
 
@@ -62,7 +63,19 @@ public class ActionDelete extends AbstractAction {
 				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog profesora", "Greška pri brisanju profesora", JOptionPane.ERROR_MESSAGE);
 				return;
 		 } else if(selectedTab.equals("Studentska služba - Predmeti")) {
-			 //
+			 if(JTablePredmeti.getInstance().getSelectedRow()>-1) {
+				 	String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da želite da obrišete predmet?", "Brisanje predmeta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					
+					if (code == JOptionPane.YES_OPTION) {
+						PredmetiController.getInstance().obrisiPredmet(JTablePredmeti.getInstance().getSelectedRow());
+					}
+				}
+			 else
+				 JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Greška pri brisanju predmeta", JOptionPane.ERROR_MESSAGE);
+				return;
 		 }
 		
 	}
