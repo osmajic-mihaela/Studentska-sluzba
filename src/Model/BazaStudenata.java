@@ -80,8 +80,9 @@ public class BazaStudenata {
 			return	student.getTrenutnaGodStud().getBr()+"";
 		case 4:
 			if(student.getStatus()==Status.B)
-				return "Budžet";
-			return "Samofinansiranje";
+				return "B";
+			return "S";
+
 		case 5:
 			return student.getProsecnaOcena()+"";
 		default:
