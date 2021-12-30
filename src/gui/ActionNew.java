@@ -37,7 +37,8 @@ public class ActionNew extends AbstractAction {
 			 DialogDodajProfesora dialog = new DialogDodajProfesora();
 			 dialog.setVisible(true);
 		 } else if(selected.equals("Studentska služba - Predmeti")) {
-			 //
+			DialogDodajPredmet dialog = new DialogDodajPredmet();
+			dialog.setVisible(true);
 		 }
 	}
 }

@@ -23,7 +23,8 @@ public class PredmetiController {
 	}
 	
 	public void dodajPredmet(Predmet predmet) {
-		//
+		BazaPredmeta.getInstance().dodajPredmet(predmet);
+		TabbedPane.getInstance().azurirajPrikaz(3);
 	}
 	
 	public void izmeniPredmet(int selectedIndex, Predmet predmet) {

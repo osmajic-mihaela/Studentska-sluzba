@@ -23,7 +23,7 @@ public class BazaPredmeta {
 		initPredmeti();
 		
 		kolone = new ArrayList<String>();
-		kolone.add("Šifra predmeta");
+		kolone.add("ï¿½ifra predmeta");
 		kolone.add("Naziv predmeta");
 		kolone.add("Broj ESPB bodova");
 		kolone.add("Godina na kojoj se predmet izvodi");
@@ -77,4 +77,9 @@ public class BazaPredmeta {
 	public void obrisiPredmet(int index) {
 		this.predmeti.remove(index);
 	}
+	
+	public void dodajPredmet(Predmet predmet) {
+		this.predmeti.add(predmet);
+	}
+	
 }
