@@ -82,4 +82,14 @@ public class BazaPredmeta {
 		this.predmeti.add(predmet);
 	}
 	
+	public void izmeniPredmet(int i, Predmet p) {
+		Predmet predmet = predmeti.get(i);
+		predmet.setPredmetID(p.getPredmetID());
+		predmet.setNazivPredmeta(p.getNazivPredmeta());
+		predmet.setSemestar(p.getSemestar());
+		predmet.setBrESPB(p.getBrESPB());
+		predmet.setGodStudija(p.getGodStudija());
+		predmet.setProfesor(p.getProfesor());	
+	}
+	
 }
