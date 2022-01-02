@@ -16,6 +16,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -143,7 +144,7 @@ public class DialogIzmeniProfesora extends JDialog {
         panelAdresaKanc.add(Box.createHorizontalStrut(10));
         
         JPanel panelBrLicne = new JPanel();
-        JLabel lblBrLicne = new JLabel("Broj liène karte*");
+        JLabel lblBrLicne = new JLabel("Broj liï¿½ne karte*");
         JTextField txtBrLicne = new JTextField(profesor.getBrLicne()+"");
         lblBrLicne.setPreferredSize(dimension);
         txtBrLicne.setPreferredSize(dimension);
@@ -163,7 +164,7 @@ public class DialogIzmeniProfesora extends JDialog {
         panelZvanje.add(Box.createHorizontalStrut(10));
 		
         JPanel panelGodRadnogStaza = new JPanel();
-        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staža*");
+        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staï¿½a*");
         JTextField txtGodRadnogStaza = new JTextField(profesor.getGodRadnogStaza()+"");
         lblGodRadnogStaza.setPreferredSize(dimension);
         txtGodRadnogStaza.setPreferredSize(dimension);
@@ -255,7 +256,7 @@ public class DialogIzmeniProfesora extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				for(Profesor p : ProfesoriController.getInstance().getListaSvihProfesora()) {
 					if(p != ProfesoriController.getInstance().getListaSvihProfesora().get(selectedIndex) && (p.getBrLicne() == Integer.parseInt(brLicne))) {
-						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem liène karte veæ postoji u sistemu", "Greška pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem liï¿½ne karte veï¿½ postoji u sistemu", "Greï¿½ka pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 				}
@@ -665,6 +666,50 @@ public class DialogIzmeniProfesora extends JDialog {
 					btnPotvrdi.setEnabled(enablePotvrdi());
 				}
 			});
+		
+		
+		///////////////////////////////////////////////////////////////	
+		
+		JPanel panelPredmeti = new JPanel();
+		panelPredmeti.setLayout( new BorderLayout());
+		tabbedPane.addTab("Predmeti", panelPredmeti);
+		
+		add(tabbedPane, BorderLayout.CENTER);
+		
+		JPanel btnPredmetiPanel = new JPanel();
+		BoxLayout btnPredmetiLayout = new BoxLayout(btnPredmetiPanel, BoxLayout.X_AXIS);
+		btnPredmetiPanel.setLayout(btnPredmetiLayout);
+
+		JButton btnDodajPredmet = new JButton("Dodaj predmet");
+		btnDodajPredmet.setPreferredSize(new Dimension(150, 30));
+		JButton btnUkloniPredmet = new JButton("Ukloni predmet");
+		btnUkloniPredmet.setPreferredSize(new Dimension(150, 30));
+		
+		btnPredmetiPanel.add(Box.createHorizontalStrut(25));
+		btnPredmetiPanel.add(btnDodajPredmet);
+		btnPredmetiPanel.add(Box.createHorizontalStrut(10));
+		btnPredmetiPanel.add(btnUkloniPredmet);
+		btnPredmetiPanel.add(Box.createHorizontalGlue());
+		btnPredmetiPanel.setPreferredSize(new Dimension(750, 50));
+		
+		panelPredmeti.add(btnPredmetiPanel, BorderLayout.NORTH);
+		
+		JTablePredmetiPoProfesoru predmetiProfesora = new JTablePredmetiPoProfesoru(profesor);
+		JScrollPane predmetiScrollPane = new JScrollPane(predmetiProfesora);
+		predmetiScrollPane.setPreferredSize(new Dimension(400, 400));
+		panelPredmeti.add(predmetiScrollPane, BorderLayout.CENTER);
+		
+		JPanel westPanel = new JPanel();
+		westPanel.setPreferredSize(new Dimension(25, 750));
+		panelPredmeti.add(westPanel, BorderLayout.WEST);
+		
+		JPanel eastPanel = new JPanel();
+		eastPanel.setPreferredSize(new Dimension(25, 750));
+		panelPredmeti.add(eastPanel, BorderLayout.EAST);
+		
+		JPanel southPanel = new JPanel();
+		southPanel.setPreferredSize(new Dimension(750, 50));
+		panelPredmeti.add(southPanel, BorderLayout.SOUTH);
 	}
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
 		if(txt.matches(regex)) {
