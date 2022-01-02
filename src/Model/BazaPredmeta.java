@@ -92,4 +92,16 @@ public class BazaPredmeta {
 		predmet.setProfesor(p.getProfesor());	
 	}
 	
+	public int getIndexByID(String sifra) {
+		int i=0;	
+		
+			for(Predmet pr : predmeti) {
+				if(pr.getPredmetID()==sifra)
+					break;
+				++i;
+			}
+		
+		return i;
+	}
+	
 }
