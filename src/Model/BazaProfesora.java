@@ -97,4 +97,24 @@ public class BazaProfesora {
 	public void obrisiProfesora(int index) {
 		this.profesori.remove(index);
 	}
+	
+	public List<Predmet> getListaNePredmeta(Profesor profesor){
+	
+		
+		if(profesor.getPredmetiKojePred().isEmpty()) {
+			return BazaPredmeta.getInstance().getPredmeti();
+		}
+			
+		List<Predmet> predmetiKojeNePredaje= new ArrayList<Predmet>();
+		
+			 
+			 for(Predmet prIzSvih : BazaPredmeta.getInstance().getPredmeti()) {
+				 if(!profesor.getPredmetiKojePred().contains(prIzSvih.getPredmetID())) {
+					 predmetiKojeNePredaje.add(prIzSvih);
+				 }
+			 }
+			 
+		
+		 return predmetiKojeNePredaje;
+	}
 }
