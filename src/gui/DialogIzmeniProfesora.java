@@ -710,6 +710,16 @@ public class DialogIzmeniProfesora extends JDialog {
 		JPanel southPanel = new JPanel();
 		southPanel.setPreferredSize(new Dimension(750, 50));
 		panelPredmeti.add(southPanel, BorderLayout.SOUTH);
+		
+		btnDodajPredmet.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DialogDodajPredmetProfesoru ddpp = new DialogDodajPredmetProfesoru(profesor,predmetiProfesora);
+				ddpp.setVisible(true);
+			}
+			
+		});
 	}
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
 		if(txt.matches(regex)) {
