@@ -453,7 +453,7 @@ public class DialogDodajStudenta extends JDialog {
 			public void removeUpdate(DocumentEvent e) {
 				
 				indeks = txtIndeks.getText();
-				String regex_brIndeksa = "[A-Za-z]{1,3}[0-9]{1,3}-[2][0-9]{3}";
+				String regex_brIndeksa = "[A-Za-z]{1,3}-[0-9]{1,3}-[2][0-9]{3}";
 				if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
 					txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -463,7 +463,7 @@ public class DialogDodajStudenta extends JDialog {
 					txtGodUpisa.setText("");
 					godUpisa="";	
 				}else {
-					godUpisa=indeks.substring(indeks.indexOf("-")+1);}
+					godUpisa=indeks.substring(indeks.lastIndexOf("-")+1);}
 				btnPotvrdi.setEnabled(enablePotvrdi());	
 			}
 			
@@ -471,14 +471,14 @@ public class DialogDodajStudenta extends JDialog {
 			public void insertUpdate(DocumentEvent e) {
 				
 				indeks = txtIndeks.getText();
-				String regex_brIndeksa = "[A-Za-z]{1,3}[0-9]{1,3}-[2][0-9]{3}";
+				String regex_brIndeksa = "[A-Za-z]{1,3}-[0-9]{1,3}-[2][0-9]{3}";
 				if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
 					txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
 					txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
 				
 				if(indeks.indexOf("-")!=-1)
-					godUpisa=indeks.substring(indeks.indexOf("-")+1);
+					godUpisa=indeks.substring(indeks.lastIndexOf("-")+1);
 				txtGodUpisa.setText(godUpisa);
 				btnPotvrdi.setEnabled(enablePotvrdi());	
 			}
@@ -486,14 +486,14 @@ public class DialogDodajStudenta extends JDialog {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				indeks = txtIndeks.getText();
-				String regex_brIndeksa = "[A-Za-z]{1,3}[0-9]{1,3}-[2][0-9]{3}";
+				String regex_brIndeksa = "[A-Za-z]{1,3}-[0-9]{1,3}-[2][0-9]{3}";
 				if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
 					txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
 					txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
 				btnPotvrdi.setEnabled(enablePotvrdi());	
 				if(indeks.indexOf("-")!=-1)
-					godUpisa=indeks.substring(indeks.indexOf("-")+1);
+					godUpisa=indeks.substring(indeks.lastIndexOf("-")+1);
 				txtGodUpisa.setText(godUpisa);
 				btnPotvrdi.setEnabled(enablePotvrdi());
 			}

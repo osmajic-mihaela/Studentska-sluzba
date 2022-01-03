@@ -409,204 +409,204 @@ public class DialogIzmeniStudenta extends JDialog {
 				btnPotvrdi.setEnabled(enablePotvrdi());
 			}
 	
-	@Override
-	public void insertUpdate(DocumentEvent e) {
-		datumRodjenja = txtDatum.getText();
-		String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
-		if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
-			txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				datumRodjenja = txtDatum.getText();
+				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
+					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+				else
+					txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+				btnPotvrdi.setEnabled(enablePotvrdi());
 		
-	}
-	
-	@Override
-	public void changedUpdate(DocumentEvent e) {
-		datumRodjenja = txtDatum.getText();
-		String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
-		if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
-			txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());
-		
-	}
-});
-
-txtAdresa.getDocument().addDocumentListener(new DocumentListener() {
-	
-	@Override
-	public void removeUpdate(DocumentEvent e) {
-		adresa = txtAdresa.getText();
-		String regex_adresa ="\s*[\\p{L}]+\s*[[\\p{L}]*\\s*]*\\d+\\w?\s*\\,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*";
-		if(!proveraUnosaPolja(adresa, regex_adresa, 3))
-			txtAdresa.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else {
-			txtAdresa.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
 			}
-		btnPotvrdi.setEnabled(enablePotvrdi());
-	}
 	
-	@Override
-	public void insertUpdate(DocumentEvent e) {
-		adresa = txtAdresa.getText();
-		String regex_adresa ="\s*[\\p{L}]+\s*[[\\p{L}]*\\s*]*\\d+\\w?\s*\\,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*";
-		if(!proveraUnosaPolja(adresa, regex_adresa, 3))
-			txtAdresa.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else {
-			txtAdresa.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				datumRodjenja = txtDatum.getText();
+				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
+					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+				else
+			txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+				btnPotvrdi.setEnabled(enablePotvrdi());
+		
+			}
+			});
+
+			txtAdresa.getDocument().addDocumentListener(new DocumentListener() {
+	
+				@Override
+				public void removeUpdate(DocumentEvent e) {
+					adresa = txtAdresa.getText();
+					String regex_adresa ="\s*[\\p{L}]+\s*[[\\p{L}]*\\s*]*\\d+\\w?\s*\\,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*";
+					if(!proveraUnosaPolja(adresa, regex_adresa, 3))
+						txtAdresa.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else {
+						txtAdresa.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					}
+					btnPotvrdi.setEnabled(enablePotvrdi());
+				}
+	
+				@Override
+				public void insertUpdate(DocumentEvent e) {
+					adresa = txtAdresa.getText();
+					String regex_adresa ="\s*[\\p{L}]+\s*[[\\p{L}]*\\s*]*\\d+\\w?\s*\\,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*";
+					if(!proveraUnosaPolja(adresa, regex_adresa, 3))
+						txtAdresa.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else {
+						txtAdresa.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					}
+					btnPotvrdi.setEnabled(enablePotvrdi());
+		
+				}
+	
+				@Override
+				public void changedUpdate(DocumentEvent e) {
+					adresa = txtAdresa.getText();
+					String regex_adresa = "\s*[\\p{L}]+\s*[[\\p{L}]*\\s*]*\\d+\\w?\s*\\,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*";
+					if(!proveraUnosaPolja(adresa, regex_adresa, 3))
+						txtAdresa.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else {
+						txtAdresa.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					}
+					btnPotvrdi.setEnabled(enablePotvrdi());
+				}
+			});
+
+			txtIndeks.getDocument().addDocumentListener(new DocumentListener() {
+	
+				@Override
+				public void removeUpdate(DocumentEvent e) {
+		
+					indeks = txtIndeks.getText();
+					String regex_brIndeksa = "[A-Za-z]{1,3}-[0-9]{1,3}-[2][0-9]{3}";
+					if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
+						txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+		
+					if( !proveraUnosaPolja(indeks, regex_brIndeksa, 4) ) {
+						txtGodUpisa.setText("");
+						godUpisa="";	
+					}else {
+						godUpisa=indeks.substring(indeks.lastIndexOf("-")+1);}
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+				}
+	
+				@Override
+				public void insertUpdate(DocumentEvent e) {
+		
+					indeks = txtIndeks.getText();
+					String regex_brIndeksa = "[A-Za-z]{1,3}-[0-9]{1,3}-[2][0-9]{3}";
+					if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
+						txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+		
+						if(indeks.indexOf("-")!=-1)
+					godUpisa=indeks.substring(indeks.lastIndexOf("-")+1);
+					txtGodUpisa.setText(godUpisa);
+					btnPotvrdi.setEnabled(enablePotvrdi());	
 		}
-		btnPotvrdi.setEnabled(enablePotvrdi());
 		
-	}
-	
-	@Override
-	public void changedUpdate(DocumentEvent e) {
-		adresa = txtAdresa.getText();
-		String regex_adresa = "\s*[\\p{L}]+\s*[[\\p{L}]*\\s*]*\\d+\\w?\s*\\,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*,\s*[\\p{L}]+\s*[[\\p{L}]*\s*]*";
-		if(!proveraUnosaPolja(adresa, regex_adresa, 3))
-			txtAdresa.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else {
-			txtAdresa.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-			}
-		btnPotvrdi.setEnabled(enablePotvrdi());
-	}
-});
-
-txtIndeks.getDocument().addDocumentListener(new DocumentListener() {
-	
-	@Override
-	public void removeUpdate(DocumentEvent e) {
+				@Override
+				public void changedUpdate(DocumentEvent e) {
+					indeks = txtIndeks.getText();
+					String regex_brIndeksa = "[A-Za-z]{1,3}-[0-9]{1,3}-[2][0-9]{3}";
+					if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
+						txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+					if(indeks.indexOf("-")!=-1)
+						godUpisa=indeks.substring(indeks.lastIndexOf("-")+1);
+					txtGodUpisa.setText(godUpisa);
+					btnPotvrdi.setEnabled(enablePotvrdi());
+				}
+			});
+			
+			txtTelefon.getDocument().addDocumentListener(new DocumentListener() {
+				
+				@Override
+				public void removeUpdate(DocumentEvent e) {
+					brTelefona = txtTelefon.getText();
+					String regex_brojTelefona = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
+					if(!proveraUnosaPolja(brTelefona, regex_brojTelefona, 5))
+						txtTelefon.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtTelefon.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+				}
+				
+				@Override
+				public void insertUpdate(DocumentEvent e) {
+					brTelefona = txtTelefon.getText();
+					String regex_brojTelefona = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
+					if(!proveraUnosaPolja(brTelefona, regex_brojTelefona, 5))
+						txtTelefon.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtTelefon.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+				}
+				
+				@Override
+				public void changedUpdate(DocumentEvent e) {
+					brTelefona  = txtTelefon.getText();
+					String regex_brojTelefona = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
+					if(!proveraUnosaPolja(brTelefona, regex_brojTelefona, 5))
+						txtTelefon.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtTelefon.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+				}
+			});
+			
+			txtEmail.getDocument().addDocumentListener(new DocumentListener() {
+				
+				@Override
+				public void removeUpdate(DocumentEvent e) {
+					email = txtEmail.getText();
+					String regex_email = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+					boolean pr=!proveraUnosaPolja(email, regex_email, 6);
+					if(pr)
+						txtEmail.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtEmail.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+				}
+				
+				@Override
+				public void insertUpdate(DocumentEvent e) {
+					email = txtEmail.getText();
+					String regex_email = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+					boolean pr=!proveraUnosaPolja(email, regex_email, 6);
+					if(pr)
+						txtEmail.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtEmail.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+				}
+				
+				@Override
+				public void changedUpdate(DocumentEvent e) {
+					
+					email = txtEmail.getText();
+					String regex_email = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+					boolean pr=!proveraUnosaPolja(email, regex_email, 6);
+					if(pr)
+						txtEmail.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtEmail.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					
+					btnPotvrdi.setEnabled(enablePotvrdi());	
+				}
+			});
+					
+			
+			
+		}
 		
-		indeks = txtIndeks.getText();
-		String regex_brIndeksa = "[A-Za-z]{1,3}[0-9]{1,3}-[2][0-9]{3}";
-		if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
-			txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		
-		if( !proveraUnosaPolja(indeks, regex_brIndeksa, 4) ) {
-			txtGodUpisa.setText("");
-			godUpisa="";	
-		}else {
-			godUpisa=indeks.substring(indeks.indexOf("-")+1);}
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-	
-	@Override
-	public void insertUpdate(DocumentEvent e) {
-		
-		indeks = txtIndeks.getText();
-		String regex_brIndeksa = "[A-Za-z]{1,3}[0-9]{1,3}-[2][0-9]{3}";
-		if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
-			txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		
-		if(indeks.indexOf("-")!=-1)
-			godUpisa=indeks.substring(indeks.indexOf("-")+1);
-		txtGodUpisa.setText(godUpisa);
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-	
-	@Override
-	public void changedUpdate(DocumentEvent e) {
-		indeks = txtIndeks.getText();
-		String regex_brIndeksa = "[A-Za-z]{1,3}[0-9]{1,3}-[2][0-9]{3}";
-		if(!proveraUnosaPolja(indeks, regex_brIndeksa, 4))
-			txtIndeks.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtIndeks.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-		if(indeks.indexOf("-")!=-1)
-			godUpisa=indeks.substring(indeks.indexOf("-")+1);
-		txtGodUpisa.setText(godUpisa);
-		btnPotvrdi.setEnabled(enablePotvrdi());
-	}
-});
-
-txtTelefon.getDocument().addDocumentListener(new DocumentListener() {
-	
-	@Override
-	public void removeUpdate(DocumentEvent e) {
-		brTelefona = txtTelefon.getText();
-		String regex_brojTelefona = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
-		if(!proveraUnosaPolja(brTelefona, regex_brojTelefona, 5))
-			txtTelefon.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtTelefon.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-	
-	@Override
-	public void insertUpdate(DocumentEvent e) {
-		brTelefona = txtTelefon.getText();
-		String regex_brojTelefona = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
-		if(!proveraUnosaPolja(brTelefona, regex_brojTelefona, 5))
-			txtTelefon.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtTelefon.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-	
-	@Override
-	public void changedUpdate(DocumentEvent e) {
-		brTelefona  = txtTelefon.getText();
-		String regex_brojTelefona = "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$";
-		if(!proveraUnosaPolja(brTelefona, regex_brojTelefona, 5))
-			txtTelefon.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtTelefon.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-});
-
-txtEmail.getDocument().addDocumentListener(new DocumentListener() {
-	
-	@Override
-	public void removeUpdate(DocumentEvent e) {
-		email = txtEmail.getText();
-		String regex_email = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-		boolean pr=!proveraUnosaPolja(email, regex_email, 6);
-		if(pr)
-			txtEmail.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtEmail.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-	
-	@Override
-	public void insertUpdate(DocumentEvent e) {
-		email = txtEmail.getText();
-		String regex_email = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-		boolean pr=!proveraUnosaPolja(email, regex_email, 6);
-		if(pr)
-			txtEmail.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtEmail.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-	
-	@Override
-	public void changedUpdate(DocumentEvent e) {
-		
-		email = txtEmail.getText();
-		String regex_email = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-		boolean pr=!proveraUnosaPolja(email, regex_email, 6);
-		if(pr)
-			txtEmail.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		else
-			txtEmail.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-		
-		btnPotvrdi.setEnabled(enablePotvrdi());	
-	}
-});
-		
-		
-		
-	}
-	
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
 		if(txt.matches(regex)) {
 			ispravnaPolja[i]=true;

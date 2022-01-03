@@ -38,12 +38,12 @@ public class BazaStudenata {
 		studenti.add(new Student("Mihaela","Osmajic", LocalDate.parse("12-12-2019", DateTimeFormatter.ofPattern("dd-MM-yyyy")) ,"+38164","N@gmail.com",
 				2019, GodinaStudiranja.TRECA , Status.B, 
 				"Radoja Dakica", "53a", "Novi Sad","Srbija",
-				"RA116-2019", 9.10));
+				"RA-116-2019", 9.10));
 		
 		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12-12-2019", DateTimeFormatter.ofPattern("dd-MM-yyyy")),"+38164","N@gmail.com",
 				2019, GodinaStudiranja.TRECA , Status.B, 
 				"Radoja Dakica", "53a", "Novi Sad","Srbija",
-				"RA51-2019", 9.10));
+				"RA-51-2019", 9.10));
 	}
 	
 	
