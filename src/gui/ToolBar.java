@@ -84,6 +84,10 @@ public class ToolBar extends JToolBar {
 				if (TabbedPane.getInstance().getSelectedIndex() == 0) {
 					String input = search.getText();
 					JTableStudenti.newFilter(input);
+				}else if (TabbedPane.getInstance().getSelectedIndex() == 1) {
+					//
+				}else if (TabbedPane.getInstance().getSelectedIndex() == 2) {
+					//
 				}
 
 			}
