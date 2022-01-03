@@ -117,4 +117,8 @@ public class BazaProfesora {
 		
 		 return predmetiKojeNePredaje;
 	}
+	
+	public void obrisiPredmetProfesoru(int indexPredmeta,Profesor profesor) {
+		profesor.getPredmetiKojePred().remove(indexPredmeta);
+	}
 }
