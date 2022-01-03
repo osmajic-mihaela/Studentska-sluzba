@@ -2,10 +2,14 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowFilter;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableRowSorter;
 
@@ -73,6 +77,40 @@ public class JTableStudenti extends JTable {
 		
 		this.setRowSorter(sorter);
 		
+		
+	}
+	
+	public static void newFilter(String input) {
+		
+		String[] reci = input.split(",");
+		if(reci.length>3) {
+			JOptionPane.showMessageDialog(null,
+					"Validne pretrage: \n1. Deo prezimena \n2. Deo prezimena, deo imena \n3. Deo indeksa, deo prezimena, deo imena",
+					"Greška pri pretrazi studenta", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		List<RowFilter<AbstractTableModelStudenti, Object>> filters = new ArrayList<RowFilter<AbstractTableModelStudenti, Object>>();
+		
+			if(reci.length==3) {
+					filters.add( RowFilter.regexFilter( ("(?i)" + reci[0].trim()) , 0 ));
+				for(int i=1; i<reci.length; i++)
+					filters.add( RowFilter.regexFilter( ("(?i)" + reci[i].trim()) , 3-i ));
+			}
+			else
+				for(int i=0; i<reci.length; i++)
+					filters.add( RowFilter.regexFilter( ("(?i)" + reci[i].trim()) , 2-i ));
+		
+		
+		
+		RowFilter<AbstractTableModelStudenti, Object> rf = null;
+		try {
+	        rf = RowFilter.andFilter(filters);
+	    } catch (java.util.regex.PatternSyntaxException e) {
+	        return;
+	    }
+		
+	    sorter.setRowFilter(rf);
 	}
 	
 

@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ToolBar extends JToolBar {
 
@@ -75,6 +77,21 @@ public class ToolBar extends JToolBar {
 		btnSearch.setBackground(bela);
 		btnSearch.setToolTipText("Pretraga");
 		btnSearch.setIcon(new ImageIcon("images/magnifying_glass.png"));
+		btnSearch.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (TabbedPane.getInstance().getSelectedIndex() == 0) {
+					String input = search.getText();
+					JTableStudenti.newFilter(input);
+				}else if (TabbedPane.getInstance().getSelectedIndex() == 1) {
+					//
+				}else if (TabbedPane.getInstance().getSelectedIndex() == 2) {
+					//
+				}
+
+			}
+		});
 		add(btnSearch);
 		
 		setFloatable(false);
