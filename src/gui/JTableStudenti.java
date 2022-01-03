@@ -92,8 +92,14 @@ public class JTableStudenti extends JTable {
 		
 		List<RowFilter<AbstractTableModelStudenti, Object>> filters = new ArrayList<RowFilter<AbstractTableModelStudenti, Object>>();
 		
-			for(int i=0; i<reci.length; i++)
-				filters.add( RowFilter.regexFilter( ("(?i)" + reci[i].trim()) , 2-i ));
+			if(reci.length==3) {
+					filters.add( RowFilter.regexFilter( ("(?i)" + reci[0].trim()) , 0 ));
+				for(int i=1; i<reci.length; i++)
+					filters.add( RowFilter.regexFilter( ("(?i)" + reci[i].trim()) , 3-i ));
+			}
+			else
+				for(int i=0; i<reci.length; i++)
+					filters.add( RowFilter.regexFilter( ("(?i)" + reci[i].trim()) , 2-i ));
 		
 		
 		
