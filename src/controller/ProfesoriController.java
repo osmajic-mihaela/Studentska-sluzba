@@ -42,4 +42,9 @@ public class ProfesoriController {
 	public List<Predmet> listaPredmetaKojeNePredaje(Profesor profesor){
 		return BazaProfesora.getInstance().getListaNePredmeta(profesor);
 	}
+	
+	public void obrisiPredmetProfesoru(int index, Profesor profesor) {
+		BazaProfesora.getInstance().obrisiPredmetProfesoru(index,profesor);
+		
+	}
 }
