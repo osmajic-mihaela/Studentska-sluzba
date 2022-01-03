@@ -720,6 +720,36 @@ public class DialogIzmeniProfesora extends JDialog {
 			}
 			
 		});
+		
+		btnUkloniPredmet.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(predmetiProfesora.getSelectedRow() > -1) {
+					
+					String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da želite da uklonite predmet?", "Brisanje predmeta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					
+					if (code == JOptionPane.YES_OPTION) {
+						
+						int selectedRows[] = predmetiProfesora.getSelectedRows();
+
+						for(int i=selectedRows.length-1; i!=-1; i--) {
+							
+							ProfesoriController.getInstance().obrisiPredmetProfesoru(i, profesor);
+							azurirajPrikaz(predmetiProfesora);
+						}
+						
+						
+					}
+				}else
+					 JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Greška pri uklanjanju predmeta", JOptionPane.ERROR_MESSAGE);
+					return;
+			}
+			
+		});
 	}
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
 		if(txt.matches(regex)) {
@@ -764,5 +794,11 @@ public class DialogIzmeniProfesora extends JDialog {
 		
 		ulicaKanc = (delovi[0].substring(0, i-1)).trim();
 		brojKanc = (delovi[0].substring(i)).trim();
+	}
+	
+	public void azurirajPrikaz(JTablePredmetiPoProfesoru predmetiProfesora) {
+		AbstractTableModelPredmetiPoProfesoru predmetiModel = (AbstractTableModelPredmetiPoProfesoru) predmetiProfesora.getModel();
+		predmetiModel.fireTableDataChanged();
+		validate();
 	}
 }
