@@ -71,6 +71,18 @@ public class JTableStudenti extends JTable {
 		
 		});
 		
+		sorter.setComparator(5, new Comparator<String>() {
+
+			@Override
+			public int compare(String arg0, String arg1) {
+				
+				Double double1 = Double.parseDouble(arg0.replace(',', '.'));
+				Double double2 = Double.parseDouble(arg1.replace(',', '.'));
+				return double1.compareTo(double2);
+				}
+
+		});
+		
 		this.setRowSorter(sorter);
 		
 	}
