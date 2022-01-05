@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BazaPredmeta {
 
 	private static BazaPredmeta instance = null;
@@ -32,8 +33,9 @@ public class BazaPredmeta {
 	
 	private void initPredmeti() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("12345", "OISISI", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("12345", "OISISI", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("1", "OISISI", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("2", "nans", Semestar.ZIMSKI, "pera peric", 4, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("3", "Baze podataka", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.TRECA));
 	}
 	
 	public List<Predmet> getPredmeti(){
@@ -104,4 +106,14 @@ public class BazaPredmeta {
 		return i;
 	}
 	
+	public Predmet getPredmetByID(String id) {
+		Predmet predmet = null;
+		for(Predmet pr : predmeti) {
+			if(pr.getPredmetID().equals(id)) {
+				predmet = pr;
+				break;
+			}
+		}
+		return predmet;
+	}
 }

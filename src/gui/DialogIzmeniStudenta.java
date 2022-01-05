@@ -17,6 +17,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -314,7 +315,6 @@ public class DialogIzmeniStudenta extends JDialog {
 				
 				dispose();
 				
-				
 			}
 		});
 
@@ -398,40 +398,40 @@ public class DialogIzmeniStudenta extends JDialog {
 
 			txtDatum.getDocument().addDocumentListener(new DocumentListener() {
 	
-			@Override
-			public void removeUpdate(DocumentEvent e) {
-				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
-				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
-					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-				else
-					txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-				btnPotvrdi.setEnabled(enablePotvrdi());
-			}
-	
-			@Override
-			public void insertUpdate(DocumentEvent e) {
-				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
-				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
-					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-				else
-					txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-				btnPotvrdi.setEnabled(enablePotvrdi());
+				@Override
+				public void removeUpdate(DocumentEvent e) {
+					datumRodjenja = txtDatum.getText();
+					String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+					if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
+						txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());
+				}
 		
-			}
-	
-			@Override
-			public void changedUpdate(DocumentEvent e) {
-				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
-				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
-					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-				else
-			txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
-				btnPotvrdi.setEnabled(enablePotvrdi());
+				@Override
+				public void insertUpdate(DocumentEvent e) {
+					datumRodjenja = txtDatum.getText();
+					String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+					if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
+						txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+						txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());
+			
+				}
 		
-			}
+				@Override
+				public void changedUpdate(DocumentEvent e) {
+					datumRodjenja = txtDatum.getText();
+					String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+					if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
+						txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+					else
+				txtDatum.setBorder(UIManager.getLookAndFeel().getDefaults().getBorder("TextField.border"));
+					btnPotvrdi.setEnabled(enablePotvrdi());
+			
+				}
 			});
 
 			txtAdresa.getDocument().addDocumentListener(new DocumentListener() {
@@ -604,7 +604,66 @@ public class DialogIzmeniStudenta extends JDialog {
 			});
 					
 			
-			
+		JPanel btnNepolozeniPanel = new JPanel();
+		BoxLayout btnNepolozeniLayout = new BoxLayout(btnNepolozeniPanel, BoxLayout.X_AXIS);
+		btnNepolozeniPanel.setLayout(btnNepolozeniLayout);
+		btnNepolozeniPanel.setPreferredSize(new Dimension(750, 70));
+		
+		JButton btnDodaj = new JButton("Dodaj");
+		btnDodaj.setPreferredSize(new Dimension(70, 30));
+		btnNepolozeniPanel.add(Box.createHorizontalStrut(50));
+		btnNepolozeniPanel.add(btnDodaj);
+		
+		JButton btnObrisi = new JButton("Obriši");
+		btnObrisi.setPreferredSize(new Dimension(70, 30));
+		btnNepolozeniPanel.add(Box.createHorizontalStrut(25));
+		btnNepolozeniPanel.add(btnObrisi);
+		
+		JButton btnPolaganje = new JButton("Polaganje");
+		btnPolaganje.setPreferredSize(new Dimension(100, 30));
+		btnNepolozeniPanel.add(Box.createHorizontalStrut(25));
+		btnNepolozeniPanel.add(btnPolaganje);
+		
+		btnNepolozeniPanel.add(Box.createHorizontalGlue());
+		panelNepolozeni.add(btnNepolozeniPanel, BorderLayout.NORTH);
+		
+		JPanel leviPanel = new JPanel();
+		leviPanel.setPreferredSize(new Dimension(50, 750));
+		panelNepolozeni.add(leviPanel, BorderLayout.WEST);
+		
+		JPanel desniPanel = new JPanel();
+		desniPanel.setPreferredSize(new Dimension(50, 750));
+		panelNepolozeni.add(desniPanel, BorderLayout.EAST);
+		
+		JPanel donjiPanel = new JPanel();
+		donjiPanel.setPreferredSize(new Dimension(750, 50));
+		panelNepolozeni.add(donjiPanel, BorderLayout.SOUTH);
+		
+		JTableNepolozeniPredmeti nepolozeniPredmeti = new JTableNepolozeniPredmeti(student);
+		JScrollPane nepolozeniScrollPane = new JScrollPane(nepolozeniPredmeti);
+		nepolozeniScrollPane.setPreferredSize(new Dimension(300, 300));
+		panelNepolozeni.add(nepolozeniScrollPane, BorderLayout.CENTER);
+		
+		btnDodaj.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dijalog za dodavanje
+			}
+		});
+		
+		btnObrisi.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// dijalog za brisanje logicno, jel
+			}
+		});
+		
+		btnPolaganje.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//dijalog polaganje
+			}
+		});
 		}
 		
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
