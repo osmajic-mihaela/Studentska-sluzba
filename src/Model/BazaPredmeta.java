@@ -26,9 +26,9 @@ public class BazaPredmeta {
 		kolone = new ArrayList<String>();
 		kolone.add("�ifra predmeta");
 		kolone.add("Naziv predmeta");
-		kolone.add("Broj ESPB bodova");
-		kolone.add("Godina na kojoj se predmet izvodi");
-		kolone.add("Semestar u kome se predmet izvodi");
+		kolone.add("ESPB");
+		kolone.add("Godina");
+		kolone.add("Semestar");
 	}
 	
 	private void initPredmeti() {

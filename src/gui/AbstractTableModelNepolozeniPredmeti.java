@@ -51,13 +51,13 @@ public class AbstractTableModelNepolozeniPredmeti extends AbstractTableModel {
     public String getColumnName(int column){
         switch(column) {
         	case 0:
-        		return "Šifra predmeta";
+        		return "Šifra";
         	case 1:
-        		return "Naziv predmeta";
+        		return "Naziv";
         	case 2:
         		return "ESPB";
         	case 3:
-        		return "Godina studija";
+        		return "Godina";
         	case 4:
         		return "Semestar";
         	default:
