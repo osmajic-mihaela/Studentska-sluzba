@@ -14,6 +14,7 @@ public class Student extends Osoba {
 	private Status status;
 	private ArrayList<String> polozeniPred; //ocenaID
 	private ArrayList<String> nepolozeniPred; //PredmetID 
+	private int ukupnoESPB;
 	
 
 	public Student(String ime,String prezime, LocalDate datumRodj,String kontaktBroj,String email,
@@ -34,6 +35,7 @@ public class Student extends Osoba {
 		this.adresaStan=new Adresa(ulica,broj,grad,drzava);
 	    this.nepolozeniPred= new ArrayList<String>();
 		this.polozeniPred= new ArrayList<String>();
+		this.ukupnoESPB=0;
 		
 	}
 
@@ -96,6 +98,39 @@ public class Student extends Osoba {
 	public void setNepolozeniPred(ArrayList<String> nepolozeniPred) {
 		this.nepolozeniPred = nepolozeniPred;
 	}
+
+
+	public int getUkupnoESPB() {
+		return ukupnoESPB;
+	}
+
+
+	public void setUkupnoESPB(int ukupnoESPB) {
+		this.ukupnoESPB = ukupnoESPB;
+	}
+
+
+	private void setProsecnaOcena(double prosecnaOcena) {
+		this.prosecnaOcena = prosecnaOcena;
+	}
+	
+	public void azurirajProsecnuOcenu(int novaOcena) {
+		
+		double sumaOcena= this.prosecnaOcena * this.getPolozeniPred().size();
+		sumaOcena+=novaOcena;
+		
+		if(this.getPolozeniPred().size()==0)
+		{
+			this.setProsecnaOcena(sumaOcena);
+			return ;
+		}
+		
+		this.setProsecnaOcena(sumaOcena/this.getPolozeniPred().size());
+		
+	}
+	
+	
+	
 	
 
 
