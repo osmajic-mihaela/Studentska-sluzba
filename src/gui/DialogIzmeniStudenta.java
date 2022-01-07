@@ -614,7 +614,7 @@ public class DialogIzmeniStudenta extends JDialog {
 		btnNepolozeniPanel.add(Box.createHorizontalStrut(50));
 		btnNepolozeniPanel.add(btnDodaj);
 		
-		JButton btnObrisi = new JButton("Obriši");
+		JButton btnObrisi = new JButton("Obriï¿½i");
 		btnObrisi.setPreferredSize(new Dimension(70, 30));
 		btnNepolozeniPanel.add(Box.createHorizontalStrut(25));
 		btnNepolozeniPanel.add(btnObrisi);
@@ -654,7 +654,28 @@ public class DialogIzmeniStudenta extends JDialog {
 		btnObrisi.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// dijalog za brisanje logicno, jel
+				if(nepolozeniPredmeti.getSelectedRow() > -1) {
+					
+					String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da Å¾elite da uklonite predmet?", "Uklanjanje predmeta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					
+					if (code == JOptionPane.YES_OPTION) {
+						
+						int selectedRows[] = nepolozeniPredmeti.getSelectedRows();
+
+						for(int i=selectedRows.length-1; i!=-1; i--) {
+							
+							student.getNepolozeniPred().remove(i);
+							azurirajPrikazNepolozenih(nepolozeniPredmeti);
+						}
+						
+						
+					}
+				}else
+					 JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "GreÅ¡ka pri uklanjanju predmeta", JOptionPane.ERROR_MESSAGE);
+					return;
 			}
 		});
 		
@@ -666,7 +687,7 @@ public class DialogIzmeniStudenta extends JDialog {
 					duo.setVisible(true);
 				}
 				else{
-					JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Greška pri upisivanju ocene", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Greï¿½ka pri upisivanju ocene", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				
@@ -709,5 +730,11 @@ public class DialogIzmeniStudenta extends JDialog {
 		broj=(delovi[0].substring(i)).trim();
 		grad=(delovi[1]).trim();
 		drzava=(delovi[2]).trim();
+	}
+	
+	public void azurirajPrikazNepolozenih(JTableNepolozeniPredmeti nepolozeniPredmeti) {
+		AbstractTableModelNepolozeniPredmeti nepolozeniModel= (AbstractTableModelNepolozeniPredmeti) nepolozeniPredmeti.getModel();
+		nepolozeniModel.fireTableDataChanged();
+		validate();
 	}
 }
