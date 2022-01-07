@@ -36,4 +36,8 @@ public class StudentiController {
 		BazaStudenata.getInstance().obrisiStudenta(index);
 		TabbedPane.getInstance().azurirajPrikaz(1);
 	}
+	
+	public void updatePrikaz() {
+		TabbedPane.getInstance().azurirajPrikaz(1);
+	}
 }

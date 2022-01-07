@@ -23,6 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 
 import controller.StudentiController;
 import model.GodinaStudiranja;
@@ -693,6 +695,77 @@ public class DialogIzmeniStudenta extends JDialog {
 				
 			}
 		});
+		
+		//////////////////////////////////////////////////////////////////
+		JPanel btnPolozeniPanel = new JPanel();
+		btnPolozeniPanel.setLayout(new BoxLayout(btnPolozeniPanel, BoxLayout.X_AXIS));
+		
+		JButton btnPonistiOcenu = new JButton("Ponisti ocenu");
+		btnPonistiOcenu.setPreferredSize(new Dimension(150, 30));
+		
+		btnPolozeniPanel.add(Box.createHorizontalStrut(25));
+		btnPolozeniPanel.add(btnPonistiOcenu);
+		btnPolozeniPanel.add(Box.createHorizontalGlue());
+		btnPolozeniPanel.setPreferredSize(new Dimension(750, 50));
+		panelPolozeni.add(btnPolozeniPanel, BorderLayout.NORTH);
+		
+		
+		JTablePolozeniIspiti polozeniPredmeti = new JTablePolozeniIspiti(student);
+		JScrollPane polozeniScrollPane = new JScrollPane(polozeniPredmeti);
+		polozeniScrollPane.setPreferredSize(new Dimension(300, 300));
+		panelPolozeni.add(polozeniScrollPane, BorderLayout.CENTER);
+		
+		JPanel levi = new JPanel();
+		levi.setPreferredSize(new Dimension(25, 750));
+		panelPolozeni.add(levi, BorderLayout.WEST);
+		
+		JPanel desni = new JPanel();
+		desni.setPreferredSize(new Dimension(25, 750));
+		panelPolozeni.add(desni, BorderLayout.EAST);
+		
+		JPanel donji = new JPanel();
+		donji.setLayout(new BoxLayout(donji, BoxLayout.Y_AXIS));
+		panelPolozeni.add(donji, BorderLayout.SOUTH);
+		
+		JPanel panelOcene1 = new JPanel();
+		panelOcene1.setLayout(new BoxLayout(panelOcene1, BoxLayout.X_AXIS));
+		
+		JPanel panelBodovi1 = new JPanel();
+		panelBodovi1.setLayout(new BoxLayout(panelBodovi1, BoxLayout.X_AXIS));
+		
+		JLabel srednjaOcena = new JLabel("Prosecna ocena:  " + student.getProsecnaOcena());
+		panelOcene1.add(Box.createHorizontalGlue());
+		panelOcene1.add(srednjaOcena);
+		panelOcene1.add(Box.createHorizontalStrut(30));
+		
+		JLabel ukupniBodovi = new JLabel("Ukupno ESPB:  " + student.getUkupnoESPB());
+		panelBodovi1.add(Box.createHorizontalGlue());
+		panelBodovi1.add(ukupniBodovi);
+		panelBodovi1.add(Box.createHorizontalStrut(30));
+		
+		donji.add(Box.createVerticalStrut(10));
+		donji.add(panelOcene1);
+		donji.add(Box.createVerticalStrut(10));
+		donji.add(panelBodovi1);
+		donji.add(Box.createVerticalStrut(10));
+		
+		polozeniPredmeti.getModel().addTableModelListener(new TableModelListener() {	
+		
+		@Override
+		public void tableChanged(TableModelEvent arg0) {
+		
+			srednjaOcena.setText("Prosecna ocena:  " + student.getProsecnaOcena());
+			ukupniBodovi.setText("Ukupno ESPB:  " + student.getUkupnoESPB());
+		
+			StudentiController.getInstance().updatePrikaz();
+		
+		
+			}
+		
+		});
+
+		
+		
 		}
 		
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
