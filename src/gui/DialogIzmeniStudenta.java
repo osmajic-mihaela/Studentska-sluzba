@@ -647,7 +647,7 @@ public class DialogIzmeniStudenta extends JDialog {
 		btnDodaj.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// dijalog za dodavanje
+				
 			}
 		});
 		
@@ -661,7 +661,15 @@ public class DialogIzmeniStudenta extends JDialog {
 		btnPolaganje.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//dijalog polaganje
+				if(nepolozeniPredmeti.getSelectedRow() > -1) {
+					DialogUpisOcene duo = new DialogUpisOcene(nepolozeniPredmeti, student);
+					duo.setVisible(true);
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Greška pri upisivanju ocene", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+				
 			}
 		});
 		}
