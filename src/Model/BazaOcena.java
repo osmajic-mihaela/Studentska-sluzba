@@ -22,10 +22,11 @@ public class BazaOcena {
 		initOcene();
 		
 		kolone = new ArrayList<String>();
-		kolone.add("Broj indeksa studenta");
 		kolone.add("Sifra predmeta");
-		kolone.add("Vrednost ocene");
-		kolone.add("Datum polaganja");
+		kolone.add("Naziv predmeta");
+		kolone.add("ESPB");
+		kolone.add("Ocena");
+		kolone.add("Datum");
 	}
 	
 	private void initOcene() {
@@ -41,7 +42,7 @@ public class BazaOcena {
 	}
 	
 	public int getColumnCount() {
-		return 4;
+		return 5;
 	}
 	
 	public String getColumnName(int index) {
@@ -56,12 +57,14 @@ public class BazaOcena {
 		Ocena ocena = this.ocene.get(row);
 		switch(column) {
 			case 0:
-				return ocena.getStudentIndeks();
-			case 1:
 				return ocena.getPredmetID();
+			case 1:
+				return BazaPredmeta.getInstance().getPredmetByID(ocena.getPredmetID()).getNazivPredmeta();
 			case 2:
-				return ocena.getVrednostOcene()+"";
+				return BazaPredmeta.getInstance().getPredmetByID(ocena.getPredmetID()).getBrESPB()+"";
 			case 3:
+				return ocena.getVrednostOcene()+"";
+			case 4:
 				return ocena.getDatumPolaganja()+"";
 			default:
 				return null;

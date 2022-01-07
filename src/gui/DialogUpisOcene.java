@@ -134,7 +134,7 @@ public class DialogUpisOcene extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				
 				String vrOcene = vrednostOcene.getSelectedItem().toString();
-				VrednostOcene vrOc;
+				VrednostOcene vrOc = VrednostOcene.SEST;
 				
 				if(vrOcene.equals("6")) {
 					vrOc = VrednostOcene.SEST;
