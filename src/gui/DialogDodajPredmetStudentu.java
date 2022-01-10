@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
@@ -113,7 +114,9 @@ public class DialogDodajPredmetStudentu extends JDialog{
 					
 					azurirajPrikaz();
 					dispose();
-				}
+				}else
+					JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Greška pri dodavanju studenta na predmet", JOptionPane.ERROR_MESSAGE);
+					return;
 			}});
 		
 		btnOdustani.addActionListener(new ActionListener() {
