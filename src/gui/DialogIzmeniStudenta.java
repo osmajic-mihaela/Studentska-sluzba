@@ -667,10 +667,9 @@ public class DialogIzmeniStudenta extends JDialog {
 						int selectedRows[] = nepolozeniPredmeti.getSelectedRows();
 
 						for(int i=selectedRows.length-1; i!=-1; i--) {
-							
-							student.getNepolozeniPred().remove(i);
 							String idPredmetaZaBrisanje=(String)nepolozeniPredmeti.getValueAt(i, 0) ;
 							PredmetiController.getInstance().getPredmetByID(idPredmetaZaBrisanje).getSpisakNepolozenih().remove(student.getBrIndeksa());
+							student.getNepolozeniPred().remove(i);
 							azurirajPrikazNepolozenih(nepolozeniPredmeti);
 						}
 						
