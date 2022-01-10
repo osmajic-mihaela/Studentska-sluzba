@@ -26,6 +26,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
+import controller.PredmetiController;
 import controller.StudentiController;
 import model.GodinaStudiranja;
 import model.Status;
@@ -670,6 +671,8 @@ public class DialogIzmeniStudenta extends JDialog {
 						for(int i=selectedRows.length-1; i!=-1; i--) {
 							
 							student.getNepolozeniPred().remove(i);
+							String idPredmetaZaBrisanje=(String)nepolozeniPredmeti.getValueAt(i, 0) ;
+							PredmetiController.getInstance().getPredmetByID(idPredmetaZaBrisanje).getSpisakNepolozenih().remove(student.getBrIndeksa());
 							azurirajPrikazNepolozenih(nepolozeniPredmeti);
 						}
 						

@@ -36,4 +36,8 @@ public class PredmetiController {
 		BazaPredmeta.getInstance().obrisiPredmet(selectedIndex);
 		TabbedPane.getInstance().azurirajPrikaz(3);
 	}
+	
+	public Predmet getPredmetByID(String id) {
+		return BazaPredmeta.getInstance().getPredmetByID(id);
+	}
 }
