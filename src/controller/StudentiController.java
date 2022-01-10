@@ -4,6 +4,7 @@ import java.util.List;
 
 import gui.TabbedPane;
 import model.BazaStudenata;
+import model.Predmet;
 import model.Student;
 
 public class StudentiController {
@@ -39,5 +40,9 @@ public class StudentiController {
 	
 	public void updatePrikaz() {
 		TabbedPane.getInstance().azurirajPrikaz(1);
+	}
+	
+	public List<Predmet> listaPredmetaZaDodavanje(Student student){
+		return BazaStudenata.getInstance().getListaNePredmeta(student);
 	}
 }
