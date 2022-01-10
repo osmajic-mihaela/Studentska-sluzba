@@ -113,4 +113,20 @@ public class BazaStudenata {
 	public void obrisiStudenta(int index) {
 		this.studenti.remove(index);
 	}
+	
+	public List<Predmet> getListaNePredmeta(Student student){
+
+		
+		List<Predmet> predmetiZaDodavanje= new ArrayList<Predmet>();
+		
+			 
+			 for(Predmet prIzSvih : BazaPredmeta.getInstance().getPredmeti()) {
+				 if(!student.getNepolozeniPred().contains(prIzSvih.getPredmetID())  && !student.getPolozeniPred().contains(prIzSvih.getPredmetID()) && prIzSvih.getGodStudija().ordinal()>= student.getTrenutnaGodStud().ordinal()   ) {
+					 predmetiZaDodavanje.add(prIzSvih);
+				 }
+			 }
+			 
+		
+		 return predmetiZaDodavanje;
+	}
 }

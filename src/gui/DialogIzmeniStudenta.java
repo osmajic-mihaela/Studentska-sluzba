@@ -650,7 +650,8 @@ public class DialogIzmeniStudenta extends JDialog {
 		btnDodaj.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				DialogDodajPredmetStudentu ddps = new DialogDodajPredmetStudentu(student, nepolozeniPredmeti);
+				ddps.setVisible(true);
 			}
 		});
 		
