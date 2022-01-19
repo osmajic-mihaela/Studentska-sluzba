@@ -36,13 +36,15 @@ public class DialogUpisOcene extends JDialog {
 	
 	private boolean ispravno = false;
 	private JTableNepolozeniPredmeti nepolozeni;
+	private JTablePolozeniIspiti polozeni;
 	private String datumPolaganja;
 	
-	public DialogUpisOcene(JTableNepolozeniPredmeti nepolozeni, Student student) {
+	public DialogUpisOcene(JTableNepolozeniPredmeti nepolozeniPr, JTablePolozeniIspiti polozeniIs, Student student) {
 		
 		super();
 		
-		this.nepolozeni = nepolozeni;
+		this.nepolozeni = nepolozeniPr;
+		this.polozeni = polozeniIs;
 		
 		String id = student.getNepolozeniPred().get(nepolozeni.getSelectedRow());
 		Predmet predmet = BazaPredmeta.getInstance().getPredmetByID(id);
@@ -157,9 +159,19 @@ public class DialogUpisOcene extends JDialog {
 				}
 				
 				LocalDate datumPol = LocalDate.parse(datumPolaganja, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+				Ocena ocena = new Ocena(predmet.getPredmetID(), student.getBrIndeksa(), vrOc, datumPol );
 				
-				BazaOcena.getInstance().dodajOcenu(new Ocena(predmet.getPredmetID(), student.getBrIndeksa(), vrOc, datumPol ));
+				BazaOcena.getInstance().dodajOcenu(ocena);
+				student.obrisiNepolozeni(predmet.getPredmetID());
+				student.getPolozeniPred().add(ocena.getOcenaID());
+				student.azurirajOcenaESPB();
 				
+				Predmet p = BazaPredmeta.getInstance().getPredmetByID(ocena.getPredmetID());
+				p.obrisiNepolozeniByID(student.getBrIndeksa());
+				p.getSpisakPolozenih().add(ocena.getOcenaID());
+				
+				azurirajNepolozene(nepolozeni);
+				azurirajPolozene(polozeni);
 				dispose();
 			}
 		});
@@ -217,5 +229,16 @@ public class DialogUpisOcene extends JDialog {
 				btnPotvrdi.setEnabled(ispravno);
 			}
 		});	
+	}
+	
+	public void azurirajNepolozene(JTableNepolozeniPredmeti nepolozeni) {
+		AbstractTableModelNepolozeniPredmeti nepolozeniModel = (AbstractTableModelNepolozeniPredmeti) nepolozeni.getModel();
+		nepolozeniModel.fireTableDataChanged();
+		validate();
+	}
+	public void azurirajPolozene(JTablePolozeniIspiti polozeni) {
+		AbstractTableModelPolozeniIspiti polozeniModel = (AbstractTableModelPolozeniIspiti) polozeni.getModel();
+		polozeniModel.fireTableDataChanged();
+		validate();
 	}
 }

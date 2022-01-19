@@ -25,7 +25,11 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import controller.StudentiController;
+import model.BazaOcena;
+import model.BazaPredmeta;
 import model.GodinaStudiranja;
+import model.Ocena;
+import model.Predmet;
 import model.Status;
 import model.Student;
 
@@ -654,14 +658,61 @@ public class DialogIzmeniStudenta extends JDialog {
 		btnObrisi.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< Updated upstream
 				// dijalog za brisanje logicno, jel
 			}
 		});
+=======
+				if(nepolozeniPredmeti.getSelectedRow() > -1) {
+					
+					String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da uklonite predmet?", "Uklanjanje predmeta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					
+					if (code == JOptionPane.YES_OPTION) {
+						
+						int selectedRows[] = nepolozeniPredmeti.getSelectedRows();
+
+						for(int i=selectedRows.length-1; i!=-1; i--) {
+							String idPredmetaZaBrisanje=(String)nepolozeniPredmeti.getValueAt(i, 0) ;
+							PredmetiController.getInstance().getPredmetByID(idPredmetaZaBrisanje).getSpisakNepolozenih().remove(student.getBrIndeksa());
+							student.getNepolozeniPred().remove(i);
+							azurirajPrikazNepolozenih(nepolozeniPredmeti);
+						}
+						
+						
+					}
+				}else
+					 JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Greška pri uklanjanju predmeta", JOptionPane.ERROR_MESSAGE);
+					return;
+			}
+		});
+		//////////////////////////////////////////////////////////////////
+		JPanel btnPolozeniPanel = new JPanel();
+		btnPolozeniPanel.setLayout(new BoxLayout(btnPolozeniPanel, BoxLayout.X_AXIS));
+		
+		JButton btnPonistiOcenu = new JButton("Ponisti ocenu");
+		btnPonistiOcenu.setPreferredSize(new Dimension(150, 30));
+		
+		btnPolozeniPanel.add(Box.createHorizontalStrut(25));
+		btnPolozeniPanel.add(btnPonistiOcenu);
+		btnPolozeniPanel.add(Box.createHorizontalGlue());
+		btnPolozeniPanel.setPreferredSize(new Dimension(750, 50));
+		panelPolozeni.add(btnPolozeniPanel, BorderLayout.NORTH);
+		
+		
+		JTablePolozeniIspiti polozeniPredmeti = new JTablePolozeniIspiti(student);
+		JScrollPane polozeniScrollPane = new JScrollPane(polozeniPredmeti);
+		polozeniScrollPane.setPreferredSize(new Dimension(300, 300));
+		panelPolozeni.add(polozeniScrollPane, BorderLayout.CENTER);
+>>>>>>> Stashed changes
 		
 		btnPolaganje.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(nepolozeniPredmeti.getSelectedRow() > -1) {
+<<<<<<< Updated upstream
 					DialogUpisOcene duo = new DialogUpisOcene(nepolozeniPredmeti, student);
 					duo.setVisible(true);
 				}
@@ -672,6 +723,71 @@ public class DialogIzmeniStudenta extends JDialog {
 				
 			}
 		});
+=======
+					DialogUpisOcene duo = new DialogUpisOcene(nepolozeniPredmeti, polozeniPredmeti, student);
+					duo.setVisible(true);
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Gre�ka pri upisivanju ocene", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+			}
+		});
+		
+		
+		
+		JPanel levi = new JPanel();
+		levi.setPreferredSize(new Dimension(25, 750));
+		panelPolozeni.add(levi, BorderLayout.WEST);
+		
+		JPanel desni = new JPanel();
+		desni.setPreferredSize(new Dimension(25, 750));
+		panelPolozeni.add(desni, BorderLayout.EAST);
+		
+		JPanel donji = new JPanel();
+		donji.setLayout(new BoxLayout(donji, BoxLayout.Y_AXIS));
+		panelPolozeni.add(donji, BorderLayout.SOUTH);
+		
+		JPanel panelOcene1 = new JPanel();
+		panelOcene1.setLayout(new BoxLayout(panelOcene1, BoxLayout.X_AXIS));
+		
+		JPanel panelBodovi1 = new JPanel();
+		panelBodovi1.setLayout(new BoxLayout(panelBodovi1, BoxLayout.X_AXIS));
+		
+		JLabel srednjaOcena = new JLabel("Prosecna ocena:  " + student.getProsecnaOcena());
+		panelOcene1.add(Box.createHorizontalGlue());
+		panelOcene1.add(srednjaOcena);
+		panelOcene1.add(Box.createHorizontalStrut(30));
+		
+		JLabel ukupniBodovi = new JLabel("Ukupno ESPB:  " + student.getUkupnoESPB());
+		panelBodovi1.add(Box.createHorizontalGlue());
+		panelBodovi1.add(ukupniBodovi);
+		panelBodovi1.add(Box.createHorizontalStrut(30));
+		
+		donji.add(Box.createVerticalStrut(10));
+		donji.add(panelOcene1);
+		donji.add(Box.createVerticalStrut(10));
+		donji.add(panelBodovi1);
+		donji.add(Box.createVerticalStrut(10));
+		
+		polozeniPredmeti.getModel().addTableModelListener(new TableModelListener() {	
+		
+		@Override
+		public void tableChanged(TableModelEvent arg0) {
+		
+			srednjaOcena.setText("Prosecna ocena:  " + student.getProsecnaOcena());
+			ukupniBodovi.setText("Ukupno ESPB:  " + student.getUkupnoESPB());
+		
+			StudentiController.getInstance().updatePrikaz();
+		
+		
+			}
+		
+		});
+
+		
+		
+>>>>>>> Stashed changes
 		}
 		
 	private boolean proveraUnosaPolja(String txt,String regex,int i) {
@@ -710,4 +826,19 @@ public class DialogIzmeniStudenta extends JDialog {
 		grad=(delovi[1]).trim();
 		drzava=(delovi[2]).trim();
 	}
+<<<<<<< Updated upstream
+=======
+	
+	public void azurirajPrikazNepolozenih(JTableNepolozeniPredmeti nepolozeniPredmeti) {
+		AbstractTableModelNepolozeniPredmeti nepolozeniModel= (AbstractTableModelNepolozeniPredmeti) nepolozeniPredmeti.getModel();
+		nepolozeniModel.fireTableDataChanged();
+		validate();
+	}
+	
+	public void azurirajPolozene(JTablePolozeniIspiti polozeni) {
+		AbstractTableModelPolozeniIspiti polozeniModel= (AbstractTableModelPolozeniIspiti) polozeni.getModel();
+		polozeniModel.fireTableDataChanged();
+		validate();
+	}
+>>>>>>> Stashed changes
 }
