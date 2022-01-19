@@ -720,7 +720,39 @@ public class DialogIzmeniStudenta extends JDialog {
 			}
 		});
 		
-		
+		btnPonistiOcenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(polozeniPredmeti.getSelectedRow() > -1) {
+					
+					String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da ponistite ocenu?", "Ponistavanje ocene", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					Ocena ocena = BazaOcena.getInstance().getOcenaByID(student.getPolozeniPred().get(selectedIndex));
+					if(code == JOptionPane.YES_OPTION) {
+						
+						student.obrisiPolozeni(ocena.getOcenaID());
+						student.getNepolozeniPred().add(ocena.getPredmetID());
+						student.azurirajOcenaESPB();
+						
+						Predmet p = BazaPredmeta.getInstance().getPredmetByID(ocena.getPredmetID());
+						p.obrisiPolozeniByID(ocena.getOcenaID());
+						p.getSpisakNepolozenih().add(student.getBrIndeksa());
+						
+						BazaOcena.getInstance().obrisiOcenu(ocena.getOcenaID());
+						
+						azurirajPrikazNepolozenih(nepolozeniPredmeti);
+						azurirajPolozene(polozeniPredmeti);
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Morate selektovati neku ocenu", "Gre�ka pri ponistavanju ocene", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+					
+			}
+		});
 		
 		JPanel levi = new JPanel();
 		levi.setPreferredSize(new Dimension(25, 750));
