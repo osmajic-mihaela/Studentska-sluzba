@@ -255,7 +255,7 @@ public class DialogIzmeniProfesora extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				for(Profesor p : ProfesoriController.getInstance().getListaSvihProfesora()) {
-					if(p != ProfesoriController.getInstance().getListaSvihProfesora().get(selectedIndex) && (p.getBrLicne() == Integer.parseInt(brLicne))) {
+					if((p != ProfesoriController.getInstance().getListaSvihProfesora().get(selectedIndex)) && (p.getBrLicne() == Integer.parseInt(brLicne))) {
 						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem li�ne karte ve� postoji u sistemu", "Gre�ka pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
 						return;
 					}

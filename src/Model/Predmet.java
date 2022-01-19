@@ -96,7 +96,27 @@ public class Predmet {
 		this.spisakNepolozenih = spisakNepolozenih;
 	}
 
-
+	public void obrisiNepolozeniByID(String id) {
+		int counter = 0;
+		for(String s : spisakNepolozenih) {
+			if(s == id) {
+				spisakNepolozenih.remove(counter);
+				break;
+			}
+			counter += 1;
+		}
+	}
+	
+	public void obrisiPolozeniByID(String id) {
+		int counter = 0;
+		for(String s : spisakPolozenih) {
+			if(s == id) {
+				spisakPolozenih.remove(counter);
+				break;
+			}
+			counter += 1;
+		}
+	}
 
 
 	
