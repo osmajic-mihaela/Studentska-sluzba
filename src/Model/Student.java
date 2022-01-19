@@ -114,24 +114,61 @@ public class Student extends Osoba {
 		this.prosecnaOcena = prosecnaOcena;
 	}
 	
-	public void azurirajProsecnuOcenu(int novaOcena) {
-		
-		double sumaOcena= this.prosecnaOcena * this.getPolozeniPred().size();
-		sumaOcena+=novaOcena;
-		
-		if(this.getPolozeniPred().size()==0)
-		{
-			this.setProsecnaOcena(sumaOcena);
-			return ;
+	
+	public void azurirajOcenaESPB() {
+		int bodovi = 0;
+		double prosek = 0;
+		int counter = 0;
+		for(String s : polozeniPred) {
+			Ocena o = BazaOcena.getInstance().getOcenaByID(s);
+			if(o.getVrednostOcene() == VrednostOcene.SEST) {
+				prosek += 6;
+			}
+			else if(o.getVrednostOcene() == VrednostOcene.SEDAM) {
+				prosek += 7;
+			}
+			else if(o.getVrednostOcene() == VrednostOcene.OSAM) {
+				prosek += 8;
+			}
+			else if(o.getVrednostOcene() == VrednostOcene.DEVET) {
+				prosek += 9;
+			}
+			else if(o.getVrednostOcene() == VrednostOcene.DESET) {
+				prosek += 10;	
+			}
+			
+			counter += 1;
+			String id = o.getPredmetID();
+			Predmet p = BazaPredmeta.getInstance().getPredmetByID(id);
+			bodovi += p.getBrESPB();
+			
 		}
-		
-		this.setProsecnaOcena(sumaOcena/this.getPolozeniPred().size());
-		
+		if(counter == 0) {
+			prosek = 0;
+		}
+		prosek = prosek/counter;
+		prosek = Math.round(prosek * 100.0) / 100.0;
+		this.setProsecnaOcena(prosek);
+		this.setUkupnoESPB(bodovi);
 	}
 	
+	public void obrisiNepolozeni(String id) {
+		int index = -1;
+		for(String s : nepolozeniPred) {
+			if(id == s) {
+				index = nepolozeniPred.indexOf(s);
+			}
+		}
+		nepolozeniPred.remove(index);
+	}
 	
-	
-	
-
-
+	public void obrisiPolozeni(String id) {
+		int index = -1;
+		for(String s : polozeniPred) {
+			if(id == s) {
+				index = polozeniPred.indexOf(s);
+			}
+		}
+		polozeniPred.remove(index);
+	}
 }

@@ -52,11 +52,4 @@ public class Ocena {
 	public void setStudentIndeks(String studentIndeks) {
 		this.studentIndeks = studentIndeks;
 	}
-	
-	
-	
-	
-	
-	
-
 }

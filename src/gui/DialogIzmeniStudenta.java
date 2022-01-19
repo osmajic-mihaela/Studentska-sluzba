@@ -28,7 +28,11 @@ import javax.swing.event.TableModelListener;
 
 import controller.PredmetiController;
 import controller.StudentiController;
+import model.BazaOcena;
+import model.BazaPredmeta;
 import model.GodinaStudiranja;
+import model.Ocena;
+import model.Predmet;
 import model.Status;
 import model.Student;
 
@@ -663,7 +667,7 @@ public class DialogIzmeniStudenta extends JDialog {
 					String[] options = new String[2];
 					options[0] = new String ("Da");
 					options[1] = new String ("Ne");
-					int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(), "Da li ste sigurni da želite da uklonite predmet?", "Uklanjanje predmeta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					int code = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da uklonite predmet?", "Uklanjanje predmeta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
 					
 					if (code == JOptionPane.YES_OPTION) {
 						
@@ -683,22 +687,6 @@ public class DialogIzmeniStudenta extends JDialog {
 					return;
 			}
 		});
-		
-		btnPolaganje.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(nepolozeniPredmeti.getSelectedRow() > -1) {
-					DialogUpisOcene duo = new DialogUpisOcene(nepolozeniPredmeti, student);
-					duo.setVisible(true);
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Gre�ka pri upisivanju ocene", JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-				
-			}
-		});
-		
 		//////////////////////////////////////////////////////////////////
 		JPanel btnPolozeniPanel = new JPanel();
 		btnPolozeniPanel.setLayout(new BoxLayout(btnPolozeniPanel, BoxLayout.X_AXIS));
@@ -717,6 +705,54 @@ public class DialogIzmeniStudenta extends JDialog {
 		JScrollPane polozeniScrollPane = new JScrollPane(polozeniPredmeti);
 		polozeniScrollPane.setPreferredSize(new Dimension(300, 300));
 		panelPolozeni.add(polozeniScrollPane, BorderLayout.CENTER);
+		
+		btnPolaganje.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(nepolozeniPredmeti.getSelectedRow() > -1) {
+					DialogUpisOcene duo = new DialogUpisOcene(nepolozeniPredmeti, polozeniPredmeti, student);
+					duo.setVisible(true);
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "Morate selektovati neki predmet", "Gre�ka pri upisivanju ocene", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+			}
+		});
+		
+		btnPonistiOcenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(polozeniPredmeti.getSelectedRow() > -1) {
+					
+					String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da ponistite ocenu?", "Ponistavanje ocene", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					Ocena ocena = BazaOcena.getInstance().getOcenaByID(student.getPolozeniPred().get(selectedIndex));
+					if(code == JOptionPane.YES_OPTION) {
+						
+						student.obrisiPolozeni(ocena.getOcenaID());
+						student.getNepolozeniPred().add(ocena.getPredmetID());
+						student.azurirajOcenaESPB();
+						
+						Predmet p = BazaPredmeta.getInstance().getPredmetByID(ocena.getPredmetID());
+						p.obrisiPolozeniByID(ocena.getOcenaID());
+						p.getSpisakNepolozenih().add(student.getBrIndeksa());
+						
+						BazaOcena.getInstance().obrisiOcenu(ocena.getOcenaID());
+						
+						azurirajPrikazNepolozenih(nepolozeniPredmeti);
+						azurirajPolozene(polozeniPredmeti);
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Morate selektovati neku ocenu", "Gre�ka pri ponistavanju ocene", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+					
+			}
+		});
 		
 		JPanel levi = new JPanel();
 		levi.setPreferredSize(new Dimension(25, 750));
@@ -811,6 +847,12 @@ public class DialogIzmeniStudenta extends JDialog {
 	public void azurirajPrikazNepolozenih(JTableNepolozeniPredmeti nepolozeniPredmeti) {
 		AbstractTableModelNepolozeniPredmeti nepolozeniModel= (AbstractTableModelNepolozeniPredmeti) nepolozeniPredmeti.getModel();
 		nepolozeniModel.fireTableDataChanged();
+		validate();
+	}
+	
+	public void azurirajPolozene(JTablePolozeniIspiti polozeni) {
+		AbstractTableModelPolozeniIspiti polozeniModel= (AbstractTableModelPolozeniIspiti) polozeni.getModel();
+		polozeniModel.fireTableDataChanged();
 		validate();
 	}
 }
