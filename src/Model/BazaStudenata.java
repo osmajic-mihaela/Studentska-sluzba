@@ -41,7 +41,7 @@ public class BazaStudenata {
 	private void initStudenti() {
 		this.studenti = new ArrayList<Student>();
 		
-		studenti.add(new Student("Marko","Milosevic", LocalDate.parse("12.03.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")) ,"021/333-555","marko.milosevic@mailinator.com",
+		/*studenti.add(new Student("Marko","Milosevic", LocalDate.parse("12.03.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")) ,"021/333-555","marko.milosevic@mailinator.com",
 				2020, GodinaStudiranja.PRVA , Status.B, 
 				"Ĺ afarikova", "2", "Novi Sad","Srbija",
 				"RA-2-2020", 0.00));
@@ -172,10 +172,10 @@ public class BazaStudenata {
 		studenti.add(new Student("Bogdan","BogdanoviÄ‡",LocalDate.parse("23.07.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/231-231","bogdan.bogdanovic@mailinator.com",
 		                2018, GodinaStudiranja.TRECA , Status.S, 
 		                "Knez Mihajlova", "22", "Beograd" ,"Srbija",
-		                "RA-4-2017", 0.00));
+		                "RA-4-2017", 0.00));*/
 		
 		
-		/*try {
+		try {
 			this.studenti = Serijalizacija.getInstance().deserijalizacijaStudenta();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -186,7 +186,7 @@ public class BazaStudenata {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 	
 	

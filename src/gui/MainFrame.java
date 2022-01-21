@@ -94,7 +94,7 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		/*String[] options = new String[2];
+		String[] options = new String[2];
 		options[0] = new String("Da");
 		options[1] = new String("Ne");
 		int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(),"Da li ste sigurni da zelite da zatvorite aplikaciju?","Zatvaranje aplikacije?", 0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
@@ -114,7 +114,7 @@ public class MainFrame extends JFrame implements WindowListener {
 			}
 			setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		}
-		*/
+		
 	}
 
 	@Override

@@ -37,6 +37,24 @@ public class BazaProfesora {
 	
 	private void initProfesori() {
 		this.profesori = new ArrayList<Profesor>();
+		/*profesori.add(new Profesor("Milos", "Nikolic", LocalDate.parse("12.12.1965.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/356-785", "milos.nikolic@mailinator.com",
+				 123123123, "REDOVNI_PROFESOR", 1, "Šafarikova", "2", "Novi Sad", "Srbija","Novi Sad", "Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Nikola", "Mirkovic", LocalDate.parse("01.01.1978.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/368-456", "nikola.mirkovic@mailinator.com",
+				 321321321, "REDOVNI_PROFESOR", 2, "Nikole Tesle", "56", "Novi Sad", "Srbija","Novi Sad", "Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Ilija", "Petkovic", LocalDate.parse("03.09.1988.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/215-314", "ilija.petkovic@mailinator.com",
+				 456456456, "VANREDNI_PROFESOR", 3, "Bulevar Patrijarha Pavla", "3", "Beograd","Novi Sad", "Srbija", "Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Mitar", "Petrovic", LocalDate.parse("25.07.1976.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/884-640", "mitar.petrovic@mailinator.com",
+				 789789789, "VANREDNI_PROFESOR", 4, "Stražilovska", "6a", "Novi Sad","Novi Sad", "Srbija", "Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Vasa", "Micic", LocalDate.parse("14.02.1970.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/212-114", "vasa.micic@mailinator.com",
+				 100100144, "DOCENT", 5 , "Nikole Pašiæa", "2d", "Kikinda", "Srbija", "Novi Sad","Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Srdjan", "Miletic", LocalDate.parse("20.04.1966.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/978-225", "srdjan.miletic@mailinator.com",
+				 200020244, "DOCENT", 6, "Bulevar Kralja Petra", "22", "Niš", "Srbija", "Novi Sad","Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Branislav", "Mihajlovic", LocalDate.parse("28.06.1980.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/778-323", "branislav.mihajlovic@mailinator.com",
+				 559585632, "REDOVNI_PROFESOR", 7, "Tolstojeva", "31", "Novi Sad", "Srbija","Novi Sad", "Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Marko", "Markoviæ", LocalDate.parse("31.01.1985.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/899-659", "marko.markovic@mailinator.com",
+				 334968855, "REDOVNI_PROFESOR", 8, "Mariceva", "11", "Kragujevac", "Srbija","Novi Sad", "Nikole Pašiæa", "6a"));
+		profesori.add(new Profesor("Milos", "Milakoviæ", LocalDate.parse("21.09.1975.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/122-326", "milos.milakovic@mailinator.com",
+				 730703654, "VANREDNI_PROFESOR", 9, "Stražilovska", "3", "Beograd", "Srbija","Novi Sad", "Nikole Pašiæa", "6a"));
 		profesori.add(new Profesor("Lazar", "BratiÄ‡", LocalDate.parse("13.11.1973.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021/156-326", "lazar.bratic@mailinator.com",
                 600378644, "VANREDNI_PROFESOR", 3, "Nikole Paï¿½iï¿½a", "6a", "Novi Sad", "Srbija","Novi Sad", "Nikole Paï¿½iï¿½a", "6a"));
 
@@ -57,9 +75,9 @@ public class BazaProfesora {
 		profesori.add(new Profesor("Branislav", "Lukovic", LocalDate.parse("08.04.1982.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021159478", "branislav.lukovic@mailinator.com",
 				500500544, "REDOVNI_PROFESOR", 9, "Bulevar Patrijaha Pavla", "3", "Beograd", "Srbija", "Novi Sad", "Nikole Paï¿½iï¿½a", "6a"));
 		profesori.add(new Profesor("Branimir", "Obradoviï¿½", LocalDate.parse("17.01.1979.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")), "021922333", "branimir.obradovic@mailinator.com",
-				600600644, "DOCENT", 17, "ï¿½afarikova", "10", "Novi Sad", "Srbija", "Novi Sad", "Nikole Paï¿½iï¿½a", "6a"));
+				600600644, "DOCENT", 17, "ï¿½afarikova", "10", "Novi Sad", "Srbija", "Novi Sad", "Nikole Paï¿½iï¿½a", "6a"));*/
 		
-		/*try {
+		try {
 			this.profesori = Serijalizacija.getInstance().deserijalizacijaProfesora();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -70,7 +88,7 @@ public class BazaProfesora {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 	
 	public List<Profesor> getProfesori() {

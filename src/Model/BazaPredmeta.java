@@ -40,7 +40,7 @@ public class BazaPredmeta {
 	
 	private void initPredmeti() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("e471", "osnove programiranja", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.PRVA));
+		/*predmeti.add(new Predmet("e471", "osnove programiranja", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.PRVA));
 		predmeti.add(new Predmet("e472", "statistika", Semestar.LETNJI, "pera peric", 8, GodinaStudiranja.TRECA));
 		predmeti.add(new Predmet("e473", "algoritmi i strukture podataka", Semestar.LETNJI, "pera peric", 9, GodinaStudiranja.DRUGA));
 		predmeti.add(new Predmet("e474", "LPRS", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.TRECA));
@@ -69,11 +69,11 @@ public class BazaPredmeta {
 		predmeti.add(new Predmet("e4627", "Distribuirani sistemi", Semestar.LETNJI, "pera peric", 6, GodinaStudiranja.CETVRTA));
 		predmeti.add(new Predmet("e4728", "Projektovanje softvera", Semestar.ZIMSKI, "pera peric", 5, GodinaStudiranja.TRECA));
 		predmeti.add(new Predmet("e4729", "Informacioni sistemi", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.CETVRTA));
-		predmeti.add(new Predmet("e4730", "algoritmi i strukture podataka", Semestar.LETNJI, "", 7, GodinaStudiranja.CETVRTA));
+		predmeti.add(new Predmet("e4730", "algoritmi i strukture podataka", Semestar.LETNJI, "", 7, GodinaStudiranja.CETVRTA));*/
 		
 
 		
-		/*try {
+		try {
 			this.predmeti = Serijalizacija.getInstance().deserijalizacijaPredmeta();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -84,7 +84,7 @@ public class BazaPredmeta {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 	
 	public List<Predmet> getPredmeti(){

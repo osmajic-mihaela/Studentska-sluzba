@@ -35,14 +35,14 @@ private static BazaKatedri instance = null;
 	
 	private void initKatedre() {
 		this.katedre= new ArrayList<Katedra>();
-		katedre.add(new Katedra("e42", "Katedra za matematiku", ""));
+		/*katedre.add(new Katedra("e42", "Katedra za matematiku", ""));
 		katedre.add(new Katedra("e43", "Katedra za fiziku", ""));
 		katedre.add(new Katedra("e44", "Katedra za elektroniku", ""));
 		katedre.add(new Katedra("e45", "Katedra za primenjene racunarske nauke", ""));
 		katedre.add(new Katedra("e46", "Katedra za informatiku", ""));
-		katedre.add(new Katedra("e47", "Katedra za automatiku", ""));
+		katedre.add(new Katedra("e47", "Katedra za automatiku", ""));*/
 		
-		/*try {
+		try {
 			this.katedre = Serijalizacija.getInstance().deserijalizacijaKatedri();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -53,7 +53,7 @@ private static BazaKatedri instance = null;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 	

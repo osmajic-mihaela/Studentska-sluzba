@@ -168,7 +168,7 @@ public class MenuBar extends JMenuBar{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-				/*	try {
+					try {
 						Serijalizacija.getInstance().serijalizacijaStudenta();
 						Serijalizacija.getInstance().serijalizacijaProfesora();
 						Serijalizacija.getInstance().serijalizacijaPredmeta();
@@ -178,7 +178,7 @@ public class MenuBar extends JMenuBar{
 						e1.printStackTrace();
 					} catch (IOException e1) {
 						e1.printStackTrace();
-					}*/
+					}
 				}
 			});
 			

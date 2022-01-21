@@ -1,10 +1,15 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class Osoba {
+public abstract class Osoba implements Serializable{
 
-    protected String ime;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -998826097071371440L;
+	protected String ime;
     protected String prezime;
     protected LocalDate datumRodj;
     protected String kontaktBroj;
