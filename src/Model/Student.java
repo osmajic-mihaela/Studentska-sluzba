@@ -179,14 +179,9 @@ public class Student extends Osoba implements Serializable{
 		this.setUkupnoESPB(bodovi);
 	}
 	
-	public void obrisiNepolozeni(String id) {
-		int index = -1;
-		for(String s : nepolozeniPred) {
-			if(id == s) {
-				index = nepolozeniPred.indexOf(s);
-			}
-		}
-		nepolozeniPred.remove(index);
+	public void obrisiNepolozeni(int id) {
+		
+		nepolozeniPred.remove(id);
 	}
 	
 	public void obrisiPolozeni(String id) {

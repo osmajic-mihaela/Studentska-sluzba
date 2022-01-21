@@ -106,7 +106,7 @@ public class DialogUpisOcene extends JDialog {
 		datumPolaganjaPanel.setLayout(panelLayout);
 		JLabel datumPolaganjaLbl = new JLabel("Datum*");
 		JTextField datumPolaganjaTxt = new JTextField();
-		datumPolaganjaTxt.setToolTipText("dd-mm-yyyy");
+		datumPolaganjaTxt.setToolTipText("dd.mm.yyyy.");
 		datumPolaganjaLbl.setPreferredSize(dim);
 		datumPolaganjaTxt.setPreferredSize(dim);
 		dialogPanel.add(Box.createHorizontalStrut(30));
@@ -162,7 +162,7 @@ public class DialogUpisOcene extends JDialog {
 				Ocena ocena = new Ocena(predmet.getPredmetID(), student.getBrIndeksa(), vrOc, datumPol );
 				
 				BazaOcena.getInstance().dodajOcenu(ocena);
-				student.obrisiNepolozeni(predmet.getPredmetID());
+				student.obrisiNepolozeni(nepolozeniPr.getSelectedRow());
 				student.getPolozeniPred().add(ocena.getOcenaID());
 				student.azurirajOcenaESPB();
 				
