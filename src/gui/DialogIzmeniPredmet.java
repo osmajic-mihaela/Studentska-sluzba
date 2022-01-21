@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -24,8 +25,13 @@ import javax.swing.event.DocumentListener;
 
 import controller.KatedraController;
 import controller.PredmetiController;
+import model.BazaOcena;
+import model.BazaPredmeta;
+import model.BazaProfesora;
 import model.GodinaStudiranja;
+import model.Ocena;
 import model.Predmet;
+import model.Profesor;
 import model.Semestar;
 
 public class DialogIzmeniPredmet extends JDialog {
@@ -96,7 +102,7 @@ public class DialogIzmeniPredmet extends JDialog {
         
         JPanel panTrenutnaGod= new JPanel();
         JLabel lblTrenutnaGod= new JLabel("Trenutna godina studija*");
-        String[] godineStudija = { "I (prva)", "II (druga)", "III (treća)", "IV (četvrta)" };
+        String[] godineStudija = { "I (prva)", "II (druga)", "III (treÄ‡a)", "IV (Ä�etvrta)" };
         JComboBox<String> comboTrenutnaGod=new JComboBox<>(godineStudija);
         lblTrenutnaGod.setPreferredSize(dim);
         comboTrenutnaGod.setPreferredSize(dim1);
@@ -116,18 +122,27 @@ public class DialogIzmeniPredmet extends JDialog {
         panSemestar.add(comboSemestar);
         panSemestar.add(Box.createHorizontalStrut(10));
         
+        Profesor pom = BazaProfesora.getInstance().getProfesorByID(predmet.getProfesor());
         JPanel panProf=new JPanel();
         JLabel lblProf=new JLabel("Profesor*");
         lblProf.setPreferredSize(dim);
+   
         JTextField txtProf=new JTextField();
+        if(pom==null) {
+        	txtProf.setText("");
+        }
+        else {
+        	txtProf.setText(pom.getIme()+" "+pom.getPrezime());
+        }
+        
         txtProf.setPreferredSize(new Dimension(165,25));
-        JButton batMin=new JButton("-");
-        JButton batPlus=new JButton("+");
+        JButton btnDodajProfesora=new JButton("+");
+        JButton btnUkloniProfesora=new JButton("-");
         panProf.add(Box.createHorizontalStrut(10));
         panProf.add(lblProf);
         panProf.add(txtProf);
-        panProf.add(batPlus);
-        panProf.add(batMin);
+        panProf.add(btnDodajProfesora);
+        panProf.add(btnUkloniProfesora);
         panProf.add(Box.createHorizontalStrut(10));
         
         panNorth.add(Box.createVerticalStrut(25));
@@ -180,6 +195,45 @@ public class DialogIzmeniPredmet extends JDialog {
 		prof = txtProf.getText();
 		staraSifraPredmeta=predmet.getPredmetID();
 		
+		if(prof.equals("")) {
+			btnDodajProfesora.setEnabled(true);
+			btnUkloniProfesora.setEnabled(false);
+		}
+		else {
+			btnDodajProfesora.setEnabled(false);
+			btnUkloniProfesora.setEnabled(true);
+		}
+		btnDodajProfesora.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				DialogDodajProfesoraPredmetu dpp = new DialogDodajProfesoraPredmetu(predmet, txtProf, btnDodajProfesora, btnUkloniProfesora);
+				dpp.setVisible(true);
+			}
+		});
+		
+		btnUkloniProfesora.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+					
+					String[] options = new String[2];
+					options[0] = new String ("Da");
+					options[1] = new String ("Ne");
+					int code = JOptionPane.showOptionDialog(null, "Da li ste sigurni da Å¾elite da uklonite profesora sa predmeta?", "Uklanjanje profesora sa predmeta", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
+					if(code == JOptionPane.YES_OPTION) {
+						
+						predmet.setProfesor(null);
+						txtProf.setText("");
+						btnDodajProfesora.setEnabled(true);
+						btnUkloniProfesora.setEnabled(false);
+					}
+					else {
+						dispose();
+					}
+			}
+		});
+		
 		btnOdustani.addActionListener(new ActionListener() {
 			
 			@Override
@@ -194,6 +248,7 @@ public class DialogIzmeniPredmet extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				
 				String sifraKatedre=listaKatedri.get(comboKatedra.getSelectedIndex());
 				String godinaStudija =comboTrenutnaGod.getSelectedItem().toString();
 				GodinaStudiranja godStudiranja;
@@ -203,7 +258,7 @@ public class DialogIzmeniPredmet extends JDialog {
 					godStudiranja=GodinaStudiranja.PRVA;
 				else if(godinaStudija=="II (druga)")
 					godStudiranja=GodinaStudiranja.DRUGA;
-				else if(godinaStudija=="III (treća)")
+				else if(godinaStudija=="III (treÄ‡a)")
 					godStudiranja=GodinaStudiranja.TRECA;
 				else
 					godStudiranja=GodinaStudiranja.CETVRTA;
@@ -221,8 +276,8 @@ public class DialogIzmeniPredmet extends JDialog {
 				}
 			
 				int espbInt=Integer.parseInt(espb);
-				Predmet predmet= new Predmet(sifraKatedre+sifra, naziv, semestar, prof, espbInt, godStudiranja);
-				PredmetiController.getInstance().izmeniPredmet(selectedIndex,predmet);
+				Predmet pr = new Predmet(sifraKatedre+sifra, naziv, semestar, predmet.getProfesor(), espbInt, godStudiranja);
+				PredmetiController.getInstance().izmeniPredmet(selectedIndex,pr);
 				if(!staraSifraPredmeta.equalsIgnoreCase(sifraKatedre+sifra))
 					KatedraController.getInstance().izmeniPredmet(sifraKatedre,sifra,staraSifraPredmeta);
 				
