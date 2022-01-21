@@ -50,6 +50,7 @@ public class DialogIzmeniProfesora extends JDialog {
 	private String grad;
 	private String drzava;
 	private String zvanje;
+	private String gradKanc;
 	
 	public DialogIzmeniProfesora(int selectedIndex){
 		
@@ -281,7 +282,7 @@ public class DialogIzmeniProfesora extends JDialog {
 				LocalDate datumRodj = LocalDate.parse(datumRodjenja, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 				int godRadnog = Integer.parseInt(godRadnogStaza);
 				int brLicneKarte = Integer.parseInt(brLicne);
-				Profesor profesor = new Profesor(ime, prezime, datumRodj, kontaktTelefon, email, brLicneKarte, zvanje, godRadnog, ulicaStan, brojStan, grad, drzava, ulicaKanc, brojKanc);
+				Profesor profesor = new Profesor(ime, prezime, datumRodj, kontaktTelefon, email, brLicneKarte, zvanje, godRadnog, ulicaStan, brojStan, grad, drzava,gradKanc, ulicaKanc, brojKanc);
 				ProfesoriController.getInstance().izmeniProfesora(selectedIndex, profesor);
 				dispose();
 			}
@@ -801,6 +802,7 @@ public class DialogIzmeniProfesora extends JDialog {
 		
 		ulicaKanc = (delovi[0].substring(0, i-1)).trim();
 		brojKanc = (delovi[0].substring(i)).trim();
+		gradKanc = delovi[1].trim();
 	}
 	
 	public void azurirajPrikaz(JTablePredmetiPoProfesoru predmetiProfesora) {

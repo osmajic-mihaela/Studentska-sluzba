@@ -35,7 +35,7 @@ public class Serijalizacija {
 	}
 	
 	private Serijalizacija() {}
-	
+	/*
 	public void serijalizacijaStudenta() throws FileNotFoundException, IOException {
 		File f = new File("objectstreamStudenti.txt");
 		ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(f)));
@@ -160,5 +160,5 @@ public class Serijalizacija {
 			ois.close();
 		}
 	}
-	
+	*/
 }

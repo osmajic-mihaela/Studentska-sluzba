@@ -42,7 +42,7 @@ private static BazaKatedri instance = null;
 		katedre.add(new Katedra("e46", "Katedra za informatiku", ""));
 		katedre.add(new Katedra("e47", "Katedra za automatiku", ""));
 		
-		try {
+		/*try {
 			this.katedre = Serijalizacija.getInstance().deserijalizacijaKatedri();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -53,7 +53,7 @@ private static BazaKatedri instance = null;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 	

@@ -28,7 +28,7 @@ public class Profesor extends Osoba implements Serializable{
 	
 	public Profesor(String ime,String prezime, LocalDate datumRodj,String kontaktBroj,String email,
 			 int brLicne,String zvanje, int godStaza, String ulica, String broj, String grad,
-			 String drzava, String ulicaKanc,String brojKanc ) {
+			 String drzava,String gradKanc, String ulicaKanc,String brojKanc ) {
 		this.ime=ime;
 		this.prezime=prezime;
 		this.datumRodj=datumRodj;
@@ -36,7 +36,7 @@ public class Profesor extends Osoba implements Serializable{
 		this.email=email;
 		this.brLicne=brLicne;
 		this.adresaStan= new Adresa(ulica,broj,grad,drzava);
-		this.adresaKancelar=new Adresa(ulicaKanc,brojKanc,grad,drzava);
+		this.adresaKancelar=new Adresa(ulicaKanc,brojKanc,gradKanc,drzava);
 		this.zvanje=zvanje;
 		this.godRadnogStaza=godStaza;
 		this.predmetiKojePred=new ArrayList<String>();
