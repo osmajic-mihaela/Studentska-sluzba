@@ -49,4 +49,8 @@ public class PredmetiController {
 		BazaPredmeta.getInstance().obrisiOcenuPolozeni(ocenaID, predmetID);
 	}
 	
+	public void izmenaStudenta(String staraSifra,String novaSifra) {
+		BazaPredmeta.getInstance().izmenaStudenta(staraSifra, novaSifra);
+	}
+	
 }

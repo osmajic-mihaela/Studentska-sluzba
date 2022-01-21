@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controller.KatedraController;
+import controller.ProfesoriController;
 import controller.Serijalizacija;
+import controller.StudentiController;
 
 
 public class BazaPredmeta {
@@ -104,8 +106,12 @@ public class BazaPredmeta {
 		this.predmeti.add(predmet);
 	}
 	
-	public void izmeniPredmet(int i, Predmet p) {
+	public void izmeniPredmet(int i, Predmet p) {	
 		Predmet predmet = predmeti.get(i);
+		if(!predmet.getPredmetID().equalsIgnoreCase(p.getPredmetID())) {
+			StudentiController.getInstance().izmeniPredmet(predmet.getPredmetID(),p.getPredmetID());
+			BazaOcena.getInstance().izmeniPredmet(predmet.getPredmetID(),p.getPredmetID());
+		}
 		predmet.setPredmetID(p.getPredmetID());
 		predmet.setNazivPredmeta(p.getNazivPredmeta());
 		predmet.setSemestar(p.getSemestar());
@@ -151,5 +157,25 @@ public class BazaPredmeta {
 				pr.getSpisakNepolozenih().remove(i);
 			}
 		}
+	}
+	
+	public void izmenaStudenta(String staraSifra,String novaSifra) {
+		for(Predmet pr : predmeti) {
+			for(String sifra : pr.getSpisakNepolozenih()) {
+				if(sifra.equalsIgnoreCase(staraSifra)) {
+					int i= pr.getSpisakNepolozenih().indexOf(sifra);
+					pr.getSpisakNepolozenih().add(i,novaSifra);
+				}
+			}
+			
+			for(String sifra : pr.getSpisakPolozenih()) {
+				if(sifra.contains(staraSifra)) {
+					String prDeo=sifra.replace(staraSifra, "").trim();
+					int i= pr.getSpisakPolozenih().indexOf(sifra);
+					pr.getSpisakPolozenih().add(i,prDeo+novaSifra);
+				}
+			}
+		}
+		
 	}
 }

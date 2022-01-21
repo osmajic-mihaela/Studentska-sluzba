@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.PredmetiController;
 import controller.Serijalizacija;
 
 
@@ -39,19 +40,140 @@ public class BazaStudenata {
 	
 	private void initStudenti() {
 		this.studenti = new ArrayList<Student>();
-		studenti.add(new Student("Mihaela","Osmajic", LocalDate.parse("12.12.2019.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")) ,"+38164","N@gmail.com",
-				2019, GodinaStudiranja.TRECA , Status.B, 
-				"Radoja Dakica", "53a", "Novi Sad","Srbija",
-				"RA-116-2019", 9.10));
+		studenti.add(new Student("Marko","Milosevic", LocalDate.parse("12.03.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")) ,"021/333-555","marko.milosevic@mailinator.com",
+				2020, GodinaStudiranja.PRVA , Status.B, 
+				"Šafarikova", "2", "Novi Sad","Srbija",
+				"RA-2-2020", 0.00));
 		
-		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12.12.2019.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"+38164","N@gmail.com",
-				2019, GodinaStudiranja.TRECA , Status.B, 
-				"Radoja Dakica", "53a", "Novi Sad","Srbija",
-				"RA-51-2019", 9.10));
+		studenti.add(new Student("Marija","Milić",LocalDate.parse("12.01.2000.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/555-2222","marija.milic@mailinator.com",
+				2019, GodinaStudiranja.DRUGA , Status.S, 
+				"Nikole Tesle", "56", "Novi Sad","Srbija",
+				"RA-2-2019", 0.00));
 		
-		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12.12.2019.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"+38164","N@gmail.com",
-				2019, GodinaStudiranja.TRECA , Status.B, null,
-				"RA-1-2019", 9.10));
+		studenti.add(new Student("Nikola","Nikolic",LocalDate.parse("30.08.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/135-463","nikola.nikolic@mailinator.com",
+				2019, GodinaStudiranja.PRVA , Status.B, 
+				"Bulevar Patrijaha Pavla", "3", "Beograd","Srbija",
+				"RA-3-2017", 0.00));
+		
+		studenti.add(new Student("Pera","Peric",LocalDate.parse("07.06.1995.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/903-463","pera.peric@mailinator.com",
+				2015, GodinaStudiranja.TRECA , Status.S, null,
+				"RA-137-2015", 0.00));
+		
+		studenti.add(new Student("Sofija","Ilic",LocalDate.parse("06.05.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/731-067","sofija.ilic@mailinator.com",
+				2019, GodinaStudiranja.TRECA , Status.B, 
+				"Nikole Pašića", "2d", "Novi Sad","Srbija",
+				"RA-5-2019", 0.00));
+		
+		studenti.add(new Student("Martina","Lukic",LocalDate.parse("16.05.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/4333-800","martina.lukic@mailinator.com",
+				2018, GodinaStudiranja.TRECA , Status.S, 
+				"Bulevar Kralja Petra", "22", "Niš","Srbija",
+				"RA-8-2018", 0.00));
+		
+		studenti.add(new Student("Stojan","Stojakovic",LocalDate.parse("19.10.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/3130-007","stojan.stojakovic@mailinator.com",
+				2017, GodinaStudiranja.PRVA , Status.B, 
+				"Tolstojeva", "31", "Novi Sad","Srbija",
+				"RA-10-2017", 0.00));
+		
+		studenti.add(new Student("Milan","Milanovic",LocalDate.parse("02.11.2000.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"015/313-061","milan.milanovic@mailinator.com",
+				2017, GodinaStudiranja.DRUGA , Status.S, 
+				"Marićeva", "11", "Kragujevac","Srbija",
+				"RA-12-2017", 0.00));
+		
+		studenti.add(new Student("Miroslav","Milic",LocalDate.parse("11.10.2000.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/351-091","miroslav.milic@mailinator.com",
+				2019, GodinaStudiranja.DRUGA , Status.B, 
+				"Stražilovska", "3", "Beograd","Srbija",
+				"RA-16-2019", 0.00));
+		
+		studenti.add(new Student("Stefan","Gojić",LocalDate.parse("01.05.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"015/324-500","stefan.gojic@mailinator.com",
+				2015, GodinaStudiranja.TRECA , Status.S, 
+				"Nikole Pašića", "6a", "Novi Sad","Srbija",
+				"RA-21-2015", 0.00));
+		
+		studenti.add(new Student("Anastasija","Jokic",LocalDate.parse("11.07.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/2333-900","anastasija.jokic@mailinator.com",
+				2020, GodinaStudiranja.TRECA , Status.B, 
+				"Bulevar Kralja Petra", "2d", "Niš","Srbija",
+				"RA-9-2020", 0.00));
+		
+
+		studenti.add(new Student("Miloš","Milić",LocalDate.parse("21.10.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/8172-372","milos.milic@mailinator.com",
+		                2021, GodinaStudiranja.PRVA , Status.S, 
+		                "Nikole Tesle", "56", "Novi Sad","Srbija",
+		                "SW-12-2021", 0.00));
+						
+		studenti.add(new Student("Mikica","Kovacević",LocalDate.parse("23.03.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/1992-371","mikica.kovacevic@mailinator.com",
+		                2017, GodinaStudiranja.TRECA , Status.S, 
+		                "Nikole Pašića", "2d", "Kikinda","Srbija",
+		                "RA-226-2017", 0.00));
+		
+		studenti.add(new Student("Purisa","Đorđević",LocalDate.parse("23.03.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/1543-370","purisa.djordjevic@mailinator.com",
+		                2018, GodinaStudiranja.DRUGA , Status.B, 
+		                "Bulevar Patrijaha Pavla", "3", "Beograd" ,"Srbija",
+		                "SW-27-2018", 0.00));
+						
+		studenti.add(new Student("Milisav","Perković",LocalDate.parse("28.09.1998.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"012/1122-369","milisav.pejkovic@mailinator.com",
+		                2018, GodinaStudiranja.CETVRTA , Status.S, 
+		                "Knez Mihajlova", "22", "Beograd" ,"Srbija",
+		                "SW-17-2016", 0.00));
+						
+		studenti.add(new Student("Mirko","Alicic",LocalDate.parse("21.07.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"012/1122-368","mirko.alicic@mailinator.com",
+		                2018, GodinaStudiranja.TRECA , Status.S, 
+		                "Bulevar Kralja Petra", "2d", "Niš" ,"Srbija",
+		                "SW-17-2015", 0.00));
+						
+		studenti.add(new Student("Vladimir","Ilić",LocalDate.parse("31.08.1998.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/1122-367","vladimir.ilic@mailinator.com",
+		                2018, GodinaStudiranja.CETVRTA , Status.B, 
+		                "Nikole Pašića", "6a", "Novi Sad" ,"Srbija",
+		                "SW-4-2014", 0.00));
+						
+		studenti.add(new Student("Isidora","Mikić",LocalDate.parse("31.12.2000.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/1122-366","isidora.mikic@mailinator.com",
+		                2018, GodinaStudiranja.DRUGA , Status.B, 
+		                "Stražilovska", "3", "Beograd" ,"Srbija",
+		                "RA-1-2019", 0.00));
+						
+		studenti.add(new Student("Jovan","Lazić",LocalDate.parse("22.01.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"025/1189-479","jovan.lazic@mailinator.com",
+		                2018, GodinaStudiranja.PRVA , Status.B, 
+		                "Marićeva", "11", "Kragujevac" ,"Srbija",
+		                "RA-23-2020", 0.00));
+						
+		studenti.add(new Student("Lena","Ivić",LocalDate.parse("11.05.1998.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"024/333-555","lena.ivic@mailinator.com",
+		                2018, GodinaStudiranja.CETVRTA , Status.B, 
+		                "Tolstojeva", "31", "Novi Sad" ,"Srbija",
+		                "RA-154-2016", 0.00));
+						
+		studenti.add(new Student("Tomislav","Novaković",LocalDate.parse("25.02.1996.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"011/1188-379","tomislav.novakovic@mailinator.com",
+		                2018, GodinaStudiranja.CETVRTA , Status.B, 
+		                "Bulevar Kralja Petra", "22", "Niš" ,"Srbija",
+		                "RA-14-2018", 0.00));
+						
+		studenti.add(new Student("Martin","Stojanović",LocalDate.parse("01.05.1998.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"024/321-775","martin.stojanovic@mailinator.com",
+		                2018, GodinaStudiranja.CETVRTA , Status.S, 
+		                null, "RA-13-2018", 0.00));
+		 
+		studenti.add(new Student("Nikola","Mišković",LocalDate.parse("03.08.1998.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"022/123-456","nikola.miskovic@mailinator.com",
+		                2018, GodinaStudiranja.CETVRTA , Status.S, 
+		                "Stražilovska", "6a", "Novi Sad" ,"Srbija",
+		                "RA-12-2018", 0.00));
+						
+		studenti.add(new Student("Jovan","Deretić",LocalDate.parse("10.09.1998.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"002/200-300","jovan.deretic@mailinator.com",
+		                2018, GodinaStudiranja.CETVRTA , Status.B, 
+		                "Bulevar Patrijaha Pavla", "3", "Beograd" ,"Srbija",
+		                "RA-11-2018", 0.00));
+						
+		studenti.add(new Student("Mika","Mikić",LocalDate.parse("05.11.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"015/101-909","mika.mikic@mailinator.com",
+		                2018, GodinaStudiranja.PRVA , Status.S, 
+		                "Nikole Tesle", "56", "Novi Sad" ,"Srbija",
+		                "RA-1-2020", 0.00));
+						
+		studenti.add(new Student("Ana","Dabović",LocalDate.parse("12.12.2001.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"014/303-007","ana.dabovic@mailinator.com",
+		                2018, GodinaStudiranja.PRVA , Status.B, 
+		                null,"RA-30-2019", 0.00));
+						
+		studenti.add(new Student("Bogdan","Bogdanović",LocalDate.parse("23.07.1999.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"021/231-231","bogdan.bogdanovic@mailinator.com",
+		                2018, GodinaStudiranja.TRECA , Status.S, 
+		                "Knez Mihajlova", "22", "Beograd" ,"Srbija",
+		                "RA-4-2017", 0.00));
+		
+		
 		try {
 			this.studenti = Serijalizacija.getInstance().deserijalizacijaStudenta();
 		} catch (FileNotFoundException e) {
@@ -117,6 +239,12 @@ public class BazaStudenata {
 	
 	public void izmeniStudenta(int i, Student s) {
 		Student stari = studenti.get(i);
+		if(!stari.getBrIndeksa().equals(s.getBrIndeksa())) {
+			BazaOcena.getInstance().izmenaStudenta(stari.getBrIndeksa(),s.getBrIndeksa());
+			PredmetiController.getInstance().izmenaStudenta(stari.getBrIndeksa(),s.getBrIndeksa());
+		}
+		
+		
 		stari.setIme(s.getIme());
 		stari.setPrezime(s.getPrezime());
 		stari.setDatumRodj(s.getDatumRodj());
@@ -148,5 +276,25 @@ public class BazaStudenata {
 			 
 		
 		 return predmetiZaDodavanje;
+	}
+	
+	public void izmenaPredmeta(String staraSifra,String novaSifra) {
+		for(Student pr : studenti) {
+			for(String sifra : pr.getNepolozeniPred()) {
+				if(sifra.equalsIgnoreCase(staraSifra)) {
+					int i= pr.getNepolozeniPred().indexOf(sifra);
+					pr.getNepolozeniPred().add(i,novaSifra);
+				}
+			}
+			
+			for(String sifra : pr.getPolozeniPred()) {
+				if(sifra.contains(staraSifra)) {
+					String stDeo=sifra.replace(staraSifra, "").trim();
+					int i= pr.getPolozeniPred().indexOf(sifra);
+					pr.getPolozeniPred().add(i,novaSifra+stDeo);
+				}
+			}
+		}
+		
 	}
 }

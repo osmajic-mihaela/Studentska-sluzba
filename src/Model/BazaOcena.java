@@ -138,4 +138,26 @@ public class BazaOcena {
 				
 		}
 	}
+	
+	public void izmenaStudenta(String stariStudnet,String noviStudent) {
+		for(Ocena pr : ocene) {
+			
+			if(pr.getStudentIndeks().equals(stariStudnet)) {
+				pr.setStudentIndeks(noviStudent);
+				pr.setOcenaID(pr.getPredmetID()+noviStudent);
+			}
+			
+		}
+	}
+	
+	public void izmeniPredmet(String stariPred,String noviPred) {
+		for(Ocena pr : ocene) {
+			
+			if(pr.getPredmetID().equals(stariPred)) {
+				pr.setPredmetID(noviPred);
+				pr.setOcenaID(noviPred+pr.getStudentIndeks());
+			}
+			
+		}
+	}
 }

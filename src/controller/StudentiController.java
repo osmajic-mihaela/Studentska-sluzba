@@ -45,4 +45,8 @@ public class StudentiController {
 	public List<Predmet> listaPredmetaZaDodavanje(Student student){
 		return BazaStudenata.getInstance().getListaNePredmeta(student);
 	}
+	
+	public void izmeniPredmet(String stara,String nova) {
+		BazaStudenata.getInstance().izmenaPredmeta(stara, nova);
+	}
 }
