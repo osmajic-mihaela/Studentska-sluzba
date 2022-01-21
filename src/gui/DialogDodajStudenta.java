@@ -377,7 +377,7 @@ public class DialogDodajStudenta extends JDialog {
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][2][0-9]{3}[\\.]";
+				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][1-2][0-9]{3}[\\.]";
 				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
 					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -388,7 +388,7 @@ public class DialogDodajStudenta extends JDialog {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][2][0-9]{3}[\\.]";
+				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][1-2][0-9]{3}[\\.]";
 				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
 					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -400,7 +400,7 @@ public class DialogDodajStudenta extends JDialog {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][2][0-9]{3}[\\.]";
+				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][1-2][0-9]{3}[\\.]";
 				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
 					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
