@@ -51,4 +51,7 @@ public class ProfesoriController {
 	public Profesor getProfesorByID(String id) {
 		return BazaProfesora.getInstance().getProfesorByID(id);
 	}
+	public Profesor getProfesoriPredmeta(String id, int index) {
+		return BazaProfesora.getInstance().getProfesoriPredmeta(id).get(index);
+	}
 }
