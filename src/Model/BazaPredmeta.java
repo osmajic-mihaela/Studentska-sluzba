@@ -40,37 +40,39 @@ public class BazaPredmeta {
 	
 	private void initPredmeti() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("p1", "osnove programiranja", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.PRVA));
-		predmeti.add(new Predmet("p2", "statistika", Semestar.LETNJI, "pera peric", 8, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("p3", "algoritmi i strukture podataka", Semestar.LETNJI, "pera peric", 9, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p4", "LPRS", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("p5", "matematika", Semestar.LETNJI, "pera peric", 11, GodinaStudiranja.PRVA));
-		predmeti.add(new Predmet("p6", "xml i web servisi", Semestar.LETNJI, "", 6, GodinaStudiranja.CETVRTA));
-		predmeti.add(new Predmet("p7", "Metode optimizacije", Semestar.ZIMSKI, "", 6, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("p8", "osnove elektrotehnike", Semestar.LETNJI, "", 11, GodinaStudiranja.PRVA));
-		predmeti.add(new Predmet("p9", "Sociologija", Semestar.ZIMSKI, "pera peric", 10, GodinaStudiranja.PRVA));
-		predmeti.add(new Predmet("p10", "Filozofija", Semestar.ZIMSKI, "pera peric", 4, GodinaStudiranja.PRVA));
-		predmeti.add(new Predmet("p11", "ORT", Semestar.LETNJI, null, 7, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p12", "NANS", Semestar.LETNJI, "pera peric", 5, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p13", "Organizacija podataka", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p14", "Baze podataka", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p15", "paralelno programiranje", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p16", "konkurentno programiranje", Semestar.LETNJI, "pera peric", 9, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p17", "Operativni sistemi", Semestar.LETNJI, "", 8, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("p18", "Algebra", Semestar.ZIMSKI, "", 15, GodinaStudiranja.PRVA));
-		predmeti.add(new Predmet("p19", "Diskretna matematika", Semestar.LETNJI, "", 14, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("ps20", "Upravljacki sistemi", Semestar.LETNJI, "", 8, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("ps21", "Osnovi elektronike", Semestar.ZIMSKI, "", 7, GodinaStudiranja.DRUGA));
-		predmeti.add(new Predmet("ps22", "Slucajni procesi", Semestar.LETNJI, "", 9, GodinaStudiranja.CETVRTA));
-		predmeti.add(new Predmet("ps23", "Racunarstvo visokih performansi", Semestar.LETNJI, "", 10, GodinaStudiranja.CETVRTA));
-		predmeti.add(new Predmet("p24", "Analiza 1", Semestar.ZIMSKI, "", 20, GodinaStudiranja.PRVA));
-		predmeti.add(new Predmet("it25", "Informaciona bezbednost", Semestar.LETNJI, "pera peric", 9, GodinaStudiranja.CETVRTA));
-		predmeti.add(new Predmet("it26", "Elektronsko placanje", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("it27", "Distribuirani sistemi", Semestar.LETNJI, "pera peric", 6, GodinaStudiranja.CETVRTA));
-		predmeti.add(new Predmet("p28", "Projektovanje softvera", Semestar.ZIMSKI, "pera peric", 5, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("p29", "Informacioni sistemi", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.CETVRTA));
-		predmeti.add(new Predmet("p30", "algoritmi i strukture podataka", Semestar.LETNJI, "", 7, GodinaStudiranja.CETVRTA));
-	
+		predmeti.add(new Predmet("e471", "osnove programiranja", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.PRVA));
+		predmeti.add(new Predmet("e472", "statistika", Semestar.LETNJI, "pera peric", 8, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e473", "algoritmi i strukture podataka", Semestar.LETNJI, "pera peric", 9, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e474", "LPRS", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e475", "matematika", Semestar.LETNJI, "pera peric", 11, GodinaStudiranja.PRVA));
+		predmeti.add(new Predmet("e476", "xml i web servisi", Semestar.LETNJI, "", 6, GodinaStudiranja.CETVRTA));
+		predmeti.add(new Predmet("e477", "Metode optimizacije", Semestar.ZIMSKI, "", 6, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e478", "osnove elektrotehnike", Semestar.LETNJI, "", 11, GodinaStudiranja.PRVA));
+		predmeti.add(new Predmet("e479", "Sociologija", Semestar.ZIMSKI, "pera peric", 10, GodinaStudiranja.PRVA));
+		predmeti.add(new Predmet("e4710", "Filozofija", Semestar.ZIMSKI, "pera peric", 4, GodinaStudiranja.PRVA));
+		predmeti.add(new Predmet("e4711", "ORT", Semestar.LETNJI, "", 7, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4712", "NANS", Semestar.LETNJI, "pera peric", 5, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4713", "Organizacija podataka", Semestar.ZIMSKI, "pera peric", 7, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4714", "Baze podataka", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4715", "paralelno programiranje", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4716", "konkurentno programiranje", Semestar.LETNJI, "pera peric", 9, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4717", "Operativni sistemi", Semestar.LETNJI, "", 8, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4718", "Algebra", Semestar.ZIMSKI, "", 15, GodinaStudiranja.PRVA));
+		predmeti.add(new Predmet("e4719", "Diskretna matematika", Semestar.LETNJI, "", 14, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e4520", "Upravljacki sistemi", Semestar.LETNJI, "", 8, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e4521", "Osnovi elektronike", Semestar.ZIMSKI, "", 7, GodinaStudiranja.DRUGA));
+		predmeti.add(new Predmet("e4522", "Slucajni procesi", Semestar.LETNJI, "", 9, GodinaStudiranja.CETVRTA));
+		predmeti.add(new Predmet("e4523", "Racunarstvo visokih performansi", Semestar.LETNJI, "", 10, GodinaStudiranja.CETVRTA));
+		predmeti.add(new Predmet("e4724", "Analiza 1", Semestar.ZIMSKI, "", 20, GodinaStudiranja.PRVA));
+		predmeti.add(new Predmet("e4625", "Informaciona bezbednost", Semestar.LETNJI, "pera peric", 9, GodinaStudiranja.CETVRTA));
+		predmeti.add(new Predmet("e4626", "Elektronsko placanje", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e4627", "Distribuirani sistemi", Semestar.LETNJI, "pera peric", 6, GodinaStudiranja.CETVRTA));
+		predmeti.add(new Predmet("e4728", "Projektovanje softvera", Semestar.ZIMSKI, "pera peric", 5, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e4729", "Informacioni sistemi", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.CETVRTA));
+		predmeti.add(new Predmet("e4730", "algoritmi i strukture podataka", Semestar.LETNJI, "", 7, GodinaStudiranja.CETVRTA));
+		
+
+		
 		/*try {
 			this.predmeti = Serijalizacija.getInstance().deserijalizacijaPredmeta();
 		} catch (FileNotFoundException e) {

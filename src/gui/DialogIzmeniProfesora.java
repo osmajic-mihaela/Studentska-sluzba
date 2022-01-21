@@ -745,7 +745,7 @@ public class DialogIzmeniProfesora extends JDialog {
 							Predmet pr=PredmetiController.getInstance().getPredmetByID(profesor.getPredmetiKojePred().get(i));
 							if(pr.getPredmetID().equals(profesor.getProfesorID()))
 								pr.setProfesor("");
-							KatedraController.getInstance().proveraBrisanjaProfesora(i,profesor);
+							//KatedraController.getInstance().proveraBrisanjaProfesora(i,profesor);
 							ProfesoriController.getInstance().obrisiPredmetProfesoru(i, profesor);
 							azurirajPrikaz(predmetiProfesora);
 						//}
