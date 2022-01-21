@@ -191,6 +191,16 @@ public class MenuBar extends JMenuBar{
 				}
 			});
 			
+			miHelp.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+			
+					@SuppressWarnings("unused")
+					DialogHelp hp= new DialogHelp();
+				}
+			});
+			
 			
 			add(file);
 			add(edit);
