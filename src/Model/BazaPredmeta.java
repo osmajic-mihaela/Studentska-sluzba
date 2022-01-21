@@ -1,9 +1,12 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import controller.KatedraController;
+import controller.Serijalizacija;
 
 
 public class BazaPredmeta {
@@ -38,6 +41,19 @@ public class BazaPredmeta {
 		predmeti.add(new Predmet("e421", "OISISI", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.TRECA));
 		predmeti.add(new Predmet("e432", "nans", Semestar.ZIMSKI, "pera peric", 4, GodinaStudiranja.TRECA));
 		predmeti.add(new Predmet("e455", "Baze podataka", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.TRECA));
+		
+		try {
+			this.predmeti = Serijalizacija.getInstance().deserijalizacijaPredmeta();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Predmet> getPredmeti(){

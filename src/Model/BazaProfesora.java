@@ -1,9 +1,13 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import controller.Serijalizacija;
 
 public class BazaProfesora {
 
@@ -39,6 +43,19 @@ public class BazaProfesora {
 				 12345, "doktor nauka", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
 		profesori.add(new Profesor("milan", "toplica", LocalDate.parse("01-01-1990", DateTimeFormatter.ofPattern("dd-MM-yyyy")), "+38160123", "mikamikic@gmail.com",
 				 12345, "REDOVNI_PROFESOR", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
+		
+		try {
+			this.profesori = Serijalizacija.getInstance().deserijalizacijaProfesora();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Profesor> getProfesori() {

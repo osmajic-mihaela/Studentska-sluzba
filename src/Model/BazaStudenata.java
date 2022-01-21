@@ -1,9 +1,13 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import controller.Serijalizacija;
 
 
 public class BazaStudenata {
@@ -48,6 +52,18 @@ public class BazaStudenata {
 		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12.12.2019.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"+38164","N@gmail.com",
 				2019, GodinaStudiranja.TRECA , Status.B, null,
 				"RA-1-2019", 9.10));
+		try {
+			this.studenti = Serijalizacija.getInstance().deserijalizacijaStudenta();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

@@ -4,7 +4,10 @@ import java.util.List;
 
 import controller.KatedraController;
 import controller.PredmetiController;
+import controller.Serijalizacija;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -36,6 +39,18 @@ public class BazaOcena {
 	
 	private void initOcene() {
 		this.ocene = new ArrayList<Ocena>();
+		try {
+			this.ocene = Serijalizacija.getInstance().deserijalizacijaOcena();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List<Ocena> getPredmeti(){
