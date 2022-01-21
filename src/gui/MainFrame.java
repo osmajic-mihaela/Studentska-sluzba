@@ -6,9 +6,16 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+
+import controller.Serijalizacija;
+
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class MainFrame extends JFrame implements WindowListener {
 	/**
@@ -87,7 +94,26 @@ public class MainFrame extends JFrame implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		// TODO Auto-generated method stub
+		String[] options = new String[2];
+		options[0] = new String("Da");
+		options[1] = new String("Ne");
+		int code = JOptionPane.showOptionDialog(MainFrame.getInstance().getContentPane(),"Da li ste sigurni da zelite da zatvorite aplikaciju?","Zatvaranje aplikacije?", 0,JOptionPane.INFORMATION_MESSAGE,null,options,null);
+		if (code != JOptionPane.YES_OPTION) {
+			setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+		} else {
+			try {
+				Serijalizacija.getInstance().serijalizacijaStudenta();
+				Serijalizacija.getInstance().serijalizacijaProfesora();
+				Serijalizacija.getInstance().serijalizacijaPredmeta();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		}
 		
 	}
 
