@@ -57,8 +57,8 @@ public class KatedraController {
 		BazaKatedri.getInstance().dodajProfesora(predmetID,profesorID);
 	}
 	
-	public void proveraBrisanjaProfesora(int rbPredmetaProf,Profesor prof) {
-		BazaKatedri.getInstance().proveraBrisanjaProfesora(rbPredmetaProf,prof);
+	public void proveraBrisanjaProfesora(String sifra,Profesor prof) {
+		BazaKatedri.getInstance().proveraBrisanjaProfesora(sifra,prof);
 	}
 	
 }
