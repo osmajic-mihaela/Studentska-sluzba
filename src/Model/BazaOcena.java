@@ -39,7 +39,7 @@ public class BazaOcena {
 	
 	private void initOcene() {
 		this.ocene = new ArrayList<Ocena>();
-		try {
+		/*try {
 			this.ocene = Serijalizacija.getInstance().deserijalizacijaOcena();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -50,7 +50,7 @@ public class BazaOcena {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public List<Ocena> getOcene(){

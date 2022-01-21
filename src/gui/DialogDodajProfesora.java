@@ -46,6 +46,7 @@ public class DialogDodajProfesora extends JDialog {
 	private String grad;
 	private String drzava;
 	private String zvanje;
+	private String gradKanc;
 	
 	public DialogDodajProfesora(){
 		
@@ -256,7 +257,7 @@ public class DialogDodajProfesora extends JDialog {
 				LocalDate datumRodj = LocalDate.parse(datumRodjenja, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 				int godRadnog = Integer.parseInt(godRadnogStaza);
 				int brLicneKarte = Integer.parseInt(brLicne);
-				Profesor profesor = new Profesor(ime, prezime, datumRodj, kontaktTelefon, email, brLicneKarte, zvanje, godRadnog, ulicaStan, brojStan, grad, drzava, ulicaKanc, brojKanc);
+				Profesor profesor = new Profesor(ime, prezime, datumRodj, kontaktTelefon, email, brLicneKarte, zvanje, godRadnog, ulicaStan, brojStan, grad, drzava,gradKanc, ulicaKanc, brojKanc);
 				ProfesoriController.getInstance().dodajProfesora(profesor);
 				dispose();
 			}
@@ -688,5 +689,6 @@ public class DialogDodajProfesora extends JDialog {
 		
 		ulicaKanc = (delovi[0].substring(0, i-1)).trim();
 		brojKanc = (delovi[0].substring(i)).trim();
+		gradKanc = delovi[1].trim();
 	}
 }
