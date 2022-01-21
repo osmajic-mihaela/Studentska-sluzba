@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -60,9 +61,14 @@ public class DialogKatedre extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			if(katedre.getSelectedRow() > -1) {
 				Katedra katedra= KatedraController.getInstance().getListaSvihKatedri().get(katedre.getSelectedRow());
 				DialogSefaKatedre dsk= new DialogSefaKatedre(katedra, katedre);
-				dsk.setVisible(true);
+				dsk.setVisible(true);}
+			else {
+				JOptionPane.showMessageDialog(null, "Morate selektovati neku katedru", "Greska pri dodavanju sefa katedre", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			}
 		});
 		
@@ -70,9 +76,14 @@ public class DialogKatedre extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(katedre.getSelectedRow() > -1) {
 				Katedra katedra= KatedraController.getInstance().getListaSvihKatedri().get(katedre.getSelectedRow());
 				katedra.setSefKatedreID("");
-				azurirajTabelu(katedre);
+				azurirajTabelu(katedre);}
+				else {
+					JOptionPane.showMessageDialog(null, "Morate selektovati neku katedru", "Greska pri uklanjanju sefa katedre", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 			}
 		});
 		

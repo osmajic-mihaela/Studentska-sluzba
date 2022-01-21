@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.KatedraController;
+
 
 public class BazaPredmeta {
 
@@ -33,9 +35,9 @@ public class BazaPredmeta {
 	
 	private void initPredmeti() {
 		this.predmeti = new ArrayList<Predmet>();
-		predmeti.add(new Predmet("1", "OISISI", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("2", "nans", Semestar.ZIMSKI, "pera peric", 4, GodinaStudiranja.TRECA));
-		predmeti.add(new Predmet("3", "Baze podataka", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e421", "OISISI", Semestar.ZIMSKI, "pera peric", 6, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e432", "nans", Semestar.ZIMSKI, "pera peric", 4, GodinaStudiranja.TRECA));
+		predmeti.add(new Predmet("e455", "Baze podataka", Semestar.ZIMSKI, "pera peric", 8, GodinaStudiranja.TRECA));
 	}
 	
 	public List<Predmet> getPredmeti(){
@@ -62,7 +64,9 @@ public class BazaPredmeta {
 		Predmet predmet = this.predmeti.get(row);
 		switch(column) {
 			case 0:
-				return predmet.getPredmetID();
+				String[] katedra = { "ma", "fz", "eo", "ps","it","p" };
+		        List<String> listaKatedri= KatedraController.getInstance().getSifreSvihKatedri();
+				return katedra[listaKatedri.indexOf(predmet.getPredmetID().substring(0, 3))]+predmet.getPredmetID().substring(3);
 			case 1:
 				return predmet.getNazivPredmeta();
 			case 2:
@@ -115,5 +119,21 @@ public class BazaPredmeta {
 			}
 		}
 		return predmet;
+	}
+	
+	public void obrisiOcenuPolozeni(String ocenaID, String predmetID) {
+		Predmet predmet= getPredmetByID(predmetID);
+		int i=predmet.getSpisakPolozenih().indexOf(ocenaID);
+		predmet.getSpisakPolozenih().remove(i);
+	}
+	
+	
+	public void obrisiStudentaSaNepolozenih(String studentIndeks) {
+		for(Predmet pr : predmeti) {
+			if(pr.getSpisakNepolozenih().contains(studentIndeks)) {
+				int i= pr.getSpisakNepolozenih().indexOf(studentIndeks);
+				pr.getSpisakNepolozenih().remove(i);
+			}
+		}
 	}
 }

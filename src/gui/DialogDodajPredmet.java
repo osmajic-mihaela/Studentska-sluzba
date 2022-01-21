@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -21,6 +22,7 @@ import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import controller.KatedraController;
 import controller.PredmetiController;
 import model.GodinaStudiranja;
 import model.Predmet;
@@ -57,10 +59,16 @@ public class DialogDodajPredmet extends JDialog{
         JPanel panSifra=new JPanel();
         JLabel lblSifra=new JLabel("Sifra*");
         lblSifra.setPreferredSize(dim);
+        String[] katedra = { "ma", "fz", "eo", "ps","it","p" };
+        List<String> listaKatedri= KatedraController.getInstance().getSifreSvihKatedri();
+        
+        JComboBox<String> comboKatedra =new JComboBox<>(katedra);
+        comboKatedra.setPreferredSize(new Dimension(50,20));
         JTextField txtSifra=new JTextField();
-        txtSifra.setPreferredSize(dim1);
+        txtSifra.setPreferredSize(new Dimension(200,20));
         panSifra.add(Box.createHorizontalStrut(10));
         panSifra.add(lblSifra);
+        panSifra.add(comboKatedra);
         panSifra.add(txtSifra);
         panSifra.add(Box.createHorizontalStrut(10));
         
@@ -177,6 +185,7 @@ public class DialogDodajPredmet extends JDialog{
 			public void actionPerformed(ActionEvent e) {
 				
 				String godinaStudija =comboTrenutnaGod.getSelectedItem().toString();
+				String sifraKatedre= listaKatedri.get(comboKatedra.getSelectedIndex());
 				GodinaStudiranja godStudiranja;
 				
 				
@@ -195,15 +204,16 @@ public class DialogDodajPredmet extends JDialog{
 					semestar= Semestar.LETNJI;
 				
 				for (Predmet p: PredmetiController.getInstance().getListaSvihPredmeta()) {
-					if (p.getPredmetID().equals(sifra)) {
+					if (p.getPredmetID().equals(sifraKatedre+sifra.trim())) {
 						JOptionPane.showMessageDialog(null, "Predmet sa datom sifrom već postoji u sistemu", "Greška pri unosu novog predmeta", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 				}
 			
 				int espbInt=Integer.parseInt(espb);
-				Predmet predmet= new Predmet(sifra,naziv,semestar,"Nema prof",espbInt ,godStudiranja);
+				Predmet predmet= new Predmet(sifraKatedre+sifra.trim(),naziv,semestar,prof,espbInt ,godStudiranja);
 				PredmetiController.getInstance().dodajPredmet(predmet);
+				KatedraController.getInstance().dodajPredmet(sifraKatedre, predmet);
 				
 				dispose();
 				
@@ -216,7 +226,7 @@ public class DialogDodajPredmet extends JDialog{
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				sifra = txtSifra.getText();
-				String regex_sifra = "\s*[\\p{L}]+[0-9]*\s*";
+				String regex_sifra = "\s*[0-9]+\s*";
 				if(!proveraUnosaPolja(sifra, regex_sifra, 0))
 					txtSifra.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -228,7 +238,7 @@ public class DialogDodajPredmet extends JDialog{
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				sifra = txtSifra.getText();
-				String regex_sifra = "\s*[\\p{L}]+[0-9]*\s*";
+				String regex_sifra = "\s*[0-9]+\s*";
 				if(!proveraUnosaPolja(sifra, regex_sifra, 0))
 					txtSifra.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -240,7 +250,7 @@ public class DialogDodajPredmet extends JDialog{
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				sifra = txtSifra.getText();
-				String regex_sifra = "\s*[\\p{L}]+[0-9]*\s*";
+				String regex_sifra = "\s*[0-9]+\s*";
 				if(!proveraUnosaPolja(sifra, regex_sifra, 0))
 					txtSifra.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else

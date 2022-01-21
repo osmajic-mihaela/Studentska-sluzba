@@ -40,4 +40,13 @@ public class PredmetiController {
 	public Predmet getPredmetByID(String id) {
 		return BazaPredmeta.getInstance().getPredmetByID(id);
 	}
+	
+	public void obrisiStudentaSaNepolozenih(String studentIndeks) {
+		BazaPredmeta.getInstance().obrisiStudentaSaNepolozenih(studentIndeks);
+	}
+	
+	public void obrisiOcenuPolozeni(String ocenaID, String predmetID) {
+		BazaPredmeta.getInstance().obrisiOcenuPolozeni(ocenaID, predmetID);
+	}
+	
 }

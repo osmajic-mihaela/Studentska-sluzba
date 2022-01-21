@@ -1,7 +1,10 @@
 package gui;
 
+import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
 
+import controller.KatedraController;
 import model.BazaPredmeta;
 import model.Student;
 import model.Predmet;
@@ -33,7 +36,9 @@ public class AbstractTableModelNepolozeniPredmeti extends AbstractTableModel {
         
         switch(columnIndex) {
         	case 0:
-        		return p.getPredmetID();
+        		String[] katedra = { "ma", "fz", "eo", "ps","it","p" };
+		        List<String> listaKatedri= KatedraController.getInstance().getSifreSvihKatedri();
+				return katedra[listaKatedri.indexOf(p.getPredmetID().substring(0, 3))]+p.getPredmetID().substring(3);
         	case 1:
         		return p.getNazivPredmeta();
         	case 2:
@@ -51,7 +56,7 @@ public class AbstractTableModelNepolozeniPredmeti extends AbstractTableModel {
     public String getColumnName(int column){
         switch(column) {
         	case 0:
-        		return "Šifra";
+        		return "ï¿½ifra";
         	case 1:
         		return "Naziv";
         	case 2:

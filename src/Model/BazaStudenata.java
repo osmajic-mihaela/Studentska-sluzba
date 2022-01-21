@@ -44,6 +44,10 @@ public class BazaStudenata {
 				2019, GodinaStudiranja.TRECA , Status.B, 
 				"Radoja Dakica", "53a", "Novi Sad","Srbija",
 				"RA-51-2019", 9.10));
+		
+		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12-12-2019", DateTimeFormatter.ofPattern("dd-MM-yyyy")),"+38164","N@gmail.com",
+				2019, GodinaStudiranja.TRECA , Status.B, null,
+				"RA-1-2019", 9.10));
 	}
 	
 	
@@ -121,7 +125,7 @@ public class BazaStudenata {
 		
 			 
 			 for(Predmet prIzSvih : BazaPredmeta.getInstance().getPredmeti()) {
-				 if(!student.getNepolozeniPred().contains(prIzSvih.getPredmetID())  && !student.getPolozeniPred().contains(prIzSvih.getPredmetID()) && prIzSvih.getGodStudija().ordinal()>= student.getTrenutnaGodStud().ordinal()   ) {
+				 if(!student.getNepolozeniPred().contains(prIzSvih.getPredmetID())  && !student.getPolozeniPred().contains(prIzSvih.getPredmetID()+student.getBrIndeksa()) && prIzSvih.getGodStudija().ordinal()<= student.getTrenutnaGodStud().ordinal()   ) {
 					 predmetiZaDodavanje.add(prIzSvih);
 				 }
 			 }

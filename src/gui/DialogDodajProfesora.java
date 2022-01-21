@@ -139,7 +139,7 @@ public class DialogDodajProfesora extends JDialog {
         panelAdresaKanc.add(Box.createHorizontalStrut(10));
         
         JPanel panelBrLicne = new JPanel();
-        JLabel lblBrLicne = new JLabel("Broj liène karte*");
+        JLabel lblBrLicne = new JLabel("Broj liï¿½ne karte*");
         JTextField txtBrLicne = new JTextField();
         lblBrLicne.setPreferredSize(dimension);
         txtBrLicne.setPreferredSize(dimension);
@@ -159,7 +159,7 @@ public class DialogDodajProfesora extends JDialog {
         panelZvanje.add(Box.createHorizontalStrut(10));
 		
         JPanel panelGodRadnogStaza = new JPanel();
-        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staža*");
+        JLabel lblGodRadnogStaza = new JLabel("Godina radnog staï¿½a*");
         JTextField txtGodRadnogStaza = new JTextField();
         lblGodRadnogStaza.setPreferredSize(dimension);
         txtGodRadnogStaza.setPreferredSize(dimension);
@@ -234,7 +234,7 @@ public class DialogDodajProfesora extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				for(Profesor p : ProfesoriController.getInstance().getListaSvihProfesora()) {
 					if((p.getBrLicne()+"").equals(brLicne+"")) {
-						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem liène karte veæ postoji u sistemu", "Greška pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Profesor sa datim brojem liï¿½ne karte veï¿½ postoji u sistemu", "Greï¿½ka pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 				}
@@ -614,7 +614,7 @@ public class DialogDodajProfesora extends JDialog {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				zvanje = txtZvanje.getText();
-				String zvanjeRegex = "[a-zA-Z]+";
+				String zvanjeRegex = "[a-zA-Z_]+";
 				if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
 					txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -625,7 +625,7 @@ public class DialogDodajProfesora extends JDialog {
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				zvanje = txtZvanje.getText();
-				String zvanjeRegex = "[a-zA-Z]+";
+				String zvanjeRegex = "[a-zA-Z_]+";
 				if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
 					txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -636,7 +636,7 @@ public class DialogDodajProfesora extends JDialog {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				zvanje = txtZvanje.getText();
-				String zvanjeRegex = "[a-zA-Z]+";
+				String zvanjeRegex ="[a-zA-Z_]+";
 				if(!proveraUnosaPolja(zvanje, zvanjeRegex, 9))
 					txtZvanje.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else

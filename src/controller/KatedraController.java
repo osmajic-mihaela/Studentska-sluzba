@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.BazaKatedri;
 import model.Katedra;
+import model.Predmet;
 import model.Profesor;
 
 public class KatedraController {
@@ -43,4 +44,21 @@ public class KatedraController {
 		return BazaKatedri.getInstance().getProfesoriZaSefa(katedra);
 		
 	}
+	
+	public void dodajPredmet(String sifraKatedre,Predmet predmet) {
+		BazaKatedri.getInstance().dodajPredmet(sifraKatedre, predmet);
+	}
+	
+	public void izmeniPredmet(String katedraNova, String brojNovi,String staraSifraPredmeta) {
+		BazaKatedri.getInstance().izmeniPredmet(katedraNova, brojNovi,staraSifraPredmeta);
+	}
+	 
+	public void dodajProfesora(String predmetID, String profesorID) {
+		BazaKatedri.getInstance().dodajProfesora(predmetID,profesorID);
+	}
+	
+	public void proveraBrisanjaProfesora(int rbPredmetaProf,Profesor prof) {
+		BazaKatedri.getInstance().proveraBrisanjaProfesora(rbPredmetaProf,prof);
+	}
+	
 }

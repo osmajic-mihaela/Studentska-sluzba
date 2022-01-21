@@ -1,6 +1,11 @@
 package model;
 
 import java.util.List;
+
+import controller.KatedraController;
+import controller.PredmetiController;
+
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class BazaOcena {
@@ -53,19 +58,28 @@ public class BazaOcena {
 		return this.ocene.get(rowIndex);
 	}
 	
-	public String getValueAt(int row, int column) {
-		Ocena ocena = this.ocene.get(row);
+	public String getValueAt(Student student,int row, int column) {
+		List<Ocena> listaOcenaStudenta= new ArrayList<Ocena>();
+		for(Ocena oc : getPredmeti() )
+		{
+			if(oc.getStudentIndeks().equalsIgnoreCase(student.getBrIndeksa())) {
+				listaOcenaStudenta.add(oc);
+			}
+		}
+		Ocena ocena = listaOcenaStudenta.get(row);
 		switch(column) {
 			case 0:
-				return ocena.getPredmetID();
+				String[] katedra = { "ma", "fz", "eo", "ps","it","p" };
+		        List<String> listaKatedri= KatedraController.getInstance().getSifreSvihKatedri();
+				return katedra[listaKatedri.indexOf(ocena.getPredmetID().substring(0, 3))]+ocena.getPredmetID().substring(3);
 			case 1:
 				return BazaPredmeta.getInstance().getPredmetByID(ocena.getPredmetID()).getNazivPredmeta();
 			case 2:
 				return BazaPredmeta.getInstance().getPredmetByID(ocena.getPredmetID()).getBrESPB()+"";
 			case 3:
-				return ocena.getVrednostOcene()+"";
+				return ocena.getVrednostOcene().getVrednost()+"";
 			case 4:
-				return ocena.getDatumPolaganja()+"";
+				return (ocena.getDatumPolaganja()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 			default:
 				return null;
 		}	
@@ -97,5 +111,16 @@ public class BazaOcena {
 	
 	public void obrisiOcenu(String id) {
 		ocene.remove(getIndexByID(id));
+	}
+	
+	public void obrisiOceneStudenta(Student st) {
+		int i= ocene.size();
+		for(i= ocene.size()-1; i!=-1; i--) {
+			if(ocene.get(i).getStudentIndeks().equals(st.getBrIndeksa())) {
+				PredmetiController.getInstance().obrisiOcenuPolozeni(ocene.get(i).getOcenaID(), ocene.get(i).getPredmetID());
+				ocene.remove(i);
+			}
+				
+		}
 	}
 }

@@ -8,6 +8,7 @@ public class Katedra {
 	private String nazivKatedre;
 	private String sefKatedreID;
 	private ArrayList<String> profesoriNaKatedri; //ProfesorID
+	private ArrayList<String> predmetiNaKatedri;
 	
 	
 	public Katedra(String katedraID, String nazivKatedre, String sefKatedreID) {
@@ -16,6 +17,7 @@ public class Katedra {
 		this.nazivKatedre = nazivKatedre;
 		this.sefKatedreID = sefKatedreID;
 		this.profesoriNaKatedri = new ArrayList<String>();
+		this.predmetiNaKatedri= new ArrayList<>();
 	}
 
 
@@ -59,7 +61,14 @@ public class Katedra {
 	}
 
 
+	public ArrayList<String> getPredmetiNaKatedri() {
+		return predmetiNaKatedri;
+	}
 
+
+	public void setPredmetiNaKatedri(ArrayList<String> predmetiNaKatedri) {
+		this.predmetiNaKatedri = predmetiNaKatedri;
+	}
     
 	
    

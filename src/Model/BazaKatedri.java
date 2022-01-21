@@ -95,11 +95,70 @@ private static BazaKatedri instance = null;
 		ArrayList<Profesor> predavaci = new ArrayList<Profesor>();
 		for(String profesorID : katedra.getProfesoriNaKatedri()) {
 			Profesor p= ProfesoriController.getInstance().getProfesorByID(profesorID);
-			if((p.getGodRadnogStaza()>4) && ((p.getZvanje().equalsIgnoreCase("redovni profesor")) ||(p.getZvanje().equalsIgnoreCase("vanredni profesor")) ) && (!katedra.getSefKatedreID().equals(p.getProfesorID()))) {
+			if((p.getGodRadnogStaza()>4) && ((p.getZvanje().equalsIgnoreCase("REDOVNI_PROFESOR")) ||(p.getZvanje().equalsIgnoreCase("VANREDNI_PROFESOR")) ) && (!katedra.getSefKatedreID().equals(p.getProfesorID()))) {
 				predavaci.add(p);
 			}
 		}
 		return predavaci;
+		
+	}
+	
+	public Katedra findByID(String sifra) {
+		for(Katedra k : katedre) {
+			if(k.getKatedraID().equalsIgnoreCase(sifra))
+				return k;
+		}
+		return null;
+	}
+	
+	public void dodajPredmet(String sifraKatedre,Predmet predmet) {
+		Katedra k= findByID(sifraKatedre);
+		k.getPredmetiNaKatedri().add(predmet.getPredmetID());
+		//System.out.println(k.getPredmetiNaKatedri());
+	}
+	
+	public void izmeniPredmet(String katedraNova,String brojNovi,String staraSifraPredmeta) {
+		
+		if(!(staraSifraPredmeta).contains(katedraNova) ) {
+			Katedra k= findByID(staraSifraPredmeta.substring(0,3));
+			k.getPredmetiNaKatedri().remove(staraSifraPredmeta);
+			Katedra k1= findByID(katedraNova);
+			k1.getPredmetiNaKatedri().add(katedraNova+brojNovi);
+			return;
+		}
+		Katedra k= findByID(staraSifraPredmeta.substring(0,3));
+		int i=k.getPredmetiNaKatedri().indexOf(staraSifraPredmeta);
+		k.getPredmetiNaKatedri().add(i, katedraNova+brojNovi);
+		return ;
+	}
+	
+	public void dodajProfesora(String predmetID, String profesorID) {
+		Katedra k= findByID(predmetID.substring(0,3));
+		if(!k.getProfesoriNaKatedri().contains(profesorID)) {
+			k.getProfesoriNaKatedri().add(profesorID);
+			//System.out.println("predmeti: "+k.getPredmetiNaKatedri());
+			//System.out.println("profesori:"+ k.getProfesoriNaKatedri());
+		}
+	}
+	
+	public void proveraBrisanjaProfesora(int rbPredmetaProf,Profesor prof) {
+		
+		String predmetID= prof.getPredmetiKojePred().get(rbPredmetaProf);
+		String katedraID=predmetID.substring(0,3);
+		Katedra k=findByID(katedraID);
+		int br=0;
+		
+		for(String prID : prof.getPredmetiKojePred()) {
+			if(k.getPredmetiNaKatedri().contains(prID))
+				br++;
+		}
+		
+		if(br==0) {
+			if(k.getSefKatedreID().equalsIgnoreCase(prof.getProfesorID()))
+				k.setSefKatedreID("");
+			
+			k.getProfesoriNaKatedri().remove(k.getProfesoriNaKatedri().indexOf(prof.getProfesorID()));
+		}
 		
 	}
 }

@@ -30,7 +30,7 @@ public class AbstractTableModelPolozeniIspiti extends AbstractTableModel{
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		return BazaOcena.getInstance().getValueAt(rowIndex, columnIndex);
+		return BazaOcena.getInstance().getValueAt(student,rowIndex, columnIndex);
 	}
 	
 	@Override

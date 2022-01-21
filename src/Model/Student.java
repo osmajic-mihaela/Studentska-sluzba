@@ -38,6 +38,25 @@ public class Student extends Osoba {
 		this.ukupnoESPB=0;
 		
 	}
+	
+	public Student(String ime,String prezime, LocalDate datumRodj,String kontaktBroj,String email,
+			int godUpisa, GodinaStudiranja trenutnaGodStud, Status status,Adresa adresa,
+			String brIndeksa, double prosecnaOcena) {
+		this.ime=ime;
+		this.prezime=prezime;
+		this.datumRodj=datumRodj;
+		this.kontaktBroj=kontaktBroj;
+		this.email=email;
+		this.brIndeksa=brIndeksa;
+		this.godUpisa=godUpisa;
+		this.trenutnaGodStud=trenutnaGodStud;
+		this.prosecnaOcena=prosecnaOcena;
+		this.status=status;
+		this.adresaStan=adresa;
+	    this.nepolozeniPred= new ArrayList<String>();
+		this.polozeniPred= new ArrayList<String>();
+		this.ukupnoESPB=0;
+	}
 
 
 	public String getBrIndeksa() {

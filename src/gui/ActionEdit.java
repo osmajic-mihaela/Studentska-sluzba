@@ -28,8 +28,7 @@ public class ActionEdit extends AbstractAction{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		 String selectedTab=StatusBar.lblSluzba.getText();
-		 if(selectedTab.equals("Studentska služba - Studenti")) {
+		 if(TabbedPane.getInstance().getSelectedIndex()==0) {
 			 
 			 if(JTableStudenti.getInstance().getSelectedRow()>-1) {
 					DialogIzmeniStudenta dialog = new DialogIzmeniStudenta(JTableStudenti.getInstance().getSelectedRow());
@@ -39,7 +38,7 @@ public class ActionEdit extends AbstractAction{
 				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog studenta", "Greska pri izmeni studenta", JOptionPane.ERROR_MESSAGE);
 				return;
 			 
-		 } else if(selectedTab.equals("Studentska služba - Profesori")) { 
+		 } else if(TabbedPane.getInstance().getSelectedIndex()==1) { 
 			 if(JTableProfesori.getInstance().getSelectedRow()>-1) {
 					DialogIzmeniProfesora dialog = new DialogIzmeniProfesora(JTableProfesori.getInstance().getSelectedRow());
 					dialog.setVisible(true);
@@ -47,7 +46,7 @@ public class ActionEdit extends AbstractAction{
 			 else
 				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog profesora", "Greska pri izmeni profesora", JOptionPane.ERROR_MESSAGE);
 				return;
-		 } else if(selectedTab.equals("Studentska služba - Predmeti")) {
+		 } else if(TabbedPane.getInstance().getSelectedIndex()==2) {
 			 if(JTablePredmeti.getInstance().getSelectedRow()>-1) {
 					DialogIzmeniPredmet dialog = new DialogIzmeniPredmet(JTablePredmeti.getInstance().getSelectedRow());
 					dialog.setVisible(true);

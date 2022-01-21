@@ -37,6 +37,8 @@ public class BazaProfesora {
 				 12345, "doktor nauka", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
 		profesori.add(new Profesor("mika", "mikic", LocalDate.parse("01-01-1990", DateTimeFormatter.ofPattern("dd-MM-yyyy")), "+38160123", "mikamikic@gmail.com",
 				 12345, "doktor nauka", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
+		profesori.add(new Profesor("milan", "toplica", LocalDate.parse("01-01-1990", DateTimeFormatter.ofPattern("dd-MM-yyyy")), "+38160123", "mikamikic@gmail.com",
+				 12345, "REDOVNI_PROFESOR", 10, "ulica", "broj", "grad", "drzava", "ulica kanca", "broj kanca"));
 	}
 	
 	public List<Profesor> getProfesori() {
@@ -120,5 +122,26 @@ public class BazaProfesora {
 	
 	public void obrisiPredmetProfesoru(int indexPredmeta,Profesor profesor) {
 		profesor.getPredmetiKojePred().remove(indexPredmeta);
+	}
+	
+	public Profesor getProfesorByID(String id) {
+		Profesor ret = null;
+		for(Profesor p : profesori) {
+			if(p.getProfesorID() == id) {
+				ret = p;
+			}
+		}
+		return ret;
+	}
+	
+	public ArrayList<Profesor> getProfesoriPredmeta(String id){
+		
+		ArrayList<Profesor> predavaci = new ArrayList<Profesor>();
+		for(Profesor p : profesori) {
+			if(p.getPredmetiKojePred().contains(id)) {
+				predavaci.add(p);
+			}
+		}
+		return predavaci;	
 	}
 }

@@ -16,7 +16,7 @@ public class JTableNepolozeniPredmeti extends JTable {
 	public JTableNepolozeniPredmeti(Student student) {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
-		this.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new AbstractTableModelNepolozeniPredmeti(student));
 	}
 	

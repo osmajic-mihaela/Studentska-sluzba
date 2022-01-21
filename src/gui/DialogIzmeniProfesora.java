@@ -23,7 +23,10 @@ import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import controller.KatedraController;
+import controller.PredmetiController;
 import controller.ProfesoriController;
+import model.Predmet;
 import model.Profesor;
 
 public class DialogIzmeniProfesora extends JDialog {
@@ -734,13 +737,17 @@ public class DialogIzmeniProfesora extends JDialog {
 					
 					if (code == JOptionPane.YES_OPTION) {
 						
-						int selectedRows[] = predmetiProfesora.getSelectedRows();
+						//int selectedRows[] = predmetiProfesora.getSelectedRows();
+						int i= predmetiProfesora.getSelectedRow();
 
-						for(int i=selectedRows.length-1; i!=-1; i--) {
-							
+						//for(int i=selectedRows.length-1; i!=-1; i--) {
+							Predmet pr=PredmetiController.getInstance().getPredmetByID(profesor.getPredmetiKojePred().get(i));
+							if(pr.getPredmetID().equals(profesor.getProfesorID()))
+								pr.setProfesor("");
+							KatedraController.getInstance().proveraBrisanjaProfesora(i,profesor);
 							ProfesoriController.getInstance().obrisiPredmetProfesoru(i, profesor);
 							azurirajPrikaz(predmetiProfesora);
-						}
+						//}
 						
 						
 					}

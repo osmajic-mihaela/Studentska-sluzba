@@ -31,8 +31,7 @@ public class ActionDelete extends AbstractAction {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		 String selectedTab=StatusBar.lblSluzba.getText();
-		 if(selectedTab.equals("Studentska služba - Studenti")) {
+		 if(TabbedPane.getInstance().getSelectedIndex()==0) {
 			 
 			 if(JTableStudenti.getInstance().getSelectedRow()>-1) {
 				 	String[] options = new String[2];
@@ -48,7 +47,7 @@ public class ActionDelete extends AbstractAction {
 				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog studenta", "Greška pri brisanju studenta", JOptionPane.ERROR_MESSAGE);
 				return;
 			 
-		 } else if(selectedTab.equals("Studentska služba - Profesori")) { 
+		 } else if(TabbedPane.getInstance().getSelectedIndex()==1) { 
 			 if(JTableProfesori.getInstance().getSelectedRow()>-1) {
 				 	String[] options = new String[2];
 					options[0] = new String ("Da");
@@ -62,7 +61,7 @@ public class ActionDelete extends AbstractAction {
 			 else
 				 JOptionPane.showMessageDialog(null, "Morate selektovati nekog profesora", "Greška pri brisanju profesora", JOptionPane.ERROR_MESSAGE);
 				return;
-		 } else if(selectedTab.equals("Studentska služba - Predmeti")) {
+		 } else if(TabbedPane.getInstance().getSelectedIndex()==2) {
 			 if(JTablePredmeti.getInstance().getSelectedRow()>-1) {
 				 	String[] options = new String[2];
 					options[0] = new String ("Da");

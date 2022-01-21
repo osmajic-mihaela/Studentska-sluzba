@@ -28,15 +28,13 @@ public class ActionNew extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String selected=StatusBar.lblSluzba.getText();
-		 
-		 if(selected.equals("Studentska služba - Studenti")) {
+		 if(TabbedPane.getInstance().getSelectedIndex()==0) {
 			DialogDodajStudenta dialog = new DialogDodajStudenta();
 			dialog.setVisible(true);
-		 } else if(selected.equals("Studentska služba - Profesori")) { 
+		 } else if(TabbedPane.getInstance().getSelectedIndex()==1) { 
 			 DialogDodajProfesora dialog = new DialogDodajProfesora();
 			 dialog.setVisible(true);
-		 } else if(selected.equals("Studentska služba - Predmeti")) {
+		 } else if(TabbedPane.getInstance().getSelectedIndex()==2) {
 			DialogDodajPredmet dialog = new DialogDodajPredmet();
 			dialog.setVisible(true);
 		 }

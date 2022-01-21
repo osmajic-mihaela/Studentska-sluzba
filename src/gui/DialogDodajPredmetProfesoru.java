@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
+import controller.KatedraController;
 import controller.ProfesoriController;
 import model.Predmet;
 import model.Profesor;
@@ -103,6 +104,7 @@ public class DialogDodajPredmetProfesoru extends JDialog{
 					for(int selectedIndex : selektovano) {
 						Predmet predmetZaDodati= (ProfesoriController.getInstance().listaPredmetaKojeNePredaje(profesor)).get(selectedIndex);
 						profesor.getPredmetiKojePred().add(predmetZaDodati.getPredmetID());
+						KatedraController.getInstance().dodajProfesora(predmetZaDodati.getPredmetID(), profesor.getProfesorID());
 						azurirajPrikaz();
 						dispose();
 					}

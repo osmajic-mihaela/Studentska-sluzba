@@ -19,7 +19,7 @@ public class JTablePredmetiPoProfesoru extends JTable {
 	public JTablePredmetiPoProfesoru(Profesor profesor) {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
-		this.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new AbstractTableModelPredmetiPoProfesoru(profesor));
 	}
 	

@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -26,6 +27,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
+import controller.KatedraController;
 import controller.PredmetiController;
 import controller.StudentiController;
 import model.BazaOcena;
@@ -123,7 +125,9 @@ public class DialogIzmeniStudenta extends JDialog {
 
         JPanel panAdresa = new JPanel();
         JLabel lblAdresa = new JLabel("Adresa stanovanja*");
-        JTextField txtAdresa = new JTextField(student.getAdresaStan().toString());
+        JTextField txtAdresa = new JTextField();
+        if(student.getAdresaStan()==null) txtAdresa.setText("null null,null,null");
+        else txtAdresa.setText(student.getAdresaStan().toString());
         lblAdresa.setPreferredSize(dim);
         txtAdresa.setPreferredSize(dim);
         panAdresa.add(Box.createHorizontalStrut(10));
@@ -253,14 +257,14 @@ public class DialogIzmeniStudenta extends JDialog {
 		prezime = student.getPrezime();
 		datumRodjenja =(student.getDatumRodj()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 		brTelefona = student.getKontaktBroj();
-		adresa = student.getAdresaStan().toString();
+		if(student.getAdresaStan()==null) adresa="null null,null,null";
+		else {adresa = student.getAdresaStan().toString(); ulica=student.getAdresaStan().getUlica();
+		broj=student.getAdresaStan().getBroj();
+		grad=student.getAdresaStan().getGrad();
+		drzava=student.getAdresaStan().getDrzava();}
 		indeks = student.getBrIndeksa();
 		email = student.getEmail();
 		godUpisa = student.getGodUpisa()+"";
-		ulica=student.getAdresaStan().getUlica();
-		broj=student.getAdresaStan().getBroj();
-		grad=student.getAdresaStan().getGrad();
-		drzava=student.getAdresaStan().getDrzava();
 		
 		
 		
@@ -314,11 +318,19 @@ public class DialogIzmeniStudenta extends JDialog {
 					datumRodjenja=delovi[0]+"-"+delovi[1]+"-"+delovi[2];
 				}
 				
+				Student student1;
 				adress(txtAdresa.getText());
 				LocalDate datumRodj =LocalDate.parse(datumRodjenja,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 				int upis=Integer.parseInt(godUpisa);
-				Student student = new Student(ime, prezime, datumRodj,brTelefona,email,upis,godStudiranja, status,ulica,broj,grad,drzava,indeks,0.00);
-				StudentiController.getInstance().izmeniStudenta(selectedIndex, student);
+				if((txtAdresa.getText()!=null)) {
+					student1 = new Student(ime, prezime, datumRodj,brTelefona,email,upis,godStudiranja, status,ulica,broj,grad,drzava,indeks,0.00);
+				}else {
+					student1 = new Student(ime,prezime, datumRodj,brTelefona,email,
+							upis, godStudiranja, status,student.getAdresaStan(),
+							indeks, 0.00);
+				}
+				
+				StudentiController.getInstance().izmeniStudenta(selectedIndex, student1);
 				
 				dispose();
 				
@@ -671,14 +683,32 @@ public class DialogIzmeniStudenta extends JDialog {
 					
 					if (code == JOptionPane.YES_OPTION) {
 						
-						int selectedRows[] = nepolozeniPredmeti.getSelectedRows();
-
-						for(int i=selectedRows.length-1; i!=-1; i--) {
-							String idPredmetaZaBrisanje=(String)nepolozeniPredmeti.getValueAt(i, 0) ;
-							PredmetiController.getInstance().getPredmetByID(idPredmetaZaBrisanje).getSpisakNepolozenih().remove(student.getBrIndeksa());
+						//int selectedRows[] = nepolozeniPredmeti.getSelectedRows();
+						int i=nepolozeniPredmeti.getSelectedRow();
+						System.out.println(i);
+						//for(int i=selectedRows.length-1; i!=-1; i--) {
+							String idPredmetaZaBrisanjeNjihovo=(String)nepolozeniPredmeti.getValueAt(i, 0);
+							
+							String[] katedra = { "ma", "fz", "eo", "ps","it","p" };
+							String p="";
+							int k=0;
+							for(String c: katedra) {
+								p=idPredmetaZaBrisanjeNjihovo.replaceAll("\\d+", "").trim();
+								if(p.equals(c))
+									break;
+								
+								k++;
+							}
+							
+					        List<String> listaKatedri= KatedraController.getInstance().getSifreSvihKatedri();
+					        String moje=listaKatedri.get(k);
+					        String broj=idPredmetaZaBrisanjeNjihovo.replace(p,"").trim();
+					        System.out.println(moje+" "+broj);
+					        
+							PredmetiController.getInstance().getPredmetByID(moje+broj).getSpisakNepolozenih().remove(student.getBrIndeksa());
 							student.getNepolozeniPred().remove(i);
 							azurirajPrikazNepolozenih(nepolozeniPredmeti);
-						}
+						//}
 						
 						
 					}
