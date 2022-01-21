@@ -35,17 +35,17 @@ public class BazaStudenata {
 	
 	private void initStudenti() {
 		this.studenti = new ArrayList<Student>();
-		studenti.add(new Student("Mihaela","Osmajic", LocalDate.parse("12-12-2019", DateTimeFormatter.ofPattern("dd-MM-yyyy")) ,"+38164","N@gmail.com",
+		studenti.add(new Student("Mihaela","Osmajic", LocalDate.parse("12.12.2019.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")) ,"+38164","N@gmail.com",
 				2019, GodinaStudiranja.TRECA , Status.B, 
 				"Radoja Dakica", "53a", "Novi Sad","Srbija",
 				"RA-116-2019", 9.10));
 		
-		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12-12-2019", DateTimeFormatter.ofPattern("dd-MM-yyyy")),"+38164","N@gmail.com",
+		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12.12.2019.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"+38164","N@gmail.com",
 				2019, GodinaStudiranja.TRECA , Status.B, 
 				"Radoja Dakica", "53a", "Novi Sad","Srbija",
 				"RA-51-2019", 9.10));
 		
-		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12-12-2019", DateTimeFormatter.ofPattern("dd-MM-yyyy")),"+38164","N@gmail.com",
+		studenti.add(new Student("Petar","Obradovic",LocalDate.parse("12.12.2019.", DateTimeFormatter.ofPattern("dd.MM.yyyy.")),"+38164","N@gmail.com",
 				2019, GodinaStudiranja.TRECA , Status.B, null,
 				"RA-1-2019", 9.10));
 	}

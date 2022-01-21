@@ -270,17 +270,20 @@ public class DialogDodajStudenta extends JDialog {
 				}
 				
 				adress(adresa);
-				String delovi[]=datumRodjenja.split("-");
+				/*System.out.println(datumRodjenja);
+				String[] delovi=datumRodjenja.split(".");
+				for(int i=0;i!=delovi.length ;i++)
+					System.out.println(delovi[i]);
 				
 				if(delovi[0].length()==1) {
 					delovi[0]="0"+delovi[0];
-					datumRodjenja=delovi[0]+"-"+delovi[1]+"-"+delovi[2];}
+					datumRodjenja=delovi[0]+"."+delovi[1]+"."+delovi[2];}
 				if(delovi[1].length()==1) {
 					delovi[1]="0"+delovi[1];
-					datumRodjenja=delovi[0]+"-"+delovi[1]+"-"+delovi[2];
-				}
+					datumRodjenja=delovi[0]+"."+delovi[1]+"."+delovi[2];
+				}*/
 				
-				LocalDate datumRodj =LocalDate.parse(datumRodjenja,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+				LocalDate datumRodj =LocalDate.parse(datumRodjenja,DateTimeFormatter.ofPattern("dd.MM.yyyy."));
 				int upis=Integer.parseInt(godUpisa);
 				Student student = new Student(ime, prezime, datumRodj,brTelefona,email,upis,godStudiranja, status,ulica,broj,grad,drzava,indeks,0.00);
 				StudentiController.getInstance().dodajStudenta(student);
@@ -374,7 +377,7 @@ public class DialogDodajStudenta extends JDialog {
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][12][0-9]{3}[\\.]";
 				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
 					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -385,7 +388,7 @@ public class DialogDodajStudenta extends JDialog {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][12][0-9]{3}[\\.]";
 				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
 					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
@@ -397,7 +400,7 @@ public class DialogDodajStudenta extends JDialog {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				datumRodjenja = txtDatum.getText();
-				String regex_datumRodjenja = "\\d{1,2}-\\d{1,2}-\\d{4}";
+				String regex_datumRodjenja = "[0-3][0-9][\\.][01][0-9][\\.][12][0-9]{3}[\\.]";
 				if(!proveraUnosaPolja(datumRodjenja, regex_datumRodjenja, 2))
 					txtDatum.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				else
