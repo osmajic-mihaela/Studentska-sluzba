@@ -156,19 +156,19 @@ private static BazaKatedri instance = null;
 		}
 	}
 	
-	public void proveraBrisanjaProfesora(int rbPredmetaProf,Profesor prof) {
+	public void proveraBrisanjaProfesora(String sifra,Profesor prof) {
 		
-		String predmetID= prof.getPredmetiKojePred().get(rbPredmetaProf);
+		String predmetID= sifra;
 		String katedraID=predmetID.substring(0,3);
 		Katedra k=findByID(katedraID);
-		int br=0;
+		boolean br=false;
 		
 		for(String prID : prof.getPredmetiKojePred()) {
 			if(k.getPredmetiNaKatedri().contains(prID))
-				br++;
+				br=true;
 		}
 		
-		if(br==0) {
+		if(br==false) {
 			if(k.getSefKatedreID().equalsIgnoreCase(prof.getProfesorID()))
 				k.setSefKatedreID("");
 			
