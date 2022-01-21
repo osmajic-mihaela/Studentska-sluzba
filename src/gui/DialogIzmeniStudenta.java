@@ -685,7 +685,7 @@ public class DialogIzmeniStudenta extends JDialog {
 						
 						//int selectedRows[] = nepolozeniPredmeti.getSelectedRows();
 						int i=nepolozeniPredmeti.getSelectedRow();
-						System.out.println(i);
+						//System.out.println(i);
 						//for(int i=selectedRows.length-1; i!=-1; i--) {
 							String idPredmetaZaBrisanjeNjihovo=(String)nepolozeniPredmeti.getValueAt(i, 0);
 							
@@ -703,7 +703,7 @@ public class DialogIzmeniStudenta extends JDialog {
 					        List<String> listaKatedri= KatedraController.getInstance().getSifreSvihKatedri();
 					        String moje=listaKatedri.get(k);
 					        String broj=idPredmetaZaBrisanjeNjihovo.replace(p,"").trim();
-					        System.out.println(moje+" "+broj);
+					      //  System.out.println(moje+" "+broj);
 					        
 							PredmetiController.getInstance().getPredmetByID(moje+broj).getSpisakNepolozenih().remove(student.getBrIndeksa());
 							student.getNepolozeniPred().remove(i);
