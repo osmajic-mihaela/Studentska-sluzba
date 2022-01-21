@@ -57,4 +57,12 @@ public class Ocena implements Serializable{
 	public void setStudentIndeks(String studentIndeks) {
 		this.studentIndeks = studentIndeks;
 	}
+
+	@Override
+	public String toString() {
+		return "Ocena [ocenaID=" + ocenaID + ", predmetID=" + predmetID + ", studentIndeks=" + studentIndeks
+				+ ", vrednostOcene=" + vrednostOcene + ", datumPolaganja=" + datumPolaganja + "]";
+	}
+	
+	
 }

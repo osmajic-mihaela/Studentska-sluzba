@@ -198,4 +198,13 @@ public class Student extends Osoba implements Serializable{
 		}
 		polozeniPred.remove(index);
 	}
+
+	@Override
+	public String toString() {
+		return "Student [brIndeksa=" + brIndeksa + ", godUpisa=" + godUpisa + ", trenutnaGodStud=" + trenutnaGodStud
+				+ ", prosecnaOcena=" + prosecnaOcena + ", status=" + status + ", polozeniPred=" + polozeniPred
+				+ ", nepolozeniPred=" + nepolozeniPred + ", ukupnoESPB=" + ukupnoESPB + ", ime=" + ime + ", prezime="
+				+ prezime + ", datumRodj=" + datumRodj + ", kontaktBroj=" + kontaktBroj + ", email=" + email
+				+ ", adresaStan=" + adresaStan + "]";
+	}
 }

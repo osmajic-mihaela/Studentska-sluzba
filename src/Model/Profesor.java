@@ -8,6 +8,13 @@ public class Profesor extends Osoba implements Serializable{
 	
 	
 	
+	@Override
+	public String toString() {
+		return "Profesor [profesorID=" + profesorID + ", adresaKancelar=" + adresaKancelar + ", brLicne=" + brLicne
+				+ ", zvanje=" + zvanje + ", godRadnogStaza=" + godRadnogStaza + ", predmetiKojePred=" + predmetiKojePred
+				+ ", ime=" + ime + ", prezime=" + prezime + ", datumRodj=" + datumRodj + ", kontaktBroj=" + kontaktBroj
+				+ ", email=" + email + ", adresaStan=" + adresaStan + "]";
+	}
 	/**
 	 * 
 	 */

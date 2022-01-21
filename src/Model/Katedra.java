@@ -5,6 +5,13 @@ import java.util.ArrayList;
 
 public class Katedra implements Serializable{
 	
+	@Override
+	public String toString() {
+		return "Katedra [katedraID=" + katedraID + ", nazivKatedre=" + nazivKatedre + ", sefKatedreID=" + sefKatedreID
+				+ ", profesoriNaKatedri=" + profesoriNaKatedri + ", predmetiNaKatedri=" + predmetiNaKatedri + "]";
+	}
+
+
 	/**
 	 * 
 	 */

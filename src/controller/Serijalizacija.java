@@ -12,6 +12,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
+import model.BazaKatedri;
+import model.BazaOcena;
 import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
@@ -67,6 +69,27 @@ public class Serijalizacija {
 		}
 	}
 	
+	public void serijalizacijaKatedri() throws FileNotFoundException, IOException {
+		File f = new File("objectstreamKatedre.txt");
+		ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(f)));
+		List<Katedra> katedre = BazaKatedri.getInstance().getKatedre();
+		try {
+			oos.writeObject(katedre);
+		} finally {
+			oos.close();
+		}
+	}
+	
+	public void serijalizacijaOcena() throws FileNotFoundException, IOException {
+		File f = new File("objectstreamOcene.txt");
+		ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(f)));
+		List<Ocena> ocene = BazaOcena.getInstance().getOcene();
+		try {
+			oos.writeObject(ocene);
+		} finally {
+			oos.close();
+		}
+	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Katedra> deserijalizacijaKatedri() throws FileNotFoundException, IOException, ClassNotFoundException {

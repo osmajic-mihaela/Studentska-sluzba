@@ -53,7 +53,7 @@ public class BazaOcena {
 		}
 	}
 	
-	public List<Ocena> getPredmeti(){
+	public List<Ocena> getOcene(){
 		return ocene;
 	}
 	
@@ -75,7 +75,7 @@ public class BazaOcena {
 	
 	public String getValueAt(Student student,int row, int column) {
 		List<Ocena> listaOcenaStudenta= new ArrayList<Ocena>();
-		for(Ocena oc : getPredmeti() )
+		for(Ocena oc : getOcene() )
 		{
 			if(oc.getStudentIndeks().equalsIgnoreCase(student.getBrIndeksa())) {
 				listaOcenaStudenta.add(oc);

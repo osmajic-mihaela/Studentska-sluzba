@@ -9,6 +9,13 @@ public class Predmet implements Serializable{
 	 * 
 	 */
 	
+	@Override
+	public String toString() {
+		return "Predmet [predmetID=" + predmetID + ", nazivPredmeta=" + nazivPredmeta + ", semestar=" + semestar
+				+ ", godStudija=" + godStudija + ", profesor=" + profesor + ", brESPB=" + brESPB + ", spisakPolozenih="
+				+ spisakPolozenih + ", spisakNepolozenih=" + spisakNepolozenih + "]";
+	}
+
 	/**
 	 * 
 	 */
