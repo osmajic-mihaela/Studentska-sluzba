@@ -1,9 +1,14 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Ocena {
+public class Ocena implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4753925019373669982L;
 	private String ocenaID;
 	private String predmetID;
 	private String studentIndeks;

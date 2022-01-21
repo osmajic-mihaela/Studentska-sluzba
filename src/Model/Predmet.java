@@ -1,9 +1,21 @@
 package model;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-
-public class Predmet {
+public class Predmet implements Serializable{
+	
+	/**
+	 * 
+	 */
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2230064963060146380L;
+	/**
+	 * 
+	 */
 	
 	private String predmetID;   //sifra predmeta
 	private String nazivPredmeta;
