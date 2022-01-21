@@ -150,6 +150,16 @@ public class MenuBar extends JMenuBar{
 				}
 			});
 			
+			oKatedra.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					DialogKatedre dk=DialogKatedre.getInstance();
+					dk.setVisible(true);
+					
+				}
+			});
+			
 			
 			add(file);
 			add(edit);
