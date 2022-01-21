@@ -15,6 +15,8 @@ import java.util.List;
 import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Katedra;
+import model.Ocena;
 import model.Predmet;
 import model.Profesor;
 import model.Student;
@@ -64,4 +66,76 @@ public class Serijalizacija {
 			oos.close();
 		}
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Katedra> deserijalizacijaKatedri() throws FileNotFoundException, IOException, ClassNotFoundException {
+		List<Katedra> katedra1;
+		File f = new File("objectstreamKatedre.txt");
+		ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+		try {
+			katedra1 = (List<Katedra>)ois.readObject();	
+			return katedra1;
+		}
+		finally {
+			ois.close();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Student> deserijalizacijaStudenta() throws FileNotFoundException, IOException, ClassNotFoundException{
+		List<Student> student1;
+		File f = new File("objectstreamStudenti.txt");
+		ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+		try {
+			student1 = (List<Student>)ois.readObject();	
+			return student1;
+		}
+		finally {
+			ois.close();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Profesor> deserijalizacijaProfesora() throws FileNotFoundException, IOException, ClassNotFoundException {
+		List<Profesor> profesor1;
+		File f = new File("objectstreamProfesori.txt");
+		ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+		try {
+			profesor1 = (List<Profesor>)ois.readObject();	
+			return profesor1;
+		}
+		finally {
+			ois.close();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Predmet> deserijalizacijaPredmeta() throws FileNotFoundException, IOException, ClassNotFoundException {
+		List<Predmet> predmet1;
+		File f = new File("objectstreamPredmeti.txt");
+		ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+		try {
+			predmet1 = (List<Predmet>)ois.readObject();	
+			return predmet1;
+		}
+		finally {
+			ois.close();
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Ocena> deserijalizacijaOcena() throws FileNotFoundException, IOException, ClassNotFoundException {
+		List<Ocena> ocena1;
+		File f = new File("objectstreamOcene.txt");
+		ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+		try {
+			ocena1 = (List<Ocena>)ois.readObject();	
+			return ocena1;
+		}
+		finally {
+			ois.close();
+		}
+	}
+	
 }

@@ -4,6 +4,8 @@ import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -12,6 +14,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+
+import controller.Serijalizacija;
 
 public class MenuBar extends JMenuBar{
 	
@@ -157,6 +161,24 @@ public class MenuBar extends JMenuBar{
 					DialogKatedre dk=DialogKatedre.getInstance();
 					dk.setVisible(true);
 					
+				}
+			});
+			
+			save.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					try {
+						Serijalizacija.getInstance().serijalizacijaStudenta();
+						Serijalizacija.getInstance().serijalizacijaProfesora();
+						Serijalizacija.getInstance().serijalizacijaPredmeta();
+						Serijalizacija.getInstance().serijalizacijaKatedri();
+						Serijalizacija.getInstance().serijalizacijaOcena();
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 				}
 			});
 			

@@ -1,9 +1,12 @@
 package model;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import controller.ProfesoriController;
+import controller.Serijalizacija;
 
 public class BazaKatedri {
 private static BazaKatedri instance = null;
@@ -39,6 +42,18 @@ private static BazaKatedri instance = null;
 		katedre.add(new Katedra("e46", "Katedra za informatiku", ""));
 		katedre.add(new Katedra("e47", "Katedra za automatiku", ""));
 		
+		try {
+			this.katedre = Serijalizacija.getInstance().deserijalizacijaKatedri();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
