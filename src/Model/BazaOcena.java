@@ -94,7 +94,7 @@ public class BazaOcena {
 			case 3:
 				return ocena.getVrednostOcene().getVrednost()+"";
 			case 4:
-				return (ocena.getDatumPolaganja()).format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+				return (ocena.getDatumPolaganja()).format(DateTimeFormatter.ofPattern("dd.MM.yyyy."));
 			default:
 				return null;
 		}	

@@ -158,7 +158,7 @@ public class DialogUpisOcene extends JDialog {
 					vrOc = VrednostOcene.DESET;
 				}
 				
-				LocalDate datumPol = LocalDate.parse(datumPolaganja, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+				LocalDate datumPol = LocalDate.parse(datumPolaganja, DateTimeFormatter.ofPattern("dd.MM.yyyy."));
 				Ocena ocena = new Ocena(predmet.getPredmetID(), student.getBrIndeksa(), vrOc, datumPol );
 				
 				BazaOcena.getInstance().dodajOcenu(ocena);
@@ -190,7 +190,7 @@ public class DialogUpisOcene extends JDialog {
 			@Override
 			public void removeUpdate(DocumentEvent e) {
 				datumPolaganja = datumPolaganjaTxt.getText();
-				String datumRegex = "[0-3][0-9]-[01][0-9]-[12][0-9]{3}";
+				String datumRegex = "[0-3][0-9][\\.][01][0-9][\\.][1-2][0-9]{3}[\\.]";
 				if(!datumPolaganja.matches(datumRegex)) {
 					datumPolaganjaTxt.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				}
@@ -204,7 +204,7 @@ public class DialogUpisOcene extends JDialog {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
 				datumPolaganja = datumPolaganjaTxt.getText();
-				String datumRegex = "[0-3][0-9]-[01][0-9]-[12][0-9]{3}";
+				String datumRegex = "[0-3][0-9][\\.][01][0-9][\\.][1-2][0-9]{3}[\\.]";
 				if(!datumPolaganja.matches(datumRegex)) {
 					datumPolaganjaTxt.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				}
@@ -218,7 +218,7 @@ public class DialogUpisOcene extends JDialog {
 			@Override
 			public void changedUpdate(DocumentEvent e) {
 				datumPolaganja = datumPolaganjaTxt.getText();
-				String datumRegex = "[0-3][0-9]-[01][0-9]-[12][0-9]{3}";
+				String datumRegex = "[0-3][0-9][\\.][01][0-9][\\.][1-2][0-9]{3}[\\.]";
 				if(!datumPolaganja.matches(datumRegex)) {
 					datumPolaganjaTxt.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
 				}
