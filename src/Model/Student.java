@@ -2,10 +2,18 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.io.Serializable;
 
-
-public class Student extends Osoba {
+public class Student extends Osoba implements Serializable{
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7245652909927581551L;
+	/**
+	 * 
+	 */
 	
 	private String brIndeksa;
 	private int godUpisa;

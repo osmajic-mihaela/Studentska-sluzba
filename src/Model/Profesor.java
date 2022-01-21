@@ -1,12 +1,17 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Profesor extends Osoba {
+public class Profesor extends Osoba implements Serializable{
 	
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1769055405408562885L;
 	private String profesorID;
 	private Adresa adresaKancelar;
 	private int brLicne;
