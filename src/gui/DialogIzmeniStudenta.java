@@ -759,7 +759,7 @@ public class DialogIzmeniStudenta extends JDialog {
 					options[0] = new String ("Da");
 					options[1] = new String ("Ne");
 					int code = JOptionPane.showOptionDialog(null, "Da li ste sigurni da želite da ponistite ocenu?", "Ponistavanje ocene", 0, JOptionPane.QUESTION_MESSAGE, null, options, null);
-					Ocena ocena = BazaOcena.getInstance().getOcenaByID(student.getPolozeniPred().get(selectedIndex));
+					Ocena ocena = BazaOcena.getInstance().getOcenaByID(student.getPolozeniPred().get(polozeniPredmeti.getSelectedRow()));
 					if(code == JOptionPane.YES_OPTION) {
 						
 						student.obrisiPolozeni(ocena.getOcenaID());
